@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>泰雞瑪哈陵</title>
@@ -404,5 +405,80 @@
             renderAllCards();
         });
     </script>
+<!-- ===== 自訂置中彈窗 ===== -->
+<style>
+#enter-modal-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+#enter-modal {
+    background: #2a122f;
+    border: 2px solid #ff99aa;
+    padding: 30px 35px;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+    color: #ffdee7;
+    box-shadow: 0 0 25px rgba(255,153,170,0.5);
+    font-family: 'Noto Serif TC', serif;
+}
+#enter-modal h3 {
+    margin: 0 0 15px;
+    font-size: 1.4em;
+    color: #ff99aa;
+}
+#enter-modal .btn-area {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+#enter-modal button {
+    width: 45%;
+    padding: 10px;
+    font-size: 1.1em;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    font-family: 'Noto Serif TC';
+}
+#enter-yes {
+    background: #ff99aa;
+    color: #2a122f;
+}
+#enter-no {
+    background: #4a1d4f;
+    color: #ffdee7;
+}
+#enter-no:hover { background: #6e2a75; }
+#enter-yes:hover { background: #ff6f8a; }
+</style>
+
+<div id="enter-modal-bg">
+    <div id="enter-modal">
+        <h3>是否已滿【18歲】</h3>
+	 <h4>進入「泰雞瑪哈陵」？<h4>
+        <div class="btn-area">
+            <button id="enter-yes">是</button>
+            <button id="enter-no">否</button>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById("enter-yes").onclick = function () {
+    document.getElementById("enter-modal-bg").style.display = "none";
+};
+document.getElementById("enter-no").onclick = function () {
+    window.location.href = "about:blank";
+};
+</script>
+
 </body>
 </html>
