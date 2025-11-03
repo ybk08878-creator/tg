@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* 基礎樣式 */
+    
         body {
             font-family: 'Noto Serif TC', serif;
             margin: 0;
@@ -158,7 +158,7 @@
             color: #ff99aa;
         }
 
-        /* 改進的卡片詳情視窗樣式 */
+        
         .card-detail {
             display: none;
             position: fixed;
@@ -223,7 +223,7 @@
             border: 1px solid rgba(255, 153, 170, 0.4);
         }
 
-        /* 聯繫按鈕和面板 */
+        
         .contact-btn {
             position: fixed;
             bottom: 20px;
@@ -269,7 +269,6 @@
         .contact-panel p { margin: 10px 0; font-size: 1.1em; color: #ffe3e8; }
         .contact-panel p i { margin-right: 10px; color: #f85d85; }
 
-        /* 遮罩層 - 點擊外部關閉視窗用 */
         .overlay {
             position: fixed;
             top: 0;
@@ -281,7 +280,6 @@
             display: none;
         }
 
-        /* 響應式設計 */
         @media (max-width: 768px) {
             .title {
                 font-size: 2.5em;
@@ -371,7 +369,6 @@
             }
         }
 
-        /* 年齡確認彈窗 */
         .age-confirm {
             position: fixed;
             top: 0; left: 0;
@@ -445,12 +442,9 @@
         <div id="all-cards-display" class="cards-container"></div>
     </div>
     
-    <!-- 遮罩層 - 點擊外部關閉視窗用 -->
     <div class="overlay" id="overlay"></div>
     
-    <!-- 卡片詳情視窗 -->
     <div class="card-detail" id="card-detail">
-        <!-- 內容由JavaScript動態生成 -->
     </div>
     
     <div class="contact-btn" id="contact-btn"><i class="fas fa-comment-dots"></i></div>
@@ -484,19 +478,16 @@
             const overlay = document.getElementById('overlay');
             const cardDetail = document.getElementById('card-detail');
             
-            // 聯繫按鈕功能
             contactBtn.addEventListener('click', () => {
                 contactPanel.style.display = contactPanel.style.display === 'block' ? 'none' : 'block';
             });
 
-            // 點擊頁面其他區域關閉聯繫面板
             document.addEventListener('click', (e) => {
                 if (!contactBtn.contains(e.target) && !contactPanel.contains(e.target)) {
                     contactPanel.style.display = 'none';
                 }
             });
 
-            // 創建星星背景
             function createStars() {
                 const numberOfStars = 150;
                 for (let i = 0; i < numberOfStars; i++) {
@@ -513,7 +504,6 @@
             }
             createStars();
 
-            // 創建流星
             function createMeteor() {
                 const meteor = document.createElement('div');
                 meteor.className = 'meteor';
@@ -524,7 +514,6 @@
             }
             setInterval(createMeteor, 3000);
 
-            // 卡片數據
             const fullTarotDeck = [
                 {
                     name: '1號雞', title: '愚者', image: 'images/the_fool.png', 
@@ -570,20 +559,17 @@
                 }
             ];
 
-            // 創建卡片元素
             function createCardElement(card) {
                 const cardDiv = document.createElement('div');
                 cardDiv.className = 'card';
                 cardDiv.dataset.cardName = card.name;
 
                 cardDiv.addEventListener('click', function() {
-                    // 關閉聯繫面板
+                    
                     contactPanel.style.display = 'none';
                     
-                    // 顯示遮罩層
                     overlay.style.display = 'block';
                     
-                    // 填充卡片詳情內容
                     let videoHTML = '';
                     if (card.video) {
                         videoHTML = `
@@ -605,7 +591,6 @@
                         ${videoHTML}
                     `;
                     
-                    // 顯示卡片詳情視窗
                     cardDetail.classList.add('active');
                 });
 
@@ -616,18 +601,15 @@
                 return cardDiv;
             }
 
-            // 點擊遮罩層關閉卡片詳情視窗
             overlay.addEventListener('click', function() {
                 cardDetail.classList.remove('active');
                 overlay.style.display = 'none';
             });
 
-            // 點擊卡片詳情視窗內部不會關閉視窗
             cardDetail.addEventListener('click', function(e) {
                 e.stopPropagation();
             });
 
-            // 渲染所有卡片
             function renderAllCards() {
                 allCardsDisplay.innerHTML = ''; 
                 fullTarotDeck.forEach(card => {
@@ -637,7 +619,6 @@
             }
             renderAllCards();
             
-            // 年齡確認彈窗功能
             document.getElementById("yes-btn").onclick = function () {
                 document.getElementById("age-confirm").style.display = "none";
             };
@@ -649,3 +630,4 @@
     </script>
 </body>
 </html>
+
