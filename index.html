@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>泰雞瑪哈陵</title>
@@ -11,7 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
+        /* 加密後的CSS - 保持格式但修正響應式問題 */
+        .a {
             font-family: 'Noto Serif TC', serif;
             margin: 0;
             min-height: 100vh;
@@ -27,7 +27,7 @@
             padding-bottom: 50px;
         }
 
-        .background-gradient {
+        .b {
             position: fixed;
             top: 0;
             left: 0;
@@ -41,17 +41,17 @@
                 radial-gradient(ellipse at 80% 80%, rgba(255, 199, 213, 0.2), transparent 60%);
             background-size: 100% 200%, 100% 200%, 100% 200%, 100% 200%, 100% 100%;
             background-repeat: repeat-y, repeat-y, repeat-y, repeat-y, no-repeat;
-            animation: auroraFlow 10s linear infinite;
+            animation: c 10s linear infinite;
             opacity: 0.9;
             z-index: -2;
         }
 
-        @keyframes auroraFlow {
+        @keyframes c {
             0% { background-position: 0% 0%; }
             100% { background-position: 0% 100%; }
         }
 
-        .star-field {
+        .d {
             position: fixed;
             top: 0;
             left: 0;
@@ -61,38 +61,38 @@
             pointer-events: none;
         }
 
-        .star {
+        .e {
             position: absolute;
             background-color: #ffffff;
             border-radius: 50%;
             opacity: 0;
-            animation: twinkle 1.5s infinite ease-in-out;
+            animation: f 1.5s infinite ease-in-out;
             transform: scale(0);
         }
 
-        @keyframes twinkle {
+        @keyframes f {
             0%, 100% { opacity: 0; transform: scale(0); }
             50% { opacity: 0.8; transform: scale(1); }
         }
 
-        .meteor {
+        .g {
             position: absolute;
             width: 2px;
             height: 1px;
             background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0));
             border-radius: 50%;
             transform: rotate(45deg);
-            animation: meteor-fall 5s linear forwards;
+            animation: h 5s linear forwards;
             pointer-events: none;
             z-index: 0;
         }
         
-        @keyframes meteor-fall {
+        @keyframes h {
             0% { transform: translateX(0px) translateY(-50px) rotate(45deg); opacity: 0.8; }
             100% { transform: translateX(400px) translateY(400px) rotate(45deg); opacity: 0; }
         }
         
-        .container {
+        .i {
             text-align: center;
             position: relative;
             z-index: 10;
@@ -102,7 +102,7 @@
             margin: 50px auto;
         }
 
-        .title {
+        .j {
             font-family: 'Zhi Mang Xing', cursive;
             font-size: 4em;
             margin-bottom: 15px;
@@ -111,14 +111,14 @@
             letter-spacing: 3px;
         }
 
-        .subtitle {
+        .k {
             font-family: 'Noto Serif TC', serif;
             font-size: 1.4em;
             margin-bottom: 50px;
             color: #ffdce6;
         }
 
-        .all-cards-display {
+        .l {
             display: flex; 
             flex-direction: column; 
             align-items: center; 
@@ -131,7 +131,7 @@
             box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 153, 170, 0.15);
         }
 
-        .tarot-card {
+        .m {
             width: 200px; 
             display: flex;
             flex-direction: column;
@@ -142,23 +142,23 @@
             transition: transform 0.3s ease-in-out;
         }
 
-        .tarot-card:hover { transform: translateY(-5px) scale(1.05); }
+        .m:hover { transform: translateY(-5px) scale(1.05); }
 
-        .tarot-card img {
+        .m img {
             max-width: 100%;
             border: 3px solid rgba(248, 93, 133, 0.8);
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
         }
 
-        .tarot-card-name-visible {
+        .n {
             font-family: 'Zhi Mang Xing', cursive;
             font-size: 1.8em;
             margin: 15px 0 10px;
             color: #ff99aa;
         }
 
-        .card-hover-info {
+        .o {
             display: none;
             background-color: rgba(28, 10, 31, 0.95);
             backdrop-filter: blur(15px);
@@ -171,9 +171,9 @@
             width: 300px;
         }
 
-        .tarot-card.active .card-hover-info { display: block; }
+        .m.active .o { display: block; }
 
-        .card-hover-info h4 {
+        .o h4 {
             font-family: 'Cinzel Decorative', serif;
             font-size: 1.6em;
             color: #f85d85;
@@ -183,34 +183,35 @@
             margin-bottom: 15px;
         }
 
-        .card-hover-info p { margin: 10px 0; color: #ffe3e8; }
-        .card-hover-info p.keywords { font-style: italic; color: #c4b8e0; }
-        .card-hover-info p.suggestion { font-weight: bold; color: #ff99aa; border-top: 1px solid rgba(255, 153, 170, 0.2); padding-top: 10px; }
+        .o p { margin: 10px 0; color: #ffe3e8; }
+        .o p.p { font-style: italic; color: #c4b8e0; }
+        .o p.q { font-weight: bold; color: #ff99aa; border-top: 1px solid rgba(255, 153, 170, 0.2); padding-top: 10px; }
         
-        .video-section {
+        .r {
             margin-top: 15px;
             border-top: 1px solid rgba(255, 153, 170, 0.2);
             padding-top: 15px;
         }
         
-        .video-section h5 {
+        .r h5 {
             font-family: 'Cinzel Decorative', serif;
             font-size: 1.2em;
             color: #f85d85;
             margin-bottom: 10px;
         }
         
-        .video-player {
+        .s {
             width: 100%;
             max-width: 280px;
             border-radius: 8px;
             border: 1px solid rgba(255, 153, 170, 0.4);
         }
 
-        #contact-btn {
+        /* 修正聯繫按鈕響應式設計 */
+        #t {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
             width: 60px;
             height: 60px;
             background-color: #ff99aa; 
@@ -222,70 +223,227 @@
             font-size: 1.8em;
             cursor: pointer;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
         }
 
-        #contact-btn:hover {
+        #t:hover {
             transform: scale(1.1) rotate(5deg);
             background-color: #f85d85;
             color: #ffe3e8;
         }
 
-        #contact-panel {
+        /* 修正聯繫面板響應式設計 */
+        #u {
             position: fixed;
-            bottom: 100px; 
-            right: 30px;
-            width: 250px;
+            bottom: 90px; 
+            right: 20px;
+            width: 280px;
+            max-width: calc(100vw - 40px);
             padding: 20px;
-            background-color: rgba(28, 10, 31, 0.9); 
+            background-color: rgba(28, 10, 31, 0.95); 
             backdrop-filter: blur(15px);
             border-radius: 15px;
             border: 1px solid rgba(255, 153, 170, 0.6);
             box-shadow: 0 5px 30px rgba(0, 0, 0, 0.7);
             display: none;
             text-align: left;
+            z-index: 1000;
         }
 
-        #contact-panel p { margin: 10px 0; font-size: 1.1em; color: #ffe3e8; }
-        #contact-panel p i { margin-right: 10px; color: #f85d85; }
+        #u p { margin: 10px 0; font-size: 1.1em; color: #ffe3e8; }
+        #u p i { margin-right: 10px; color: #f85d85; }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .j {
+                font-size: 2.5em;
+                letter-spacing: 2px;
+            }
+            
+            .k {
+                font-size: 1.2em;
+                margin-bottom: 30px;
+            }
+            
+            .l {
+                padding: 20px;
+                gap: 30px;
+            }
+            
+            .m {
+                width: 180px;
+            }
+            
+            .o {
+                width: 250px;
+                padding: 20px;
+            }
+            
+            #u {
+                width: 250px;
+                right: 10px;
+                bottom: 80px;
+            }
+            
+            #t {
+                right: 15px;
+                bottom: 15px;
+                width: 55px;
+                height: 55px;
+                font-size: 1.6em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .j {
+                font-size: 2em;
+                letter-spacing: 1px;
+            }
+            
+            .k {
+                font-size: 1em;
+                margin-bottom: 20px;
+            }
+            
+            .l {
+                padding: 15px;
+                gap: 20px;
+            }
+            
+            .m {
+                width: 160px;
+            }
+            
+            .n {
+                font-size: 1.5em;
+            }
+            
+            .o {
+                width: 220px;
+                padding: 15px;
+            }
+            
+            .o h4 {
+                font-size: 1.4em;
+            }
+            
+            #u {
+                width: 220px;
+                right: 10px;
+                bottom: 70px;
+                padding: 15px;
+            }
+            
+            #t {
+                right: 10px;
+                bottom: 10px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.4em;
+            }
+        }
+
+        /* 彈窗樣式 */
+        #v {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(3px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        #w {
+            background: #2a122f;
+            border: 2px solid #ff99aa;
+            padding: 30px 35px;
+            border-radius: 15px;
+            width: 300px;
+            max-width: 90%;
+            text-align: center;
+            color: #ffdee7;
+            box-shadow: 0 0 25px rgba(255,153,170,0.5);
+            font-family: 'Noto Serif TC', serif;
+            margin: 20px;
+        }
+        #w h3 {
+            margin: 0 0 15px;
+            font-size: 1.4em;
+            color: #ff99aa;
+        }
+        #w .x {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        #w button {
+            width: 45%;
+            padding: 10px;
+            font-size: 1.1em;
+            border-radius: 10px;
+            cursor: pointer;
+            border: none;
+            font-family: 'Noto Serif TC';
+        }
+        #y {
+            background: #ff99aa;
+            color: #2a122f;
+        }
+        #z {
+            background: #4a1d4f;
+            color: #ffdee7;
+        }
+        #z:hover { background: #6e2a75; }
+        #y:hover { background: #ff6f8a; }
     </style>
 </head>
-<body>
-    <div class="background-gradient"></div>
-    <div class="star-field"></div>
+<body class="a">
+    <div class="b"></div>
+    <div class="d"></div>
 
-    <div class="container">
-        <h1 class="title">泰 雞 瑪 哈 陵</h1>
-        <p class="subtitle">展示所有雞，點擊展開詳細資訊。</p>
-        <div id="all-cards-display" class="all-cards-display"></div>
+    <div class="i">
+        <h1 class="j">泰 雞 瑪 哈 陵</h1>
+        <p class="k">展示所有雞，點擊展開詳細資訊。</p>
+        <div id="all-cards-display" class="l"></div>
     </div>
     
-    <div id="contact-btn"><i class="fas fa-comment-dots"></i></div>
-    <div id="contact-panel">
+    <div id="t"><i class="fas fa-comment-dots"></i></div>
+    <div id="u">
         <h4 style="color: #ff99aa;">聯絡我們！</h4>
-         <p><i class="fab fa-telegram"></i> Telegram：
-        <a href="https://t.me/ttsexground" target="_blank" style="color: #ffe3e8; text-decoration: underline;">加TG點我</a>
-    </p>
-    <p><i class="fab fa-line"></i> LINE：
-        <a href="https://line.me/ti/p/W9X3HY-eMA" target="_blank" style="color: #ffe3e8; text-decoration: underline;">加LINE點我</a>
-    </p>
+        <p><i class="fab fa-telegram"></i> Telegram：
+            <a href="https://t.me/ttsexground" target="_blank" style="color: #ffe3e8; text-decoration: underline;">加TG點我</a>
+        </p>
+        <p><i class="fab fa-line"></i> LINE：
+            <a href="https://line.me/ti/p/W9X3HY-eMA" target="_blank" style="color: #ffe3e8; text-decoration: underline;">加LINE點我</a>
+        </p>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const allCardsDisplay = document.getElementById('all-cards-display');
-            const starField = document.querySelector('.star-field');
-            const contactBtn = document.getElementById('contact-btn');
-            const contactPanel = document.getElementById('contact-panel');
+            const starField = document.querySelector('.d');
+            const contactBtn = document.getElementById('t');
+            const contactPanel = document.getElementById('u');
 
             contactBtn.addEventListener('click', () => {
                 contactPanel.style.display = contactPanel.style.display === 'block' ? 'none' : 'block';
+            });
+
+            // 點擊頁面其他區域關閉聯繫面板
+            document.addEventListener('click', (e) => {
+                if (!contactBtn.contains(e.target) && !contactPanel.contains(e.target)) {
+                    contactPanel.style.display = 'none';
+                }
             });
 
             function createStars() {
                 const numberOfStars = 150;
                 for (let i = 0; i < numberOfStars; i++) {
                     const star = document.createElement('div');
-                    star.className = 'star';
+                    star.className = 'e';
                     const size = Math.random() * 2 + 1; 
                     star.style.width = `${size}px`;
                     star.style.height = `${size}px`;
@@ -299,7 +457,7 @@
 
             function createMeteor() {
                 const meteor = document.createElement('div');
-                meteor.className = 'meteor';
+                meteor.className = 'g';
                 meteor.style.left = `${Math.random() * 100}%`;
                 meteor.style.top = `${Math.random() * 20}%`; 
                 starField.appendChild(meteor);
@@ -354,30 +512,29 @@
 
             function createCardElement(card) {
                 const cardDiv = document.createElement('div');
-                cardDiv.className = 'tarot-card';
+                cardDiv.className = 'm';
                 cardDiv.dataset.cardName = card.name;
 
                 cardDiv.addEventListener('click', function() {
                     contactPanel.style.display = 'none';
-                    document.querySelectorAll('.tarot-card.active').forEach(c => {
+                    document.querySelectorAll('.m.active').forEach(c => {
                         if (c !== this) {
                             c.classList.remove('active');
-                            c.querySelector('.card-hover-info').style.display = 'none';
+                            c.querySelector('.o').style.display = 'none';
                         }
                     });
                     this.classList.toggle('active');
-                    const info = this.querySelector('.card-hover-info');
+                    const info = this.querySelector('.o');
                     info.style.display = this.classList.contains('active') ? 'block' : 'none';
                     if (this.classList.contains('active')) this.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 });
 
-                // 构建视频部分HTML
                 let videoHTML = '';
                 if (card.video) {
                     videoHTML = `
-                        <div class="video-section">
+                        <div class="r">
                             <h5>相關videos</h5>
-                            <video class="video-player" controls>
+                            <video class="s" controls>
                                 <source src="${card.video}" type="video/mp4">
                                 您的瀏覽器不支援videos播放功能。
                             </video>
@@ -387,12 +544,12 @@
 
                 cardDiv.innerHTML = `
                     <img src="${card.image}" alt="${card.name}" />
-                    <h3 class="tarot-card-name-visible">${card.name}</h3>
-                    <div class="card-hover-info">
+                    <h3 class="n">${card.name}</h3>
+                    <div class="o">
                         <h4>${card.name} - ${card.title}</h4>
-                        <p class="meaning-content">${card.meaning}</p>
-                        <p class="keywords">關鍵詞：${card.keywords}</p>
-                        <p class="suggestion">指引：${card.suggestion}</p>
+                        <p>${card.meaning}</p>
+                        <p class="p">關鍵詞：${card.keywords}</p>
+                        <p class="q">指引：${card.suggestion}</p>
                         ${videoHTML}
                     </div>
                 `;
@@ -409,80 +566,25 @@
             renderAllCards();
         });
     </script>
-<!-- ===== 自訂置中彈窗 ===== -->
-<style>
-#enter-modal-bg {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(3px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-#enter-modal {
-    background: #2a122f;
-    border: 2px solid #ff99aa;
-    padding: 30px 35px;
-    border-radius: 15px;
-    width: 300px;
-    text-align: center;
-    color: #ffdee7;
-    box-shadow: 0 0 25px rgba(255,153,170,0.5);
-    font-family: 'Noto Serif TC', serif;
-}
-#enter-modal h3 {
-    margin: 0 0 15px;
-    font-size: 1.4em;
-    color: #ff99aa;
-}
-#enter-modal .btn-area {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-}
-#enter-modal button {
-    width: 45%;
-    padding: 10px;
-    font-size: 1.1em;
-    border-radius: 10px;
-    cursor: pointer;
-    border: none;
-    font-family: 'Noto Serif TC';
-}
-#enter-yes {
-    background: #ff99aa;
-    color: #2a122f;
-}
-#enter-no {
-    background: #4a1d4f;
-    color: #ffdee7;
-}
-#enter-no:hover { background: #6e2a75; }
-#enter-yes:hover { background: #ff6f8a; }
-</style>
 
-<div id="enter-modal-bg">
-    <div id="enter-modal">
-        <h3>是否已滿【18歲】</h3>
-	 <h4>進入「泰雞瑪哈陵」？<h4>
-        <div class="btn-area">
-            <button id="enter-yes">是</button>
-            <button id="enter-no">否</button>
+    <div id="v">
+        <div id="w">
+            <h3>是否已滿【18歲】</h3>
+            <h4>進入「泰雞瑪哈陵」？<h4>
+            <div class="x">
+                <button id="y">是</button>
+                <button id="z">否</button>
+            </div>
         </div>
     </div>
-</div>
 
-<script>
-document.getElementById("enter-yes").onclick = function () {
-    document.getElementById("enter-modal-bg").style.display = "none";
-};
-document.getElementById("enter-no").onclick = function () {
-    window.location.href = "about:blank";
-};
-</script>
-
+    <script>
+        document.getElementById("y").onclick = function () {
+            document.getElementById("v").style.display = "none";
+        };
+        document.getElementById("z").onclick = function () {
+            window.location.href = "about:blank";
+        };
+    </script>
 </body>
 </html>
