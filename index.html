@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        
-        .a {
+        /* 基礎樣式 */
+        body {
             font-family: 'Noto Serif TC', serif;
             margin: 0;
             min-height: 100vh;
@@ -27,7 +27,7 @@
             padding-bottom: 50px;
         }
 
-        .b {
+        .background-animation {
             position: fixed;
             top: 0;
             left: 0;
@@ -41,17 +41,17 @@
                 radial-gradient(ellipse at 80% 80%, rgba(255, 199, 213, 0.2), transparent 60%);
             background-size: 100% 200%, 100% 200%, 100% 200%, 100% 200%, 100% 100%;
             background-repeat: repeat-y, repeat-y, repeat-y, repeat-y, no-repeat;
-            animation: c 10s linear infinite;
+            animation: gradientMove 10s linear infinite;
             opacity: 0.9;
             z-index: -2;
         }
 
-        @keyframes c {
+        @keyframes gradientMove {
             0% { background-position: 0% 0%; }
             100% { background-position: 0% 100%; }
         }
 
-        .d {
+        .star-field {
             position: fixed;
             top: 0;
             left: 0;
@@ -61,38 +61,38 @@
             pointer-events: none;
         }
 
-        .e {
+        .star {
             position: absolute;
             background-color: #ffffff;
             border-radius: 50%;
             opacity: 0;
-            animation: f 1.5s infinite ease-in-out;
+            animation: twinkle 1.5s infinite ease-in-out;
             transform: scale(0);
         }
 
-        @keyframes f {
+        @keyframes twinkle {
             0%, 100% { opacity: 0; transform: scale(0); }
             50% { opacity: 0.8; transform: scale(1); }
         }
 
-        .g {
+        .meteor {
             position: absolute;
             width: 2px;
             height: 1px;
             background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0));
             border-radius: 50%;
             transform: rotate(45deg);
-            animation: h 5s linear forwards;
+            animation: meteorMove 5s linear forwards;
             pointer-events: none;
             z-index: 0;
         }
         
-        @keyframes h {
+        @keyframes meteorMove {
             0% { transform: translateX(0px) translateY(-50px) rotate(45deg); opacity: 0.8; }
             100% { transform: translateX(400px) translateY(400px) rotate(45deg); opacity: 0; }
         }
         
-        .i {
+        .container {
             text-align: center;
             position: relative;
             z-index: 10;
@@ -102,7 +102,7 @@
             margin: 50px auto;
         }
 
-        .j {
+        .title {
             font-family: 'Zhi Mang Xing', cursive;
             font-size: 4em;
             margin-bottom: 15px;
@@ -111,14 +111,14 @@
             letter-spacing: 3px;
         }
 
-        .k {
+        .subtitle {
             font-family: 'Noto Serif TC', serif;
             font-size: 1.4em;
             margin-bottom: 50px;
             color: #ffdce6;
         }
 
-        .l {
+        .cards-container {
             display: flex; 
             flex-direction: column; 
             align-items: center; 
@@ -131,7 +131,7 @@
             box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 153, 170, 0.15);
         }
 
-        .m {
+        .card {
             width: 200px; 
             display: flex;
             flex-direction: column;
@@ -142,38 +142,54 @@
             transition: transform 0.3s ease-in-out;
         }
 
-        .m:hover { transform: translateY(-5px) scale(1.05); }
+        .card:hover { transform: translateY(-5px) scale(1.05); }
 
-        .m img {
+        .card img {
             max-width: 100%;
             border: 3px solid rgba(248, 93, 133, 0.8);
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
         }
 
-        .n {
+        .card-name {
             font-family: 'Zhi Mang Xing', cursive;
             font-size: 1.8em;
             margin: 15px 0 10px;
             color: #ff99aa;
         }
 
-        .o {
+        /* 改進的卡片詳情視窗樣式 */
+        .card-detail {
             display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             background-color: rgba(28, 10, 31, 0.95);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 153, 170, 0.6);
             padding: 25px;
             border-radius: 15px;
             box-shadow: 0 5px 30px rgba(0, 0, 0, 0.6);
-            margin-top: 20px;
             text-align: left;
             width: 300px;
+            max-width: 90vw;
+            max-height: 80vh;
+            overflow-y: auto;
+            z-index: 1000;
         }
 
-        .m.active .o { display: block; }
+        .card-detail.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
 
-        .o h4 {
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+
+        .card-detail h4 {
             font-family: 'Cinzel Decorative', serif;
             font-size: 1.6em;
             color: #f85d85;
@@ -183,32 +199,32 @@
             margin-bottom: 15px;
         }
 
-        .o p { margin: 10px 0; color: #ffe3e8; }
-        .o p.p { font-style: italic; color: #c4b8e0; }
-        .o p.q { font-weight: bold; color: #ff99aa; border-top: 1px solid rgba(255, 153, 170, 0.2); padding-top: 10px; }
+        .card-detail p { margin: 10px 0; color: #ffe3e8; }
+        .card-detail .italic { font-style: italic; color: #c4b8e0; }
+        .card-detail .bold { font-weight: bold; color: #ff99aa; border-top: 1px solid rgba(255, 153, 170, 0.2); padding-top: 10px; }
         
-        .r {
+        .video-section {
             margin-top: 15px;
             border-top: 1px solid rgba(255, 153, 170, 0.2);
             padding-top: 15px;
         }
         
-        .r h5 {
+        .video-section h5 {
             font-family: 'Cinzel Decorative', serif;
             font-size: 1.2em;
             color: #f85d85;
             margin-bottom: 10px;
         }
         
-        .s {
+        .video-player {
             width: 100%;
             max-width: 280px;
             border-radius: 8px;
             border: 1px solid rgba(255, 153, 170, 0.4);
         }
 
-       
-        #t {
+        /* 聯繫按鈕和面板 */
+        .contact-btn {
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -227,14 +243,13 @@
             transition: all 0.3s ease;
         }
 
-        #t:hover {
+        .contact-btn:hover {
             transform: scale(1.1) rotate(5deg);
             background-color: #f85d85;
             color: #ffe3e8;
         }
 
-       
-        #u {
+        .contact-panel {
             position: fixed;
             bottom: 90px; 
             right: 20px;
@@ -251,42 +266,54 @@
             z-index: 1000;
         }
 
-        #u p { margin: 10px 0; font-size: 1.1em; color: #ffe3e8; }
-        #u p i { margin-right: 10px; color: #f85d85; }
+        .contact-panel p { margin: 10px 0; font-size: 1.1em; color: #ffe3e8; }
+        .contact-panel p i { margin-right: 10px; color: #f85d85; }
 
-       
+        /* 遮罩層 - 點擊外部關閉視窗用 */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        /* 響應式設計 */
         @media (max-width: 768px) {
-            .j {
+            .title {
                 font-size: 2.5em;
                 letter-spacing: 2px;
             }
             
-            .k {
+            .subtitle {
                 font-size: 1.2em;
                 margin-bottom: 30px;
             }
             
-            .l {
+            .cards-container {
                 padding: 20px;
                 gap: 30px;
             }
             
-            .m {
+            .card {
                 width: 180px;
             }
             
-            .o {
+            .card-detail {
                 width: 250px;
                 padding: 20px;
             }
             
-            #u {
+            .contact-panel {
                 width: 250px;
                 right: 10px;
                 bottom: 80px;
             }
             
-            #t {
+            .contact-btn {
                 right: 15px;
                 bottom: 15px;
                 width: 55px;
@@ -296,46 +323,46 @@
         }
 
         @media (max-width: 480px) {
-            .j {
+            .title {
                 font-size: 2em;
                 letter-spacing: 1px;
             }
             
-            .k {
+            .subtitle {
                 font-size: 1em;
                 margin-bottom: 20px;
             }
             
-            .l {
+            .cards-container {
                 padding: 15px;
                 gap: 20px;
             }
             
-            .m {
+            .card {
                 width: 160px;
             }
             
-            .n {
+            .card-name {
                 font-size: 1.5em;
             }
             
-            .o {
+            .card-detail {
                 width: 220px;
                 padding: 15px;
             }
             
-            .o h4 {
+            .card-detail h4 {
                 font-size: 1.4em;
             }
             
-            #u {
+            .contact-panel {
                 width: 220px;
                 right: 10px;
                 bottom: 70px;
                 padding: 15px;
             }
             
-            #t {
+            .contact-btn {
                 right: 10px;
                 bottom: 10px;
                 width: 50px;
@@ -344,8 +371,8 @@
             }
         }
 
-        
-        #v {
+        /* 年齡確認彈窗 */
+        .age-confirm {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
@@ -356,7 +383,8 @@
             align-items: center;
             z-index: 9999;
         }
-        #w {
+        
+        .confirm-box {
             background: #2a122f;
             border: 2px solid #ff99aa;
             padding: 30px 35px;
@@ -369,18 +397,21 @@
             font-family: 'Noto Serif TC', serif;
             margin: 20px;
         }
-        #w h3 {
+        
+        .confirm-box h3 {
             margin: 0 0 15px;
             font-size: 1.4em;
             color: #ff99aa;
         }
-        #w .x {
+        
+        .button-group {
             margin-top: 20px;
             display: flex;
             justify-content: space-between;
             gap: 10px;
         }
-        #w button {
+        
+        .confirm-box button {
             width: 45%;
             padding: 10px;
             font-size: 1.1em;
@@ -389,30 +420,41 @@
             border: none;
             font-family: 'Noto Serif TC';
         }
-        #y {
+        
+        .yes-btn {
             background: #ff99aa;
             color: #2a122f;
         }
-        #z {
+        
+        .no-btn {
             background: #4a1d4f;
             color: #ffdee7;
         }
-        #z:hover { background: #6e2a75; }
-        #y:hover { background: #ff6f8a; }
+        
+        .no-btn:hover { background: #6e2a75; }
+        .yes-btn:hover { background: #ff6f8a; }
     </style>
 </head>
-<body class="a">
-    <div class="b"></div>
-    <div class="d"></div>
+<body>
+    <div class="background-animation"></div>
+    <div class="star-field"></div>
 
-    <div class="i">
-        <h1 class="j">泰 雞 瑪 哈 陵</h1>
-        <p class="k">展示所有雞，點擊展開詳細資訊。</p>
-        <div id="all-cards-display" class="l"></div>
+    <div class="container">
+        <h1 class="title">泰 雞 瑪 哈 陵</h1>
+        <p class="subtitle">展示所有雞，點擊展開詳細資訊。</p>
+        <div id="all-cards-display" class="cards-container"></div>
     </div>
     
-    <div id="t"><i class="fas fa-comment-dots"></i></div>
-    <div id="u">
+    <!-- 遮罩層 - 點擊外部關閉視窗用 -->
+    <div class="overlay" id="overlay"></div>
+    
+    <!-- 卡片詳情視窗 -->
+    <div class="card-detail" id="card-detail">
+        <!-- 內容由JavaScript動態生成 -->
+    </div>
+    
+    <div class="contact-btn" id="contact-btn"><i class="fas fa-comment-dots"></i></div>
+    <div class="contact-panel" id="contact-panel">
         <h4 style="color: #ff99aa;">聯絡我們！</h4>
         <p><i class="fab fa-telegram"></i> Telegram：
             <a href="https://t.me/ttsexground" target="_blank" style="color: #ffe3e8; text-decoration: underline;">加TG點我</a>
@@ -422,13 +464,27 @@
         </p>
     </div>
 
+    <div class="age-confirm" id="age-confirm">
+        <div class="confirm-box">
+            <h3>是否已滿【18歲】</h3>
+            <h4>進入「泰雞瑪哈陵」？<h4>
+            <div class="button-group">
+                <button class="yes-btn" id="yes-btn">是</button>
+                <button class="no-btn" id="no-btn">否</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const allCardsDisplay = document.getElementById('all-cards-display');
-            const starField = document.querySelector('.d');
-            const contactBtn = document.getElementById('t');
-            const contactPanel = document.getElementById('u');
-
+            const starField = document.querySelector('.star-field');
+            const contactBtn = document.getElementById('contact-btn');
+            const contactPanel = document.getElementById('contact-panel');
+            const overlay = document.getElementById('overlay');
+            const cardDetail = document.getElementById('card-detail');
+            
+            // 聯繫按鈕功能
             contactBtn.addEventListener('click', () => {
                 contactPanel.style.display = contactPanel.style.display === 'block' ? 'none' : 'block';
             });
@@ -440,11 +496,12 @@
                 }
             });
 
+            // 創建星星背景
             function createStars() {
                 const numberOfStars = 150;
                 for (let i = 0; i < numberOfStars; i++) {
                     const star = document.createElement('div');
-                    star.className = 'e';
+                    star.className = 'star';
                     const size = Math.random() * 2 + 1; 
                     star.style.width = `${size}px`;
                     star.style.height = `${size}px`;
@@ -456,9 +513,10 @@
             }
             createStars();
 
+            // 創建流星
             function createMeteor() {
                 const meteor = document.createElement('div');
-                meteor.className = 'g';
+                meteor.className = 'meteor';
                 meteor.style.left = `${Math.random() * 100}%`;
                 meteor.style.top = `${Math.random() * 20}%`; 
                 starField.appendChild(meteor);
@@ -466,6 +524,7 @@
             }
             setInterval(createMeteor, 3000);
 
+            // 卡片數據
             const fullTarotDeck = [
                 {
                     name: '1號雞', title: '愚者', image: 'images/the_fool.png', 
@@ -511,52 +570,64 @@
                 }
             ];
 
+            // 創建卡片元素
             function createCardElement(card) {
                 const cardDiv = document.createElement('div');
-                cardDiv.className = 'm';
+                cardDiv.className = 'card';
                 cardDiv.dataset.cardName = card.name;
 
                 cardDiv.addEventListener('click', function() {
+                    // 關閉聯繫面板
                     contactPanel.style.display = 'none';
-                    document.querySelectorAll('.m.active').forEach(c => {
-                        if (c !== this) {
-                            c.classList.remove('active');
-                            c.querySelector('.o').style.display = 'none';
-                        }
-                    });
-                    this.classList.toggle('active');
-                    const info = this.querySelector('.o');
-                    info.style.display = this.classList.contains('active') ? 'block' : 'none';
-                    if (this.classList.contains('active')) this.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                });
-
-                let videoHTML = '';
-                if (card.video) {
-                    videoHTML = `
-                        <div class="r">
-                            <h5>相關videos</h5>
-                            <video class="s" controls>
-                                <source src="${card.video}" type="video/mp4">
-                                您的瀏覽器不支援videos播放功能。
-                            </video>
-                        </div>
+                    
+                    // 顯示遮罩層
+                    overlay.style.display = 'block';
+                    
+                    // 填充卡片詳情內容
+                    let videoHTML = '';
+                    if (card.video) {
+                        videoHTML = `
+                            <div class="video-section">
+                                <h5>相關影片</h5>
+                                <video class="video-player" controls>
+                                    <source src="${card.video}" type="video/mp4">
+                                    您的瀏覽器不支援影片播放功能。
+                                </video>
+                            </div>
+                        `;
+                    }
+                    
+                    cardDetail.innerHTML = `
+                        <h4>${card.name} - ${card.title}</h4>
+                        <p>${card.meaning}</p>
+                        <p class="italic">關鍵詞：${card.keywords}</p>
+                        <p class="bold">指引：${card.suggestion}</p>
+                        ${videoHTML}
                     `;
-                }
+                    
+                    // 顯示卡片詳情視窗
+                    cardDetail.classList.add('active');
+                });
 
                 cardDiv.innerHTML = `
                     <img src="${card.image}" alt="${card.name}" />
-                    <h3 class="n">${card.name}</h3>
-                    <div class="o">
-                        <h4>${card.name} - ${card.title}</h4>
-                        <p>${card.meaning}</p>
-                        <p class="p">關鍵詞：${card.keywords}</p>
-                        <p class="q">指引：${card.suggestion}</p>
-                        ${videoHTML}
-                    </div>
+                    <h3 class="card-name">${card.name}</h3>
                 `;
                 return cardDiv;
             }
 
+            // 點擊遮罩層關閉卡片詳情視窗
+            overlay.addEventListener('click', function() {
+                cardDetail.classList.remove('active');
+                overlay.style.display = 'none';
+            });
+
+            // 點擊卡片詳情視窗內部不會關閉視窗
+            cardDetail.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+
+            // 渲染所有卡片
             function renderAllCards() {
                 allCardsDisplay.innerHTML = ''; 
                 fullTarotDeck.forEach(card => {
@@ -565,28 +636,16 @@
                 });
             }
             renderAllCards();
+            
+            // 年齡確認彈窗功能
+            document.getElementById("yes-btn").onclick = function () {
+                document.getElementById("age-confirm").style.display = "none";
+            };
+            
+            document.getElementById("no-btn").onclick = function () {
+                window.location.href = "about:blank";
+            };
         });
-    </script>
-
-    <div id="v">
-        <div id="w">
-            <h3>是否已滿【18歲】</h3>
-            <h4>進入「泰雞瑪哈陵」？<h4>
-            <div class="x">
-                <button id="y">是</button>
-                <button id="z">否</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        document.getElementById("y").onclick = function () {
-            document.getElementById("v").style.display = "none";
-        };
-        document.getElementById("z").onclick = function () {
-            window.location.href = "about:blank";
-        };
     </script>
 </body>
 </html>
-
