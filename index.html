@@ -1,62 +1,632 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>星河占卜，塔罗启示</title>
-    
-    <link rel="stylesheet" href="style.css"> 
-    
+    <title>泰雞瑪哈陵</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&family=Long+Cang&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+    
+        body {
+            font-family: 'Noto Serif TC', serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: #1c0a1f; 
+            color: #ffe3e8; 
+            overflow-x: hidden;
+            line-height: 1.7;
+            position: relative;
+            padding-bottom: 50px;
+        }
+
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(135deg, transparent 50%, rgba(150, 20, 70, 0.4) 80%),
+                linear-gradient(25deg, transparent 50%, rgba(172, 38, 125, 0.4) 80%),
+                linear-gradient(105deg, transparent 50%, rgba(138, 20, 90, 0.4) 80%),
+                linear-gradient(195deg, transparent 50%, rgba(90, 15, 58, 0.4) 80%),
+                radial-gradient(ellipse at 80% 80%, rgba(255, 199, 213, 0.2), transparent 60%);
+            background-size: 100% 200%, 100% 200%, 100% 200%, 100% 200%, 100% 100%;
+            background-repeat: repeat-y, repeat-y, repeat-y, repeat-y, no-repeat;
+            animation: gradientMove 10s linear infinite;
+            opacity: 0.9;
+            z-index: -2;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 0% 100%; }
+        }
+
+        .star-field {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background-color: #ffffff;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle 1.5s infinite ease-in-out;
+            transform: scale(0);
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 0.8; transform: scale(1); }
+        }
+
+        .meteor {
+            position: absolute;
+            width: 2px;
+            height: 1px;
+            background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0));
+            border-radius: 50%;
+            transform: rotate(45deg);
+            animation: meteorMove 5s linear forwards;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        @keyframes meteorMove {
+            0% { transform: translateX(0px) translateY(-50px) rotate(45deg); opacity: 0.8; }
+            100% { transform: translateX(400px) translateY(400px) rotate(45deg); opacity: 0; }
+        }
+        
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            padding: 40px 20px;
+            max-width: 800px;
+            width: 90%;
+            margin: 50px auto;
+        }
+
+        .title {
+            font-family: 'Zhi Mang Xing', cursive;
+            font-size: 4em;
+            margin-bottom: 15px;
+            color: #ff99aa;
+            text-shadow: 0 0 20px rgba(255, 153, 170, 0.8);
+            letter-spacing: 3px;
+        }
+
+        .subtitle {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.4em;
+            margin-bottom: 50px;
+            color: #ffdce6;
+        }
+
+        .cards-container {
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 50px; 
+            padding: 30px;
+            background-color: rgba(28, 10, 31, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            border: 2px solid rgba(255, 153, 170, 0.5);
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 153, 170, 0.15);
+        }
+
+        .card {
+            width: 200px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            cursor: pointer; 
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover { transform: translateY(-5px) scale(1.05); }
+
+        .card img {
+            max-width: 100%;
+            border: 3px solid rgba(248, 93, 133, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-name {
+            font-family: 'Zhi Mang Xing', cursive;
+            font-size: 1.8em;
+            margin: 15px 0 10px;
+            color: #ff99aa;
+        }
+
+        
+        .card-detail {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(28, 10, 31, 0.95);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 153, 170, 0.6);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.6);
+            text-align: left;
+            width: 300px;
+            max-width: 90vw;
+            max-height: 80vh;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .card-detail.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+
+        .card-detail h4 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.6em;
+            color: #f85d85;
+            margin-top: 0;
+            border-bottom: 2px solid rgba(255, 153, 170, 0.3);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .card-detail p { margin: 10px 0; color: #ffe3e8; }
+        .card-detail .italic { font-style: italic; color: #c4b8e0; }
+        .card-detail .bold { font-weight: bold; color: #ff99aa; border-top: 1px solid rgba(255, 153, 170, 0.2); padding-top: 10px; }
+        
+        .video-section {
+            margin-top: 15px;
+            border-top: 1px solid rgba(255, 153, 170, 0.2);
+            padding-top: 15px;
+        }
+        
+        .video-section h5 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.2em;
+            color: #f85d85;
+            margin-bottom: 10px;
+        }
+        
+        .video-player {
+            width: 100%;
+            max-width: 280px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 153, 170, 0.4);
+        }
+
+        
+        .contact-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #ff99aa; 
+            color: #1c0a1f;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8em;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+            background-color: #f85d85;
+            color: #ffe3e8;
+        }
+
+        .contact-panel {
+            position: fixed;
+            bottom: 90px; 
+            right: 20px;
+            width: 280px;
+            max-width: calc(100vw - 40px);
+            padding: 20px;
+            background-color: rgba(28, 10, 31, 0.95); 
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 153, 170, 0.6);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.7);
+            display: none;
+            text-align: left;
+            z-index: 1000;
+        }
+
+        .contact-panel p { margin: 10px 0; font-size: 1.1em; color: #ffe3e8; }
+        .contact-panel p i { margin-right: 10px; color: #f85d85; }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5em;
+                letter-spacing: 2px;
+            }
+            
+            .subtitle {
+                font-size: 1.2em;
+                margin-bottom: 30px;
+            }
+            
+            .cards-container {
+                padding: 20px;
+                gap: 30px;
+            }
+            
+            .card {
+                width: 180px;
+            }
+            
+            .card-detail {
+                width: 250px;
+                padding: 20px;
+            }
+            
+            .contact-panel {
+                width: 250px;
+                right: 10px;
+                bottom: 80px;
+            }
+            
+            .contact-btn {
+                right: 15px;
+                bottom: 15px;
+                width: 55px;
+                height: 55px;
+                font-size: 1.6em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2em;
+                letter-spacing: 1px;
+            }
+            
+            .subtitle {
+                font-size: 1em;
+                margin-bottom: 20px;
+            }
+            
+            .cards-container {
+                padding: 15px;
+                gap: 20px;
+            }
+            
+            .card {
+                width: 160px;
+            }
+            
+            .card-name {
+                font-size: 1.5em;
+            }
+            
+            .card-detail {
+                width: 220px;
+                padding: 15px;
+            }
+            
+            .card-detail h4 {
+                font-size: 1.4em;
+            }
+            
+            .contact-panel {
+                width: 220px;
+                right: 10px;
+                bottom: 70px;
+                padding: 15px;
+            }
+            
+            .contact-btn {
+                right: 10px;
+                bottom: 10px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.4em;
+            }
+        }
+
+        .age-confirm {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(3px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .confirm-box {
+            background: #2a122f;
+            border: 2px solid #ff99aa;
+            padding: 30px 35px;
+            border-radius: 15px;
+            width: 300px;
+            max-width: 90%;
+            text-align: center;
+            color: #ffdee7;
+            box-shadow: 0 0 25px rgba(255,153,170,0.5);
+            font-family: 'Noto Serif TC', serif;
+            margin: 20px;
+        }
+        
+        .confirm-box h3 {
+            margin: 0 0 15px;
+            font-size: 1.4em;
+            color: #ff99aa;
+        }
+        
+        .button-group {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        
+        .confirm-box button {
+            width: 45%;
+            padding: 10px;
+            font-size: 1.1em;
+            border-radius: 10px;
+            cursor: pointer;
+            border: none;
+            font-family: 'Noto Serif TC';
+        }
+        
+        .yes-btn {
+            background: #ff99aa;
+            color: #2a122f;
+        }
+        
+        .no-btn {
+            background: #4a1d4f;
+            color: #ffdee7;
+        }
+        
+        .no-btn:hover { background: #6e2a75; }
+        .yes-btn:hover { background: #ff6f8a; }
+    </style>
 </head>
 <body>
-    <div class="intro-screen">
-        <div class="intro-title">星河占卜</div>
-        <div class="intro-subtitle">塔罗启示，指引命运之路</div>
-    </div>
-    <div class="background-gradient"></div>
-
+    <div class="background-animation"></div>
     <div class="star-field"></div>
 
     <div class="container">
-        <h1 class="title">星河占卜，塔罗启示</h1>
-        <p class="subtitle">选择一种牌阵后，集中精神默念需要指引的问题...</p>
+        <h1 class="title">泰 雞 瑪 哈 陵</h1>
+        <p class="subtitle">展示所有雞，點擊展開詳細資訊。</p>
+        <div id="all-cards-display" class="cards-container"></div>
+    </div>
+    
+    <div class="overlay" id="overlay"></div>
+    
+    <div class="card-detail" id="card-detail">
+    </div>
+    
+    <div class="contact-btn" id="contact-btn"><i class="fas fa-comment-dots"></i></div>
+    <div class="contact-panel" id="contact-panel">
+        <h4 style="color: #ff99aa;">聯絡我們！</h4>
+        <p><i class="fab fa-telegram"></i> Telegram：
+            <a href="https://t.me/ttsexground" target="_blank" style="color: #ffe3e8; text-decoration: underline;">加TG點我</a>
+        </p>
+        <p><i class="fab fa-line"></i> LINE：
+            <a href="https://line.me/ti/p/W9X3HY-eMA" target="_blank" style="color: #ffe3e8; text-decoration: underline;">加LINE點我</a>
+        </p>
+    </div>
 
-        <div id="form-card" class="form-card">
-            <div class="input-group">
-                <label for="name">你的称谓</label>
-                <input type="text" id="name" placeholder="请输入你的名字或昵称">
+    <div class="age-confirm" id="age-confirm">
+        <div class="confirm-box">
+            <h3>是否已滿【18歲】</h3>
+            <h4>進入「泰雞瑪哈陵」？<h4>
+            <div class="button-group">
+                <button class="yes-btn" id="yes-btn">是</button>
+                <button class="no-btn" id="no-btn">否</button>
             </div>
-
-            <div class="input-group">
-                <label>出生年 / 月 / 日</label>
-                <div class="date-selects">
-                    <select id="year-select"></select>
-                    <select id="month-select"></select>
-                    <select id="day-select"></select>
-                </div>
-            </div>
-
-            <div class="input-group">
-                <label for="spread-select">选择想占卜的牌阵</label>
-                <select id="spread-select">
-                    <option value="three-card">三牌阵: 过去-现在-未来</option>
-                    <option value="five-card">五牌阵: 十字阵列</option>
-                </select>
-            </div>
-
-            <button id="fortune-btn" class="glow-on-hover">静心冥想，开始占卜</button>
-        </div>
-
-        <div id="result-card" class="result-card result-hidden">
-            <div class="spread-container"></div>
-            <button class="glow-on-hover" onclick="restart()">重新占卜</button>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const allCardsDisplay = document.getElementById('all-cards-display');
+            const starField = document.querySelector('.star-field');
+            const contactBtn = document.getElementById('contact-btn');
+            const contactPanel = document.getElementById('contact-panel');
+            const overlay = document.getElementById('overlay');
+            const cardDetail = document.getElementById('card-detail');
+            
+            contactBtn.addEventListener('click', () => {
+                contactPanel.style.display = contactPanel.style.display === 'block' ? 'none' : 'block';
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!contactBtn.contains(e.target) && !contactPanel.contains(e.target)) {
+                    contactPanel.style.display = 'none';
+                }
+            });
+
+            function createStars() {
+                const numberOfStars = 150;
+                for (let i = 0; i < numberOfStars; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    const size = Math.random() * 2 + 1; 
+                    star.style.width = `${size}px`;
+                    star.style.height = `${size}px`;
+                    star.style.top = `${Math.random() * 100}%`;
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.animationDelay = `${Math.random() * 1.5}s`;
+                    starField.appendChild(star);
+                }
+            }
+            createStars();
+
+            function createMeteor() {
+                const meteor = document.createElement('div');
+                meteor.className = 'meteor';
+                meteor.style.left = `${Math.random() * 100}%`;
+                meteor.style.top = `${Math.random() * 20}%`; 
+                starField.appendChild(meteor);
+                meteor.addEventListener('animationend', () => meteor.remove());
+            }
+            setInterval(createMeteor, 3000);
+
+            const fullTarotDeck = [
+                {
+                    name: '1號雞', title: '愚者', image: 'images/the_fool.png', 
+                    video: 'videos/1號雞.mp4',
+                    meaning: '新的開始、自由、純真、冒險、潛力、無憂無慮。',
+                    keywords: '冒險, 新開始, 自由, 潛能',
+                    suggestion: '擁抱新的可能性，放手一搏，但記得保持理性與責任心。詳細解讀請至 abc169.vip'
+                },
+                {
+                    name: '2號雞', title: '魔術師', image: 'images/the_magician.png', 
+                    video: 'videos/2號雞.mp4',
+                    meaning: '力量、技巧、專注、創造力、實現目標。',
+                    keywords: '行動力, 技能, 創造, 專注',
+                    suggestion: '你擁有實現目標所需的一切。現在是採取行動、將想法變為現實的最佳時機。'
+                },
+                {
+                    name: '3號雞', title: '女祭司', image: 'images/the_high_priestess.png',   
+                    video: 'videos/3號雞.mp4',
+                    meaning: '直覺、潛意識、神秘、內在智慧、安靜、耐心。',
+                    keywords: '直覺, 神秘, 智慧, 洞察',
+                    suggestion: '傾聽你內心的聲音，相信你的直覺。答案可能就在你心中，而非外部世界。'
+                },
+                {
+                    name: '4號雞', title: '女皇', image: 'images/the_emp.png',   
+                    video: 'videos/4號雞.mp4',
+                    meaning: '豐饒、母性、自然、美麗、創造、感官享受。',
+                    keywords: '豐收, 母愛, 創造力, 美麗',
+                    suggestion: '享受生活的美好與豐饒，培養你的創造力。與自然與感官連結。'
+                },
+                {
+                    name: '5號雞', title: '皇帝', image: 'images/the_emperor.png',   
+                    video: 'videos/5號雞.mp4',
+                    meaning: '權威、結構、規則、父性、穩定、領導力。',
+                    keywords: '權威, 結構, 紀律, 領導',
+                    suggestion: '建立清晰的界限與結構，運用你的領導力維持秩序與穩定。'
+                },
+                {
+                    name: '6號雞', title: '教皇', image: 'images/the_hierophant.png',   
+                    video: 'videos/6號雞.mp4',
+                    meaning: '傳統、教育、精神指引、信仰、約定俗成。',
+                    keywords: '傳統, 教育, 精神, 信仰',
+                    suggestion: '尋求導師的指引或遵循既有智慧。現在是學習與遵守規則的時候。'
+                }
+            ];
+
+            function createCardElement(card) {
+                const cardDiv = document.createElement('div');
+                cardDiv.className = 'card';
+                cardDiv.dataset.cardName = card.name;
+
+                cardDiv.addEventListener('click', function() {
+                    
+                    contactPanel.style.display = 'none';
+                    
+                    overlay.style.display = 'block';
+                    
+                    let videoHTML = '';
+                    if (card.video) {
+                        videoHTML = `
+                            <div class="video-section">
+                                <h5>相關影片</h5>
+                                <video class="video-player" controls>
+                                    <source src="${card.video}" type="video/mp4">
+                                    您的瀏覽器不支援影片播放功能。
+                                </video>
+                            </div>
+                        `;
+                    }
+                    
+                    cardDetail.innerHTML = `
+                        <h4>${card.name} - ${card.title}</h4>
+                        <p>${card.meaning}</p>
+                        <p class="italic">關鍵詞：${card.keywords}</p>
+                        <p class="bold">指引：${card.suggestion}</p>
+                        ${videoHTML}
+                    `;
+                    
+                    cardDetail.classList.add('active');
+                });
+
+                cardDiv.innerHTML = `
+                    <img src="${card.image}" alt="${card.name}" />
+                    <h3 class="card-name">${card.name}</h3>
+                `;
+                return cardDiv;
+            }
+
+            overlay.addEventListener('click', function() {
+                cardDetail.classList.remove('active');
+                overlay.style.display = 'none';
+            });
+
+            cardDetail.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+
+            function renderAllCards() {
+                allCardsDisplay.innerHTML = ''; 
+                fullTarotDeck.forEach(card => {
+                    const cardElement = createCardElement(card);
+                    allCardsDisplay.appendChild(cardElement);
+                });
+            }
+            renderAllCards();
+            
+            document.getElementById("yes-btn").onclick = function () {
+                document.getElementById("age-confirm").style.display = "none";
+            };
+            
+            document.getElementById("no-btn").onclick = function () {
+                window.location.href = "about:blank";
+            };
+        });
+    </script>
 </body>
 </html>
