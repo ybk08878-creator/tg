@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>泰雞瑪哈陵 Telegram 官方網站｜最新活動、報名與公告</title>
+    <title>泰雞瑪哈陵 Telegram 官方網站｜最新活動、報名與公告</title>
     <meta name="description" content="泰雞瑪哈陵 Telegram 官方網站，提供最新活動資訊與官方公告，掌握第一手消息與優惠。">
     <meta name="keywords" content="泰雞瑪哈陵, 泰雞瑪哈陵Telegram, 泰雞瑪哈陵官方, 高雄泰雞瑪哈陵, 泰雞瑪哈陵高雄, 泰雞瑪哈陵公告, 高雄泰式按摩, 高雄按摩, 高雄放鬆, 高雄SPA">
     <link rel="canonical" href="https://ybk08878-creator.github.io/tg/">
@@ -13,36 +13,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-    
-.price-toggle {
-    cursor: pointer;
-    user-select: none;
-    text-align: center;
-    padding: 8px;
-    background: rgba(0,0,0,0.3);
-    border-radius: 8px;
-    margin-bottom: 5px;
-    transition: background 0.3s;
-}
-
-.price-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-}
-
-@media (max-width: 768px) {
-    .left-panel.active .price-content {
-        max-height: 500px; 
-    }
-}
-
-@media (min-width: 769px) {
-    .price-content {
-        max-height: 1000px; 
-    }
-}
-
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Noto Serif TC', serif;
             margin: 0;
@@ -204,7 +180,7 @@
             border-radius: 15px;
             box-shadow: 0 5px 30px rgba(0, 0, 0, 0.6);
             text-align: left;
-            width: 300px;
+            width: 320px;
             max-width: 90vw;
             max-height: 80vh;
             overflow-y: auto;
@@ -232,28 +208,71 @@
         }
 
         .card-detail p { margin: 10px 0; color: #ffe3e8; }
-	.card-detail .italic {
-    	    font-style: italic;
-   	    color: #c4b8e0;
-	    font-size: 1.2em;
-  	    line-height: 1.6;
-	}
+        .card-detail .italic {
+            font-style: italic;
+            color: #c4b8e0;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
 
-	.label {
- 	    font-size: 1.4em; 
-    	    font-weight: bold;
-  	    color: #ffb3c6;
-  	    margin-right: 5px;
-	}
+        .label {
+            font-size: 1.4em; 
+            font-weight: bold;
+            color: #ffb3c6;
+            margin-right: 5px;
+        }
 
-
-	.card-detail .bold {
-    	    font-weight: bold;
-    	    color: #ff99aa;
-   	    border-top: 1px solid rgba(255, 153, 170, 0.2);
-    	    padding-top: 10px;
-    	    font-size: 1.25em;     line-height: 1.6;
-	}
+        .card-detail .bold {
+            font-weight: bold;
+            color: #ff99aa;
+            border-top: 1px solid rgba(255, 153, 170, 0.2);
+            padding-top: 10px;
+            font-size: 1.25em;
+            line-height: 1.6;
+        }
+        
+        /* 图片轮播样式 - 优化图片大小 */
+        .image-carousel {
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .image-carousel img {
+            max-width: 100%;
+            max-height: 200px; /* 限制图片最大高度 */
+            width: auto;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 153, 170, 0.4);
+            object-fit: contain; /* 保持图片比例 */
+        }
+        
+        .carousel-controls {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .carousel-controls button {
+            background: rgba(255, 153, 170, 0.3);
+            border: none;
+            color: #ffe3e8;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .carousel-controls button:hover {
+            background: rgba(255, 153, 170, 0.6);
+        }
+        
+        .carousel-indicator {
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #c4b8e0;
+        }
         
         .video-section {
             margin-top: 15px;
@@ -332,94 +351,125 @@
             display: none;
         }
 
-        @media (max-width: 768px) {
-            .title {
-                font-size: 2.5em;
-                letter-spacing: 2px;
+        /* 价目表样式 - 主要修改部分 */
+        .price-panel {
+            position: fixed;
+            top: 120px;
+            left: 20px;
+            background-color: rgba(28, 10, 31, 0.85);
+            border: 1px solid rgba(255, 153, 170, 0.6);
+            border-radius: 15px;
+            padding: 15px 20px;
+            color: #ffe3e8;
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.1em;
+            line-height: 1.8;
+            box-shadow: 0 0 20px rgba(255, 153, 170, 0.2);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .price-toggle {
+            cursor: pointer;
+            user-select: none;
+            text-align: center;
+            padding: 8px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            margin-bottom: 5px;
+            transition: background 0.3s;
+        }
+
+        .price-content {
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        /* 电脑版 - 始终展开 */
+        @media (min-width: 769px) {
+            .price-panel {
+                width: auto;
+                min-width: 180px;
             }
             
-            .subtitle {
-                font-size: 1.2em;
-                margin-bottom: 30px;
+            .price-content {
+                max-height: 1000px;
             }
             
-            .cards-container {
-                padding: 20px;
-                gap: 30px;
-            }
-            
-            .card {
-                width: 180px;
-            }
-            
-            .card-detail {
-                width: 250px;
-                padding: 20px;
-            }
-            
-            .contact-panel {
-                width: 250px;
-                right: 10px;
-                bottom: 80px;
-            }
-            
-            .contact-btn {
-                right: 15px;
-                bottom: 15px;
-                width: 55px;
-                height: 55px;
-                font-size: 1.6em;
+            .price-toggle {
+                display: none; /* 电脑版隐藏切换按钮 */
             }
         }
 
-
-        @media (max-width: 480px) {
-            .title {
-                font-size: 2em;
-                letter-spacing: 1px;
-            }
-            
-            .subtitle {
-                font-size: 1em;
-                margin-bottom: 20px;
-            }
-            
-            .cards-container {
-                padding: 15px;
-                gap: 20px;
-            }
-            
-            .card {
-                width: 160px;
-            }
-            
-            .card-name {
-                font-size: 1.5em;
-            }
-            
-            .card-detail {
-                width: 220px;
-                padding: 15px;
-            }
-            
-            .card-detail h4 {
-                font-size: 1.4em;
-            }
-            
-            .contact-panel {
-                width: 220px;
-                right: 10px;
-                bottom: 70px;
-                padding: 15px;
-            }
-            
-            .contact-btn {
-                right: 10px;
-                bottom: 10px;
+        /* 手机版 - 收起状态 */
+        @media (max-width: 768px) {
+            .price-panel {
                 width: 50px;
                 height: 50px;
-                font-size: 1.4em;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                left: 10px;
+                top: 100px;
             }
+            
+            .price-panel.active {
+                width: auto;
+                height: auto;
+                padding: 15px 20px;
+            }
+            
+            .price-toggle {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2em;
+            }
+            
+            .price-content {
+                max-height: 0;
+            }
+            
+            .price-panel.active .price-content {
+                max-height: 500px;
+                margin-top: 40px;
+            }
+        }
+
+        .contact-arrow {
+            position: fixed;
+            bottom: 90px;
+            right: 50px;
+            font-size: 2em;
+            color: #ff99aa;
+            animation: bounce 1.5s infinite;
+            z-index: 1001;
+            filter: drop-shadow(0 0 8px rgba(255,153,170,0.6));
+        }
+
+        .contact-arrow i {
+            font-size: 48px;      
+            color: #fff;        
+            animation: blink 1s infinite, bounce 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); opacity: 0.8; }
+            50% { transform: translateY(-10px); opacity: 1; }
         }
 
         .age-confirm {
@@ -480,82 +530,121 @@
             background: #4a1d4f;
             color: #ffdee7;
         }
-        
-	.left-panel {
-    position: fixed;
-    top: 120px;
-    left: 20px;
-    background-color: rgba(28, 10, 31, 0.85);
-    border: 1px solid rgba(255, 153, 170, 0.6);
-    border-radius: 15px;
-    padding: 15px 20px;
-    color: #ffe3e8;
-    font-family: 'Noto Serif TC', serif;
-    font-size: 1.1em;
-    line-height: 1.8;
-    box-shadow: 0 0 20px rgba(255, 153, 170, 0.2);
-    backdrop-filter: blur(10px);
-    z-index: 999;
-}
-
-.left-panel h4 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: #ff99aa;
-    font-family: 'Cinzel Decorative', serif;
-    font-size: 1.2em;
-    text-align: center;
-}
-
-.contact-arrow {
-    position: fixed;
-    bottom: 90px;
-    right: 50px;
-    font-size: 2em;
-    color: #ff99aa;
-    animation: bounce 1.5s infinite;
-    z-index: 1001;
-    filter: drop-shadow(0 0 8px rgba(255,153,170,0.6));
-}
-
-.contact-arrow i {
-  font-size: 48px;      
-  color: #fff;        
-  animation: blink 1s infinite, bounce 1.5s infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); opacity: 0.8; }
-    50% { transform: translateY(-10px); opacity: 1; }
-}
-
-@media (max-width: 768px) {
-    .left-panel {
-        font-size: 1em;
-        padding: 10px 15px;
-        left: 10px;
-        top: 100px;
-    }
-    .contact-arrow {
-        right: 40px;
-        bottom: 80px;
-        font-size: 1.8em;
-    }
-}
 
         .no-btn:hover { background: #6e2a75; }
         .yes-btn:hover { background: #ff6f8a; }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5em;
+                letter-spacing: 2px;
+            }
+            
+            .subtitle {
+                font-size: 1.2em;
+                margin-bottom: 30px;
+            }
+            
+            .cards-container {
+                padding: 20px;
+                gap: 30px;
+            }
+            
+            .card {
+                width: 180px;
+            }
+            
+            .card-detail {
+                width: 280px;
+                padding: 20px;
+            }
+            
+            .contact-panel {
+                width: 250px;
+                right: 10px;
+                bottom: 80px;
+            }
+            
+            .contact-btn {
+                right: 15px;
+                bottom: 15px;
+                width: 55px;
+                height: 55px;
+                font-size: 1.6em;
+            }
+            
+            .contact-arrow {
+                right: 40px;
+                bottom: 80px;
+                font-size: 1.8em;
+            }
+            
+            /* 手机版图片更小 */
+            .image-carousel img {
+                max-height: 160px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2em;
+                letter-spacing: 1px;
+            }
+            
+            .subtitle {
+                font-size: 1em;
+                margin-bottom: 20px;
+            }
+            
+            .cards-container {
+                padding: 15px;
+                gap: 20px;
+            }
+            
+            .card {
+                width: 160px;
+            }
+            
+            .card-name {
+                font-size: 1.5em;
+            }
+            
+            .card-detail {
+                width: 260px;
+                padding: 15px;
+            }
+            
+            .card-detail h4 {
+                font-size: 1.4em;
+            }
+            
+            .contact-panel {
+                width: 220px;
+                right: 10px;
+                bottom: 70px;
+                padding: 15px;
+            }
+            
+            .contact-btn {
+                right: 10px;
+                bottom: 10px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.4em;
+            }
+            
+            /* 更小屏幕图片更小 */
+            .image-carousel img {
+                max-height: 140px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="background-animation"></div>
     <div class="star-field"></div>
-	
+    
     <div class="container">
         <h1 class="title">泰 雞 瑪 哈 陵</h1>
         <p class="subtitle">營業時間中午12:00到凌晨02:00<br>💗點擊展開詳細資訊💗</p>
@@ -564,8 +653,7 @@
     
     <div class="overlay" id="overlay"></div>
     
-    <div class="card-detail" id="card-detail">
-    </div>
+    <div class="card-detail" id="card-detail"></div>
     
     <div class="contact-btn" id="contact-btn"><i class="fas fa-comment-dots"></i></div>
     <div class="contact-panel" id="contact-panel">
@@ -578,26 +666,28 @@
     <div class="age-confirm" id="age-confirm">
         <div class="confirm-box">
             <h3>是否已滿【18歲】</h3>
-            <h4>進入「泰雞瑪哈陵」？<h4>
+            <h4>進入「泰雞瑪哈陵」？</h4>
             <div class="button-group">
                 <button class="yes-btn" id="yes-btn">是</button>
                 <button class="no-btn" id="no-btn">否</button>
             </div>
         </div>
     </div>
-		
-<div class="contact-arrow"><i class="fas fa-arrow-down"></i></div>
+    
+    <div class="contact-arrow"><i class="fas fa-arrow-down"></i></div>
 
-<div class="left-panel" id="price-panel">
-    <h4 class="price-toggle">價目表 💰</h4>
-    <div class="price-content">
-        <p>💰1800 / 20 / 1S</p>
-        <p>💰2500 / 40 / 1S</p>
-        <p>💰2800 / 60 / 1S</p>
-        <p>💕包夜方案請至右下角私訊💕</p>
+    <!-- 价目表 - 修改后的结构 -->
+    <div class="price-panel" id="price-panel">
+        <div class="price-toggle">💰</div>
+        <div class="price-content">
+            <h4 style="color: #ff99aa; text-align: center; margin-bottom: 10px;">價目表</h4>
+            <p>💰1800 / 20 / 1S</p>
+            <p>💰2500 / 40 / 1S</p>
+            <p>💰2800 / 60 / 1S</p>
+            <p>💕包夜方案請至右下角私訊💕</p>
+        </div>
     </div>
-</div>
-	
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const allCardsDisplay = document.getElementById('all-cards-display');
@@ -606,15 +696,15 @@
             const contactPanel = document.getElementById('contact-panel');
             const overlay = document.getElementById('overlay');
             const cardDetail = document.getElementById('card-detail');
-	    const pricePanel = document.getElementById('price-panel');
-	    const priceToggle = pricePanel.querySelector('.price-toggle');
+            const pricePanel = document.getElementById('price-panel');
+            const priceToggle = pricePanel.querySelector('.price-toggle');
 
-priceToggle.addEventListener('click', () => {
-    if (window.innerWidth <= 768) {  
-        pricePanel.classList.toggle('active');
-    }
-});
-
+            // 手机版价目表切换
+            if (window.innerWidth <= 768) {
+                priceToggle.addEventListener('click', () => {
+                    pricePanel.classList.toggle('active');
+                });
+            }
             
             contactBtn.addEventListener('click', () => {
                 contactPanel.style.display = contactPanel.style.display === 'block' ? 'none' : 'block';
@@ -652,44 +742,57 @@ priceToggle.addEventListener('click', () => {
             }
             setInterval(createMeteor, 3000);
 
-             const fullTarotDeck = [
+            // 更新数据，添加多张图片
+            const fullTarotDeck = [
                 {
-                    name: '🥇TOP.1水水', title: '顏值第一名', image: 'images/1.png', 
+                    name: '🥇TOP.1水水', 
+                    title: '顏值第一名',
+                    images: ['images/1.png', 'images/1-1.png', 'images/1-2.png'], // 添加多张图片
                     video: 'videos/1.mp4',
                     meaning: '161 / 50 / D',
                     keywords: '<br>LG<br>品鮑<br>69<br>胸推<br>屁推<br>毒龍<br>乳交',
                     suggestion: '<br>2+1<br>3+1<br>口爆+500<br>顏射+500<br>包夜方案私訊'
                 },
                 {
-                    name: '🥈TOP.2柔柔', title: '巨乳小隻馬', image: 'images/2.png', 
+                    name: '🥈TOP.2柔柔', 
+                    title: '巨乳小隻馬', 
+                    images: ['images/2.png', 'images/2-1.png', 'images/2-2.png'], // 添加多张图片
                     video: 'videos/2.mp4',
                     meaning: '150 / 48 / E',
                     keywords: '<br>LG<br>品鮑<br>69<br>胸推<br>屁推<br>毒龍<br>乳交',
                     suggestion: '<br>2+1<br>3+1<br>口爆+500<br>顏射+500<br>包夜方案私訊'
                 },
                 {
-                    name: '🥉TOP.3瑤瑤', title: '巨乳の御姐', image: 'images/3.png', 
+                    name: '🥉TOP.3瑤瑤', 
+                    title: '巨乳の御姐', 
+                    images: ['images/3.png', 'images/3-1.png', 'images/3-2.png'], // 添加多张图片
                     video: 'videos/3.mp4',
                     meaning: '165 / 50 / E',
                     keywords: '<br>LG<br>品鮑<br>69<br>深喉嚨<br>按摩<br>乳交',
                     suggestion: '<br>無套+1000<br>口爆+500<br>顏射+500<br>自慰秀+500<br>攝影+1000<br>2+1<br>3+1<br>包夜方案私訊'
                 },
                 {
-                    name: '粿粿', title: '愛撒嬌甜妹', image: 'images/4.png', 
+                    name: '粿粿', 
+                    title: '愛撒嬌甜妹', 
+                    images: ['images/4.png', 'images/4-1.png', 'images/4-2.png'], // 添加多张图片
                     video: 'videos/4.mp4',
                     meaning: '165 / 50 / D',
                     keywords: '<br>LG<br>品鮑<br>69<br>胸推<br>屁推<br>乳交',
                     suggestion: '<br>2+1<br>3+1<br>口爆+500<br>顏射+500<br>包夜方案私訊'
                 },
                 {
-                    name: '兔兔', title: '甜美兔女郎', image: 'images/5.png', 
+                    name: '兔兔', 
+                    title: '甜美兔女郎', 
+                    images: ['images/5.png', 'images/5-1.png', 'images/5-2.png'], // 添加多张图片
                     video: 'videos/5.mp4',
                     meaning: '160 / 50 / D',
                     keywords: '<br>乳交<br>品鮑<br>69<br>胸推<br>屁推',
                     suggestion: '<br>2S+500<br>2+1'
                 },
                 {
-                    name: '哈尼', title: '騷氣小狐狸', image: 'images/6.png', 
+                    name: '哈尼', 
+                    title: '騷氣小狐狸', 
+                    images: ['images/6.png', 'images/6-1.png', 'images/6-2.png'], // 添加多张图片
                     video: 'videos/6.mp4',
                     meaning: '155 / 43 / D',
                     keywords: '<br>LG<br>品鮑<br>69<br>胸推<br>屁推<br>乳交',
@@ -703,38 +806,69 @@ priceToggle.addEventListener('click', () => {
                 cardDiv.dataset.cardName = card.name;
 
                 cardDiv.addEventListener('click', function() {
-                    
                     contactPanel.style.display = 'none';
-                    
                     overlay.style.display = 'block';
-                    
+
                     let videoHTML = '';
                     if (card.video) {
                         videoHTML = `
-                            <div class="video-section">
-                                <h5>相關影片</h5>
-                                <video class="video-player" controls>
-                                    <source src="${card.video}" type="video/mp4">
-                                    您的瀏覽器不支援影片播放功能。
-                                </video>
-                            </div>
-                        `;
+                        <div class="video-section">
+                            <h5>相關影片</h5>
+                            <video class="video-player" controls>
+                                <source src="${card.video}" type="video/mp4">
+                                您的瀏覽器不支援影片播放功能。
+                            </video>
+                        </div>`;
                     }
-                    
-                    cardDetail.innerHTML = `
-    <h4>${card.name} - ${card.title}</h4>
-    <p class="bold"><span class="label">身材</span>${card.meaning}</p>
-    <p class="italic"><span class="label">可👌</span>${card.keywords}</p>
-    <p class="bold"><span class="label">💰方案⬇️</span>${card.suggestion}</p>
-    ${videoHTML}
-`;
 
-                    
+                    // 多圖輪播 HTML
+                    let imagesHTML = '';
+                    if (card.images && card.images.length > 0) {
+                        imagesHTML = `
+                        <div class="image-carousel">
+                            <img id="carousel-image" src="${card.images[0]}" alt="${card.name}" />
+                            ${card.images.length > 1 ? `
+                            <div class="carousel-controls">
+                                <button id="prev-img">⬅️</button>
+                                <span class="carousel-indicator" id="carousel-indicator">1 / ${card.images.length}</span>
+                                <button id="next-img">➡️</button>
+                            </div>` : ''}
+                        </div>`;
+                    }
+
+                    cardDetail.innerHTML = `
+            <h4>${card.name} - ${card.title}</h4>
+            <p class="bold"><span class="label">身材</span>${card.meaning}</p>
+            <p class="italic"><span class="label">可👌</span>${card.keywords}</p>
+            <p class="bold"><span class="label">💰方案⬇️</span>${card.suggestion}</p>
+            ${imagesHTML}
+            ${videoHTML}
+            `;
+
+                    // 圖片輪播邏輯
+                    if (card.images && card.images.length > 1) {
+                        let index = 0;
+                        const carouselImage = document.getElementById('carousel-image');
+                        const carouselIndicator = document.getElementById('carousel-indicator');
+                        
+                        document.getElementById('prev-img').onclick = () => {
+                            index = (index - 1 + card.images.length) % card.images.length;
+                            carouselImage.src = card.images[index];
+                            carouselIndicator.textContent = `${index + 1} / ${card.images.length}`;
+                        };
+                        
+                        document.getElementById('next-img').onclick = () => {
+                            index = (index + 1) % card.images.length;
+                            carouselImage.src = card.images[index];
+                            carouselIndicator.textContent = `${index + 1} / ${card.images.length}`;
+                        };
+                    }
+
                     cardDetail.classList.add('active');
                 });
 
                 cardDiv.innerHTML = `
-                    <img src="${card.image}" alt="${card.name}" />
+                    <img src="${card.images[0]}" alt="${card.name}" />
                     <h3 class="card-name">${card.name}</h3>
                 `;
                 return cardDiv;
@@ -769,5 +903,3 @@ priceToggle.addEventListener('click', () => {
     </script>
 </body>
 </html>
-
-
