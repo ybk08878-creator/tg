@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>泰雞瑪哈陵</title>
+        <title>泰雞瑪哈陵 Telegram 官方網站｜最新活動、報名與公告</title>
+    <meta name="description" content="泰雞瑪哈陵 Telegram 官方網站，提供最新活動資訊與官方公告，掌握第一手消息與優惠。">
+    <meta name="keywords" content="泰雞瑪哈陵, 泰雞瑪哈陵Telegram, 泰雞瑪哈陵官方, 高雄泰雞瑪哈陵, 泰雞瑪哈陵高雄, 泰雞瑪哈陵公告, 高雄泰式按摩, 高雄按摩, 高雄放鬆, 高雄SPA">
+    <link rel="canonical" href="https://ybk08878-creator.github.io/tg/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&family=Long+Cang&display=swap" rel="stylesheet">
@@ -340,6 +343,7 @@
             }
         }
 
+
         @media (max-width: 480px) {
             .title {
                 font-size: 2em;
@@ -448,6 +452,73 @@
             color: #ffdee7;
         }
         
+	.left-panel {
+    position: fixed;
+    top: 120px;
+    left: 20px;
+    background-color: rgba(28, 10, 31, 0.85);
+    border: 1px solid rgba(255, 153, 170, 0.6);
+    border-radius: 15px;
+    padding: 15px 20px;
+    color: #ffe3e8;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.1em;
+    line-height: 1.8;
+    box-shadow: 0 0 20px rgba(255, 153, 170, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+}
+
+.left-panel h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #ff99aa;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.contact-arrow {
+    position: fixed;
+    bottom: 90px;
+    right: 50px;
+    font-size: 2em;
+    color: #ff99aa;
+    animation: bounce 1.5s infinite;
+    z-index: 1001;
+    filter: drop-shadow(0 0 8px rgba(255,153,170,0.6));
+}
+
+.contact-arrow i {
+  font-size: 48px;      
+  color: #fff;        
+  animation: blink 1s infinite, bounce 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); opacity: 0.8; }
+    50% { transform: translateY(-10px); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .left-panel {
+        font-size: 1em;
+        padding: 10px 15px;
+        left: 10px;
+        top: 100px;
+    }
+    .contact-arrow {
+        right: 40px;
+        bottom: 80px;
+        font-size: 1.8em;
+    }
+}
+
         .no-btn:hover { background: #6e2a75; }
         .yes-btn:hover { background: #ff6f8a; }
     </style>
@@ -455,7 +526,7 @@
 <body>
     <div class="background-animation"></div>
     <div class="star-field"></div>
-
+	
     <div class="container">
         <h1 class="title">泰 雞 瑪 哈 陵</h1>
         <p class="subtitle">營業時間中午12:00到凌晨02:00<br>💗點擊展開詳細資訊💗</p>
@@ -485,7 +556,16 @@
             </div>
         </div>
     </div>
+		
+<div class="contact-arrow"><i class="fas fa-arrow-down"></i></div>
 
+<div class="left-panel" id="price-panel">
+    <h4>價目表 💰</h4>
+    <p>💰1800 / 20 / 1S</p>
+    <p>💰2500 / 40 / 1S</p>
+    <p>💰2800 / 60 / 1S</p>
+</div>
+	
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const allCardsDisplay = document.getElementById('all-cards-display');
@@ -648,5 +728,4 @@
     </script>
 </body>
 </html>
-
 
