@@ -351,7 +351,6 @@
             display: none;
         }
 
-        /* 价目表样式 - 已修改 */
         .price-panel {
             position: fixed;
             top: 120px;
@@ -387,7 +386,6 @@
             transition: max-height 0.5s ease;
         }
 
-        /* 桌面版样式 */
         @media (min-width: 769px) {
             .price-panel {
                 width: auto;
@@ -403,7 +401,6 @@
             }
         }
 
-        /* 移动版样式 */
         @media (max-width: 768px) {
             .price-panel {
                 width: 60px;
@@ -711,7 +708,6 @@
             const pricePanel = document.getElementById('price-panel');
             const priceToggle = pricePanel.querySelector('.price-toggle');
 
-            // 价目表切换功能
             if (window.innerWidth <= 768) {
                 priceToggle.addEventListener('click', () => {
                     pricePanel.classList.toggle('active');
@@ -754,7 +750,6 @@
             }
             setInterval(createMeteor, 3000);
 
-            // 卡片数据
             const fullTarotDeck = [
                 {
                     name: '🥇TOP.1水水', 
@@ -833,7 +828,6 @@
                         </div>`;
                     }
 
-                    // 图片轮播
                     let imagesHTML = '';
                     if (card.images && card.images.length > 0) {
                         imagesHTML = `
@@ -857,7 +851,6 @@
             ${videoHTML}
             `;
 
-                    // 图片轮播功能
                     if (card.images && card.images.length > 1) {
                         let index = 0;
                         const carouselImage = document.getElementById('carousel-image');
@@ -915,3 +908,4 @@
     </script>
 </body>
 </html>
+
