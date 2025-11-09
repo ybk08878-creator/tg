@@ -14,6 +14,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
     
+.price-toggle {
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    padding: 8px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 8px;
+    margin-bottom: 5px;
+    transition: background 0.3s;
+}
+
+.price-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+@media (max-width: 768px) {
+    .left-panel.active .price-content {
+        max-height: 500px; 
+    }
+}
+
+@media (min-width: 769px) {
+    .price-content {
+        max-height: 1000px; 
+    }
+}
+
         body {
             font-family: 'Noto Serif TC', serif;
             margin: 0;
@@ -560,11 +589,13 @@
 <div class="contact-arrow"><i class="fas fa-arrow-down"></i></div>
 
 <div class="left-panel" id="price-panel">
-    <h4>價目表 💰</h4>
-    <p>💰1800 / 20 / 1S</p>
-    <p>💰2500 / 40 / 1S</p>
-    <p>💰2800 / 60 / 1S</p>
-	<p>💕包夜方案請至右下角私訊💕</p>
+    <h4 class="price-toggle">價目表 💰</h4>
+    <div class="price-content">
+        <p>💰1800 / 20 / 1S</p>
+        <p>💰2500 / 40 / 1S</p>
+        <p>💰2800 / 60 / 1S</p>
+        <p>💕包夜方案請至右下角私訊💕</p>
+    </div>
 </div>
 	
     <script>
@@ -575,6 +606,15 @@
             const contactPanel = document.getElementById('contact-panel');
             const overlay = document.getElementById('overlay');
             const cardDetail = document.getElementById('card-detail');
+	    const pricePanel = document.getElementById('price-panel');
+	    const priceToggle = pricePanel.querySelector('.price-toggle');
+
+priceToggle.addEventListener('click', () => {
+    if (window.innerWidth <= 768) {  
+        pricePanel.classList.toggle('active');
+    }
+});
+
             
             contactBtn.addEventListener('click', () => {
                 contactPanel.style.display = contactPanel.style.display === 'block' ? 'none' : 'block';
@@ -683,7 +723,7 @@
                     
                     cardDetail.innerHTML = `
     <h4>${card.name} - ${card.title}</h4>
-    <pclass="bold"><span class="label">身材</span>${card.meaning}</p>
+    <p class="bold"><span class="label">身材</span>${card.meaning}</p>
     <p class="italic"><span class="label">可👌</span>${card.keywords}</p>
     <p class="bold"><span class="label">💰方案⬇️</span>${card.suggestion}</p>
     ${videoHTML}
@@ -729,6 +769,5 @@
     </script>
 </body>
 </html>
-
 
 
