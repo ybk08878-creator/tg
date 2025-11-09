@@ -351,7 +351,7 @@
             display: none;
         }
 
-       
+        /* 价目表样式 - 已修改 */
         .price-panel {
             position: fixed;
             top: 120px;
@@ -379,6 +379,7 @@
             border-radius: 8px;
             margin-bottom: 5px;
             transition: background 0.3s;
+            font-size: 1.5em;
         }
 
         .price-content {
@@ -386,7 +387,7 @@
             transition: max-height 0.5s ease;
         }
 
-        
+        /* 桌面版样式 */
         @media (min-width: 769px) {
             .price-panel {
                 width: auto;
@@ -398,71 +399,65 @@
             }
             
             .price-toggle {
-                display: none; 
+                display: none;
             }
         }
 
-        
-@media (max-width: 768px) {
-    .price-panel {
-        width: 50px;
-        height: 50px;
-        padding: 0;
-        display: flex;
-        align-items: center;      /* 垂直居中 */
-        justify-content: center;  /* 水平居中 */
-        overflow: hidden;
-        left: 10px;
-        top: 100px;
-        flex-direction: row;
-    }
+        /* 移动版样式 */
+        @media (max-width: 768px) {
+            .price-panel {
+                width: 60px;
+                height: 60px;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                left: 10px;
+                top: 100px;
+            }
 
-    /* 展开状态 */
-    .price-panel.active {
-        width: auto;
-        height: auto;
-        padding: 15px 20px;
-        flex-direction: column;
-        align-items: flex-start;      /* 内容靠左 */
-        justify-content: flex-start;  /* 内容靠上 */
-    }
+            .price-panel.active {
+                width: auto;
+                height: auto;
+                min-width: 200px;
+                padding: 15px 20px;
+                align-items: flex-start;
+            }
 
-    .price-toggle {
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2em;
-        cursor: pointer;
-        margin-bottom: 10px;
-    }
+            .price-toggle {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.8em;
+                cursor: pointer;
+                margin-bottom: 0;
+                background: transparent;
+            }
 
-    .price-panel.active .price-toggle {
-        width: auto;
-        height: auto;
-        align-items: flex-start;
-        justify-content: flex-start;
-        margin-bottom: 15px;
-    }
+            .price-panel.active .price-toggle {
+                width: auto;
+                height: auto;
+                justify-content: flex-start;
+                margin-bottom: 15px;
+                padding: 0;
+                font-size: 1.5em;
+            }
 
-    .price-content {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s ease;
-    }
+            .price-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease;
+                width: 100%;
+            }
 
-    .price-panel.active .price-content {
-        max-height: 500px;
-    }
-}
-            
             .price-panel.active .price-content {
                 max-height: 500px;
-                margin-top: 40px;
             }
         }
-
+            
         .contact-arrow {
             position: fixed;
             bottom: 90px;
@@ -694,7 +689,6 @@
     
     <div class="contact-arrow"><i class="fas fa-arrow-down"></i></div>
 
-
     <div class="price-panel" id="price-panel">
         <div class="price-toggle">💰</div>
         <div class="price-content">
@@ -717,7 +711,7 @@
             const pricePanel = document.getElementById('price-panel');
             const priceToggle = pricePanel.querySelector('.price-toggle');
 
-            // 手机版价目表切换
+            // 价目表切换功能
             if (window.innerWidth <= 768) {
                 priceToggle.addEventListener('click', () => {
                     pricePanel.classList.toggle('active');
@@ -760,7 +754,7 @@
             }
             setInterval(createMeteor, 3000);
 
-           
+            // 卡片数据
             const fullTarotDeck = [
                 {
                     name: '🥇TOP.1水水', 
@@ -839,7 +833,7 @@
                         </div>`;
                     }
 
-                    
+                    // 图片轮播
                     let imagesHTML = '';
                     if (card.images && card.images.length > 0) {
                         imagesHTML = `
@@ -863,7 +857,7 @@
             ${videoHTML}
             `;
 
-                  
+                    // 图片轮播功能
                     if (card.images && card.images.length > 1) {
                         let index = 0;
                         const carouselImage = document.getElementById('carousel-image');
