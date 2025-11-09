@@ -471,6 +471,11 @@
             color: #fff;        
             animation: blink 1s infinite, bounce 1.5s infinite;
         }
+	
+	.contact-panel[style*="display: block"] ~ .contact-arrow {
+    	    display: none;
+	}
+
 
         @keyframes blink {
             0%, 100% { opacity: 1; }
@@ -908,7 +913,6 @@
     </script>
 </body>
 </html>
-
 
 
 
