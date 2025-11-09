@@ -403,41 +403,59 @@
         }
 
         
-        @media (max-width: 768px) {
-            .price-panel {
-                width: 50px;
-                height: 50px;
-                padding: 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                overflow: hidden;
-                left: 10px;
-                top: 100px;
-            }
-            
-            .price-panel.active {
-                width: auto;
-                height: auto;
-                padding: 15px 20px;
-            }
-            
-            .price-toggle {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: auto;
-                height: auto;
-                margin: 0;
-                display: flex;
-                align-items: flex-start;
-                justify-content: flex-start;
-                font-size: 1.2em;
-            }
-            
-            .price-content {
-                max-height: 0;
-            }
+@media (max-width: 768px) {
+    .price-panel {
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        display: flex;
+        align-items: center;      /* 垂直居中 */
+        justify-content: center;  /* 水平居中 */
+        overflow: hidden;
+        left: 10px;
+        top: 100px;
+        flex-direction: row;
+    }
+
+    /* 展开状态 */
+    .price-panel.active {
+        width: auto;
+        height: auto;
+        padding: 15px 20px;
+        flex-direction: column;
+        align-items: flex-start;      /* 内容靠左 */
+        justify-content: flex-start;  /* 内容靠上 */
+    }
+
+    .price-toggle {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2em;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    .price-panel.active .price-toggle {
+        width: auto;
+        height: auto;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-bottom: 15px;
+    }
+
+    .price-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+    }
+
+    .price-panel.active .price-content {
+        max-height: 500px;
+    }
+}
             
             .price-panel.active .price-content {
                 max-height: 500px;
