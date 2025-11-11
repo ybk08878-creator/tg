@@ -140,7 +140,7 @@
         }
 
         .card {
-            width: 200px; 
+            width: 280px; 
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -166,6 +166,46 @@
             color: #ff99aa;
         }
 
+        .card-tip {
+            width: 100%;
+            margin: 5px 0;
+            font-size: 25px;
+            line-height: 1.3;
+            color: #ff6b9c;
+            text-align: center;
+            font-family: 'Noto Serif TC', serif;
+            padding: 0 10px;
+            font-weight: bold;
+        }
+
+        .card-info {
+            width: 100%;
+            margin-top: 5px;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #c4b8e0;
+            text-align: left;
+            font-family: 'Noto Serif TC', serif;
+            padding: 0 15px;
+        }
+
+        .card-info p {
+            margin: 2px 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #ffb3c6;
+            margin-right: 5px;
+            min-width: 40px;
+        }
+
+        .info-value {
+            color: #ffe3e8;
+        }
         
         .card-detail {
             display: none;
@@ -231,7 +271,6 @@
             line-height: 1.6;
         }
         
-        
         .image-carousel {
             margin: 15px 0;
             text-align: center;
@@ -294,7 +333,6 @@
             border: 1px solid rgba(255, 153, 170, 0.4);
         }
 
-        
         .contact-btn {
             position: fixed;
             bottom: 20px;
@@ -476,7 +514,6 @@
     	    display: none;
 	}
 
-
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.3; }
@@ -549,7 +586,6 @@
         .no-btn:hover { background: #6e2a75; }
         .yes-btn:hover { background: #ff6f8a; }
 
-        
         @media (max-width: 768px) {
             .title {
                 font-size: 2.5em;
@@ -567,7 +603,7 @@
             }
             
             .card {
-                width: 180px;
+                width: 240px;
             }
             
             .card-detail {
@@ -595,7 +631,6 @@
                 font-size: 1.8em;
             }
             
-           
             .image-carousel img {
                 max-height: 220px;
             }
@@ -618,7 +653,7 @@
             }
             
             .card {
-                width: 160px;
+                width: 220px;
             }
             
             .card-name {
@@ -649,7 +684,6 @@
                 font-size: 1.4em;
             }
             
-       
             .image-carousel img {
                 max-height: 200px;
             }
@@ -662,7 +696,7 @@
     
     <div class="container">
         <h1 class="title">泰 雞 瑪 哈 陵</h1>
-        <p class="subtitle">營業時間：中午12:00 到 凌晨02:00<br>💗點擊展開詳細資訊💗</p>
+        <p class="subtitle">營業時間中午12:00到凌晨02:00<br>💗點擊展開詳細資訊💗</p>
         <div id="all-cards-display" class="cards-container"></div>
     </div>
     
@@ -757,58 +791,88 @@
 
             const fullTarotDeck = [
                 {
-                    name: '🥇TOP.1水水', 
+                    name: '🥇TOP.1水水',
                     title: '顏值第一名',
                     images: ['images/1.png', 'images/1-1.png', 'images/1-2.png'], 
                     video: 'videos/1.mp4',
-                    meaning: '161 / 50 / D',
+                    meaning: '<br>🔥  身材密碼：161 / 50 / D🔥',
                     keywords: '<br>LG<br>品鮑<br>69<br>胸推<br>屁推<br>毒龍<br>乳交',
-                    suggestion: '<br>2+1<br>3+1<br>口爆+500<br>顏射+500<br>包夜方案私訊'
+                    suggestion: '<br>2+1<br>3+1<br>口爆+500<br>顏射+500<br>包夜方案私訊',
+                    height: '161',
+                    weight: '50',
+                    cup: 'D',
+                    age: '26',
+                    tip: ''
                 },
                 {
-                    name: '🥈TOP.2柔柔', 
-                    title: '巨乳小隻馬', 
-                    images: ['images/2.png', 'images/2-1.png', 'images/2-2.png'], 
-                    video: 'videos/2.mp4',
-                    meaning: '150 / 48 / E',
-                    keywords: '<br>LG<br>品鮑<br>69<br>胸推<br>屁推<br>毒龍<br>乳交',
-                    suggestion: '<br>2+1<br>3+1<br>口爆+500<br>顏射+500<br>包夜方案私訊'
-                },
-                {
-                    name: '🥉TOP.3瑤瑤', 
+                    name: '🥈TOP.2瑤瑤',
                     title: '巨乳の御姐', 
                     images: ['images/3.png', 'images/3-1.png', 'images/3-2.png'], 
                     video: 'videos/3.mp4',
-                    meaning: '165 / 50 / E',
+                    meaning: '<br>🔥  身材密碼：165 / 50 / E🔥',
                     keywords: '<br>LG<br>品鮑<br>69<br>深喉嚨<br>按摩<br>乳交',
-                    suggestion: '<br>無套+1000<br>口爆+500<br>顏射+500<br>自慰秀+500<br>攝影+1000<br>2+1<br>3+1<br>包夜方案私訊'
+                    suggestion: '<br>無套+1000<br>口爆+500<br>顏射+500<br>自慰秀+500<br>攝影+1000<br>2+1<br>3+1<br>包夜方案私訊',
+                    height: '165',
+                    weight: '50',
+                    cup: 'E',
+                    age: '26',
+                    tip: ''
                 },
                 {
-                    name: '粿粿', 
+                    name: '🥉TOP.3粿粿',
                     title: '愛撒嬌甜妹', 
                     images: ['images/4.png', 'images/4-1.png', 'images/4-2.png'], 
                     video: 'videos/4.mp4',
-                    meaning: '165 / 50 / D',
+                    meaning: '<br>🔥  身材密碼：165 / 50 / D🔥',
                     keywords: '<br>LG<br>品鮑<br>69<br>胸推<br>屁推<br>乳交',
-                    suggestion: '<br>2+1<br>3+1<br>口爆+500<br>顏射+500<br>包夜方案私訊'
+                    suggestion: '<br>2+1<br>3+1<br>口爆+500<br>顏射+500<br>包夜方案私訊',
+                    height: '165',
+                    weight: '50',
+                    cup: 'D',
+                    age: '25',
+                    tip: ''
                 },
                 {
-                    name: '兔兔', 
+                    name: '兔兔',
                     title: '甜美兔女郎', 
                     images: ['images/5.png', 'images/5-1.png', 'images/5-2.png'], 
                     video: 'videos/5.mp4',
-                    meaning: '160 / 50 / D',
+                    meaning: '<br>🔥  身材密碼：160 / 50 / D🔥',
                     keywords: '<br>乳交<br>品鮑<br>69<br>胸推<br>屁推',
-                    suggestion: '<br>2S+500<br>2+1'
+                    suggestion: '<br>2S+500<br>2+1',
+                    height: '160',
+                    weight: '50',
+                    cup: 'D',
+                    age: '27',
+                    tip: ''
                 },
                 {
-                    name: '哈尼', 
+                    name: '哈尼',
                     title: '騷氣小狐狸', 
                     images: ['images/6.png', 'images/6-1.png', 'images/6-2.png'], 
                     video: 'videos/6.mp4',
-                    meaning: '155 / 43 / D',
+                    meaning: '<br>🔥  身材密碼：155 / 43 / D🔥',
                     keywords: '<br>LG<br>品鮑<br>69<br>胸推<br>屁推<br>乳交',
-                    suggestion: '<br>2+1<br>3+1<br>口爆+500<br>顏射+500<br>2S+500<br>無套+1000'
+                    suggestion: '<br>2+1<br>3+1<br>口爆+500<br>顏射+500<br>2S+500<br>無套+1000',
+                    height: '155',
+                    weight: '43',
+                    cup: 'D',
+                    age: '26',
+                    tip: ''
+                },
+                {
+                    name: '❕隱藏版-安琪❕',
+                    title: '高高支 顏值第一名', 
+                    images: ['images/7.png', 'images/7-1.png', 'images/7-2.png'], 
+                    video: 'videos/6.mp4',
+                    meaning: '<br>🔥  身材密碼：168 / 48 / D🔥',
+                    keywords: '<br>㊙️<br>㊙️<br>㊙️',
+                    suggestion: '<br>㊙️<br>㊙️<br>㊙️',
+                    height: '168',
+                    weight: '48',
+                    cup: 'D',
+                    age: '24',
+                    tip: '提示：<br>高高支 顏值第一名<br>真的很漂亮！！'
                 }
             ];
 
@@ -877,9 +941,21 @@
                     cardDetail.classList.add('active');
                 });
 
+                const cardTipHTML = card.tip ? `<div class="card-tip">${card.tip}</div>` : '';
+                const cardInfoHTML = `
+                    <div class="card-info">
+                        <p><span class="info-label">身高：</span><span class="info-value">${card.height} cm</span></p>
+                        <p><span class="info-label">體重：</span><span class="info-value">${card.weight} kg</span></p>
+                        <p><span class="info-label">罩杯：</span><span class="info-value">${card.cup}</span></p>
+                        <p><span class="info-label">年齡：</span><span class="info-value">${card.age} 歲</span></p>
+                    </div>
+                `;
+
                 cardDiv.innerHTML = `
                     <img src="${card.images[0]}" alt="${card.name}" />
                     <h3 class="card-name">${card.name}</h3>
+                    ${cardTipHTML}
+                    ${cardInfoHTML}
                 `;
                 return cardDiv;
             }
@@ -913,13 +989,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
