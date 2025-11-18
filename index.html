@@ -18,7 +18,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Noto Serif TC', serif;
             margin: 0;
@@ -27,8 +27,8 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            background-color: #1c0a1f; 
-            color: #ffe3e8; 
+            background-color: #1c0a1f;
+            color: #ffe3e8;
             overflow-x: hidden;
             line-height: 1.7;
             position: relative;
@@ -94,12 +94,12 @@
             pointer-events: none;
             z-index: 0;
         }
-        
+
         @keyframes meteorMove {
             0% { transform: translateX(0px) translateY(-50px) rotate(45deg); opacity: 0.8; }
             100% { transform: translateX(400px) translateY(400px) rotate(45deg); opacity: 0; }
         }
-        
+
         .container {
             text-align: center;
             position: relative;
@@ -127,10 +127,10 @@
         }
 
         .cards-container {
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            gap: 50px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
             padding: 30px;
             background-color: rgba(28, 10, 31, 0.7);
             backdrop-filter: blur(15px);
@@ -140,13 +140,13 @@
         }
 
         .card {
-            width: 280px; 
+            width: 280px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             position: relative;
-            cursor: pointer; 
+            cursor: pointer;
             transition: transform 0.3s ease-in-out;
         }
 
@@ -206,7 +206,7 @@
         .info-value {
             color: #ffe3e8;
         }
-        
+
         .card-detail {
             display: none;
             position: fixed;
@@ -226,14 +226,15 @@
             overflow-y: auto;
             z-index: 1000;
         }
-	
-	.card-detail {
-	    scrollbar-width: none; 
-	    -ms-overflow-style: none;
-	}
 
-	.card-detail::-webkit-scrollbar {
-	    display: none; 	}
+        .card-detail {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .card-detail::-webkit-scrollbar {
+            display: none;
+        }
 
 
         .card-detail.active {
@@ -241,23 +242,23 @@
             animation: fadeIn 0.3s ease;
         }
 
-	body {
-	    scrollbar-width: none; 
-	    -ms-overflow-style: none; 
-	}
+        body {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
 
-	body::-webkit-scrollbar {
-	    display: none;
-	}
+        body::-webkit-scrollbar {
+            display: none;
+        }
 
-	html {
-	    scrollbar-width: none; 
-	    -ms-overflow-style: none; 
-	}
-	
-	html::-webkit-scrollbar {
-	    display: none; 
-	}
+        html {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        html::-webkit-scrollbar {
+            display: none;
+        }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
@@ -283,7 +284,7 @@
         }
 
         .label {
-            font-size: 1.4em; 
+            font-size: 1.4em;
             font-weight: bold;
             color: #ffb3c6;
             margin-right: 5px;
@@ -297,29 +298,29 @@
             font-size: 1.25em;
             line-height: 1.6;
         }
-        
+
         .image-carousel {
             margin: 15px 0;
             text-align: center;
         }
-        
+
         .image-carousel img {
             max-width: 100%;
-            max-height: 200px; 
+            max-height: 200px;
             width: auto;
             height: auto;
             border-radius: 8px;
             border: 1px solid rgba(255, 153, 170, 0.4);
-            object-fit: contain; 
+            object-fit: contain;
         }
-        
+
         .carousel-controls {
             margin-top: 10px;
             display: flex;
             justify-content: center;
             gap: 10px;
         }
-        
+
         .carousel-controls button {
             background: rgba(255, 153, 170, 0.3);
             border: none;
@@ -329,30 +330,30 @@
             cursor: pointer;
             transition: background 0.3s;
         }
-        
+
         .carousel-controls button:hover {
             background: rgba(255, 153, 170, 0.6);
         }
-        
+
         .carousel-indicator {
             margin-top: 5px;
             font-size: 0.9em;
             color: #c4b8e0;
         }
-        
+
         .video-section {
             margin-top: 15px;
             border-top: 1px solid rgba(255, 153, 170, 0.2);
             padding-top: 15px;
         }
-        
+
         .video-section h5 {
             font-family: 'Cinzel Decorative', serif;
             font-size: 1.2em;
             color: #f85d85;
             margin-bottom: 10px;
         }
-        
+
         .video-player {
             width: 100%;
             max-width: 280px;
@@ -366,7 +367,7 @@
             right: 20px;
             width: 60px;
             height: 60px;
-            background-color: #ff99aa; 
+            background-color: #ff99aa;
             color: #1c0a1f;
             border-radius: 50%;
             display: flex;
@@ -387,12 +388,12 @@
 
         .contact-panel {
             position: fixed;
-            bottom: 90px; 
+            bottom: 90px;
             right: 20px;
             width: 280px;
             max-width: calc(100vw - 40px);
             padding: 20px;
-            background-color: rgba(28, 10, 31, 0.95); 
+            background-color: rgba(28, 10, 31, 0.95);
             backdrop-filter: blur(15px);
             border-radius: 15px;
             border: 1px solid rgba(255, 153, 170, 0.6);
@@ -456,11 +457,11 @@
                 width: auto;
                 min-width: 180px;
             }
-            
+
             .price-content {
                 max-height: 1000px;
             }
-            
+
             .price-toggle {
                 display: none;
             }
@@ -519,7 +520,7 @@
                 max-height: 500px;
             }
         }
-            
+
         .contact-arrow {
             position: fixed;
             bottom: 90px;
@@ -532,14 +533,14 @@
         }
 
         .contact-arrow i {
-            font-size: 48px;      
-            color: #fff;        
+            font-size: 48px;
+            color: #fff;
             animation: blink 1s infinite, bounce 1.5s infinite;
         }
-	
-	.contact-panel[style*="display: block"] ~ .contact-arrow {
-    	    display: none;
-	}
+
+        .contact-panel[style*="display: block"] ~ .contact-arrow {
+            display: none;
+        }
 
         @keyframes blink {
             0%, 100% { opacity: 1; }
@@ -562,7 +563,7 @@
             align-items: center;
             z-index: 9999;
         }
-        
+
         .confirm-box {
             background: #2a122f;
             border: 2px solid #ff99aa;
@@ -576,20 +577,20 @@
             font-family: 'Noto Serif TC', serif;
             margin: 20px;
         }
-        
+
         .confirm-box h3 {
             margin: 0 0 15px;
             font-size: 1.4em;
             color: #ff99aa;
         }
-        
+
         .button-group {
             margin-top: 20px;
             display: flex;
             justify-content: space-between;
             gap: 10px;
         }
-        
+
         .confirm-box button {
             width: 45%;
             padding: 10px;
@@ -599,12 +600,12 @@
             border: none;
             font-family: 'Noto Serif TC';
         }
-        
+
         .yes-btn {
             background: #ff99aa;
             color: #2a122f;
         }
-        
+
         .no-btn {
             background: #4a1d4f;
             color: #ffdee7;
@@ -618,32 +619,32 @@
                 font-size: 2.5em;
                 letter-spacing: 2px;
             }
-            
+
             .subtitle {
                 font-size: 1.2em;
                 margin-bottom: 30px;
             }
-            
+
             .cards-container {
                 padding: 20px;
                 gap: 30px;
             }
-            
+
             .card {
                 width: 280px;
             }
-            
+
             .card-detail {
                 width: 280px;
                 padding: 20px;
             }
-            
+
             .contact-panel {
                 width: 250px;
                 right: 10px;
                 bottom: 80px;
             }
-            
+
             .contact-btn {
                 right: 15px;
                 bottom: 15px;
@@ -651,13 +652,13 @@
                 height: 55px;
                 font-size: 1.6em;
             }
-            
+
             .contact-arrow {
                 right: 15px;
                 bottom: 80px;
                 font-size: 1.8em;
             }
-            
+
             .image-carousel img {
                 max-height: 220px;
             }
@@ -668,41 +669,41 @@
                 font-size: 2em;
                 letter-spacing: 1px;
             }
-            
+
             .subtitle {
                 font-size: 1em;
                 margin-bottom: 20px;
             }
-            
+
             .cards-container {
                 padding: 15px;
                 gap: 20px;
             }
-            
+
             .card {
                 width: 260px;
             }
-            
+
             .card-name {
                 font-size: 1.5em;
             }
-            
+
             .card-detail {
                 width: 260px;
                 padding: 15px;
             }
-            
+
             .card-detail h4 {
                 font-size: 1.4em;
             }
-            
+
             .contact-panel {
                 width: 220px;
                 right: 10px;
                 bottom: 70px;
                 padding: 15px;
             }
-            
+
             .contact-btn {
                 right: 10px;
                 bottom: 10px;
@@ -710,7 +711,7 @@
                 height: 50px;
                 font-size: 1.4em;
             }
-            
+
             .image-carousel img {
                 max-height: 200px;
             }
@@ -720,17 +721,17 @@
 <body>
     <div class="background-animation"></div>
     <div class="star-field"></div>
-    
+
     <div class="container">
         <h1 class="title">泰 雞 瑪 哈 陵</h1>
         <p class="subtitle">營業時間中午12:00到凌晨02:00<br>💗點擊展開詳細資訊💗</p>
         <div id="all-cards-display" class="cards-container"></div>
     </div>
-    
+
     <div class="overlay" id="overlay"></div>
-    
+
     <div class="card-detail" id="card-detail"></div>
-    
+
     <div class="contact-btn" id="contact-btn"><i class="fas fa-comment-dots"></i></div>
     <div class="contact-panel" id="contact-panel">
         <h4 style="color: #ff99aa;">聯絡我們！</h4>
@@ -749,7 +750,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="contact-arrow"><i class="fas fa-arrow-down"></i></div>
 
     <div class="price-panel" id="price-panel">
@@ -762,7 +763,7 @@
             <p>💕包夜方案請至右下角私訊💕</p>
         </div>
     </div>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const allCardsDisplay = document.getElementById('all-cards-display');
@@ -779,7 +780,7 @@
                     pricePanel.classList.toggle('active');
                 });
             }
-            
+
             contactBtn.addEventListener('click', () => {
                 contactPanel.style.display = contactPanel.style.display === 'block' ? 'none' : 'block';
             });
@@ -795,7 +796,7 @@
                 for (let i = 0; i < numberOfStars; i++) {
                     const star = document.createElement('div');
                     star.className = 'star';
-                    const size = Math.random() * 2 + 1; 
+                    const size = Math.random() * 2 + 1;
                     star.style.width = `${size}px`;
                     star.style.height = `${size}px`;
                     star.style.top = `${Math.random() * 100}%`;
@@ -810,126 +811,126 @@
                 const meteor = document.createElement('div');
                 meteor.className = 'meteor';
                 meteor.style.left = `${Math.random() * 100}%`;
-                meteor.style.top = `${Math.random() * 20}%`; 
+                meteor.style.top = `${Math.random() * 20}%`;
                 starField.appendChild(meteor);
                 meteor.addEventListener('animationend', () => meteor.remove());
             }
             setInterval(createMeteor, 3000);
 
             const fullTarotDeck = [
-    {
-        name: '🥇TOP.1天天',
-        title: '<br>頂級小嫩模', 
-        images: ['images/9.png', 'images/9-1.png', 'images/9-2.png'], 
-        video: 'videos/9.mp4',
-        meaning: '<br>🔥  身材密碼：160 / 40 / C🔥',
-        keywords: '<br>無套吹<br>小親親<br>深喉嚨<br>品鮑<br>69<br>奶炮',
-        suggestion: '<br>2+1<br>3+1<br>2s+500',
-        height: '160',
-        weight: '40',
-        cup: 'C',
-        age: '23',
-        tip: ''
-    },
-    {
-        name: '🥈TOP.2可可',
-        title: '<br>日泰混血', 
-        images: ['images/5.png', 'images/5-1.png', 'images/5-2.png'], 
-        video: 'videos/5.mp4',
-        meaning: '<br>🔥  身材密碼：163 / 55 / E🔥',
-        keywords: '<br>LG<br>69<br>舔蛋<br>深喉嚨<br>毒龍<br>雙王<br>無套吹',
-        suggestion: '<br>2S+500<br>口爆+500<br>後門+500<br>無套+1000<br>攝影+1000',
-        height: '163',
-        weight: '55',
-        cup: 'E',
-        age: '24',
-        tip: ''
-    },
-    {
-        name: '🥉TOP.3粿粿',
-        title: '<br>愛撒嬌甜妹', 
-        images: ['images/4.png', 'images/4-1.png', 'images/4-2.png'], 
-        video: 'videos/4.mp4',
-        meaning: '<br>🔥  身材密碼：165 / 50 / D🔥',
-        keywords: '<br>LG<br>品鮑<br>69<br>胸推<br>屁推<br>乳交',
-        suggestion: '<br>2+1<br>3+1<br>口爆+500<br>顏射+500<br>包夜方案私訊',
-        height: '165',
-        weight: '50',
-        cup: 'D',
-        age: '25',
-        tip: ''
-    },
-    {
-        name: '茶茶',
-        title: '<br>騷氣小隻馬', 
-        images: ['images/1.png', 'images/1-1.png', 'images/1-2.png'], 
-        video: 'videos/1.mp4',
-        meaning: '<br>🔥  身材密碼：160 / 45 / C🔥',
-        keywords: '<br>LG<br>69<br>水中蕭<br>胸推<br>屁推<br>雙王<br>無套',
-        suggestion: '<br>2+1<br>3+1<br>口爆+500<br>顏射+500<br>2S+500<br>包夜方案私訊',
-        height: '160',
-        weight: '45',
-        cup: 'C',
-        age: '26',
-        tip: ''
-    },
-    {
-        name: '珍珍',
-        title: '<br>深喉嚨專家', 
-        images: ['images/2.png', 'images/2-1.png', 'images/2-2.png'], 
-        video: 'videos/2.mp4',
-        meaning: '<br>🔥  身材密碼：165 / 45 / D🔥',
-        keywords: '<br>LG<br>69<br>舔蛋<br>品鮑<br>乳交<br>無套吹',
-        suggestion: '',
-        height: '165',
-        weight: '45',
-        cup: 'D',
-        age: '24',
-        tip: ''
-    },
-    {
-        name: '瑤瑤',
-        title: '<br>巨乳の御姐', 
-        images: ['images/3.png', 'images/3-1.png', 'images/3-2.png'], 
-        video: 'videos/3.mp4',
-        meaning: '<br>🔥  身材密碼：165 / 50 / E🔥',
-        keywords: '<br>LG<br>品鮑<br>69<br>深喉嚨<br>按摩<br>乳交',
-        suggestion: '<br>無套+1000<br>口爆+500<br>顏射+500<br>自慰秀+500<br>攝影+1000<br>2+1<br>3+1<br>包夜方案私訊',
-        height: '165',
-        weight: '50',
-        cup: 'E',
-        age: '26',
-        tip: ''
-    },
-    {
-        name: '哈尼',
-        title: '<br>騷氣小狐狸', 
-        images: ['images/6.png', 'images/6-1.png', 'images/6-2.png'], 
-        video: 'videos/6.mp4',
-        meaning: '<br>🔥  身材密碼：155 / 43 / D🔥',
-        keywords: '<br>LG<br>品鮑<br>69<br>胸推<br>屁推<br>乳交',
-        suggestion: '<br>2+1<br>3+1<br>口爆+500<br>顏射+500<br>2S+500<br>無套+1000',
-        height: '155',
-        weight: '43',
-        cup: 'D',
-        age: '26',
-        tip: ''
-    },
-    {
-        name: '❕隱藏版-不定期報班❕',
-        title: '<br>顏值第一名', 
-        images: ['images/7.png', 'images/7-1.png', 'images/7-2.png'], 
-        video: 'videos/7.mp4',
-        meaning: '<br>🔥  身材密碼：168 / 48 / D🔥',
-        keywords: '<br>㊙️<br>㊙️<br>㊙️',
-        suggestion: '<br>㊙️<br>㊙️<br>㊙️',
-        height: '168',
-        weight: '48',
-        cup: 'D',
-        age: '24',
-        tip: '提示：<br>高高支 顏值第一名<br>真的很漂亮！！'
-    }
-];
+                {
+                    name: '🥇TOP.1天天',
+                    title: '<br>頂級小嫩模',
+                    images: ['images/9.png', 'images/9-1.png', 'images/9-2.png'],
+                    video: 'videos/9.mp4',
+                    meaning: '<br>🔥  身材密碼：160 / 40 / C🔥',
+                    keywords: '<br>無套吹<br>小親親<br>深喉嚨<br>品鮑<br>69<br>奶炮',
+                    suggestion: '<br>2+1<br>3+1<br>2s+500',
+                    height: '160',
+                    weight: '40',
+                    cup: 'C',
+                    age: '23',
+                    tip: ''
+                },
+                {
+                    name: '🥈TOP.2可可',
+                    title: '<br>日泰混血',
+                    images: ['images/5.png', 'images/5-1.png', 'images/5-2.png'],
+                    video: 'videos/5.mp4',
+                    meaning: '<br>🔥  身材密碼：163 / 55 / E🔥',
+                    keywords: '<br>LG<br>69<br>舔蛋<br>深喉嚨<br>毒龍<br>雙王<br>無套吹',
+                    suggestion: '<br>2S+500<br>口爆+500<br>後門+500<br>無套+1000<br>攝影+1000',
+                    height: '163',
+                    weight: '55',
+                    cup: 'E',
+                    age: '24',
+                    tip: ''
+                },
+                {
+                    name: '🥉TOP.3粿粿',
+                    title: '<br>愛撒嬌甜妹',
+                    images: ['images/4.png', 'images/4-1.png', 'images/4-2.png'],
+                    video: 'videos/4.mp4',
+                    meaning: '<br>🔥  身材密碼：165 / 50 / D🔥',
+                    keywords: '<br>LG<br>品鮑<br>69<br>胸推<br>屁推<br>乳交',
+                    suggestion: '<br>2+1<br>3+1<br>口爆+500<br>顏射+500<br>包夜方案私訊',
+                    height: '165',
+                    weight: '50',
+                    cup: 'D',
+                    age: '25',
+                    tip: ''
+                },
+                {
+                    name: '茶茶',
+                    title: '<br>騷氣小隻馬',
+                    images: ['images/1.png', 'images/1-1.png', 'images/1-2.png'],
+                    video: 'videos/1.mp4',
+                    meaning: '<br>🔥  身材密碼：160 / 45 / C🔥',
+                    keywords: '<br>LG<br>69<br>水中蕭<br>胸推<br>屁推<br>雙王<br>無套',
+                    suggestion: '<br>2+1<br>3+1<br>口爆+500<br>顏射+500<br>2S+500<br>包夜方案私訊',
+                    height: '160',
+                    weight: '45',
+                    cup: 'C',
+                    age: '26',
+                    tip: ''
+                },
+                {
+                    name: '珍珍',
+                    title: '<br>深喉嚨專家',
+                    images: ['images/2.png', 'images/2-1.png', 'images/2-2.png'],
+                    video: 'videos/2.mp4',
+                    meaning: '<br>🔥  身材密碼：165 / 45 / D🔥',
+                    keywords: '<br>LG<br>69<br>舔蛋<br>品鮑<br>乳交<br>無套吹',
+                    suggestion: '',
+                    height: '165',
+                    weight: '45',
+                    cup: 'D',
+                    age: '24',
+                    tip: ''
+                },
+                {
+                    name: '瑤瑤',
+                    title: '<br>巨乳の御姐',
+                    images: ['images/3.png', 'images/3-1.png', 'images/3-2.png'],
+                    video: 'videos/3.mp4',
+                    meaning: '<br>🔥  身材密碼：165 / 50 / E🔥',
+                    keywords: '<br>LG<br>品鮑<br>69<br>深喉嚨<br>按摩<br>乳交',
+                    suggestion: '<br>無套+1000<br>口爆+500<br>顏射+500<br>自慰秀+500<br>攝影+1000<br>2+1<br>3+1<br>包夜方案私訊',
+                    height: '165',
+                    weight: '50',
+                    cup: 'E',
+                    age: '26',
+                    tip: ''
+                },
+                {
+                    name: '哈尼',
+                    title: '<br>騷氣小狐狸',
+                    images: ['images/6.png', 'images/6-1.png', 'images/6-2.png'],
+                    video: 'videos/6.mp4',
+                    meaning: '<br>🔥  身材密碼：155 / 43 / D🔥',
+                    keywords: '<br>LG<br>品鮑<br>69<br>胸推<br>屁推<br>乳交',
+                    suggestion: '<br>2+1<br>3+1<br>口爆+500<br>顏射+500<br>2S+500<br>無套+1000',
+                    height: '155',
+                    weight: '43',
+                    cup: 'D',
+                    age: '26',
+                    tip: ''
+                },
+                {
+                    name: '❕隱藏版-不定期報班❕',
+                    title: '<br>顏值第一名',
+                    images: ['images/7.png', 'images/7-1.png', 'images/7-2.png'],
+                    video: 'videos/7.mp4',
+                    meaning: '<br>🔥  身材密碼：168 / 48 / D🔥',
+                    keywords: '<br>㊙️<br>㊙️<br>㊙️',
+                    suggestion: '<br>㊙️<br>㊙️<br>㊙️',
+                    height: '168',
+                    weight: '48',
+                    cup: 'D',
+                    age: '24',
+                    tip: '提示：<br>高高支 顏值第一名<br>真的很漂亮！！'
+                }
+            ];
 
 
             function createCardElement(card) {
@@ -980,13 +981,13 @@
                         let index = 0;
                         const carouselImage = document.getElementById('carousel-image');
                         const carouselIndicator = document.getElementById('carousel-indicator');
-                        
+
                         document.getElementById('prev-img').onclick = () => {
                             index = (index - 1 + card.images.length) % card.images.length;
                             carouselImage.src = card.images[index];
                             carouselIndicator.textContent = `${index + 1} / ${card.images.length}`;
                         };
-                        
+
                         document.getElementById('next-img').onclick = () => {
                             index = (index + 1) % card.images.length;
                             carouselImage.src = card.images[index];
@@ -1026,18 +1027,18 @@
             });
 
             function renderAllCards() {
-                allCardsDisplay.innerHTML = ''; 
+                allCardsDisplay.innerHTML = '';
                 fullTarotDeck.forEach(card => {
                     const cardElement = createCardElement(card);
                     allCardsDisplay.appendChild(cardElement);
                 });
             }
             renderAllCards();
-            
+
             document.getElementById("yes-btn").onclick = function () {
                 document.getElementById("age-confirm").style.display = "none";
             };
-            
+
             document.getElementById("no-btn").onclick = function () {
                 window.location.href = "about:blank";
             };
@@ -1045,4 +1046,3 @@
     </script>
 </body>
 </html>
-
