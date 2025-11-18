@@ -291,7 +291,6 @@
             transform: scale(1.15);
         }
 
-        /* --- 以下是卡片详情和关闭按钮的修改区域 --- */
         .card-detail {
             display: none;
             position: fixed;
@@ -314,11 +313,11 @@
         }
 
 	    .card-detail {
-	        scrollbar-width: none !important; /* Firefox 隐藏滚动条 */
+	        scrollbar-width: none !important;
 	    }
 
 	    .card-detail::-webkit-scrollbar {
-	        display: none; /* Chrome, Safari 隐藏滚动条 */
+	        display: none;
 	    }
 
         
@@ -330,12 +329,11 @@
             }
         }
         
-        /* 关键修复：关闭按钮使用 sticky 定位，并强制浮动到右侧 */
         .close-btn {
-            position: sticky; /* 粘性定位，确保垂直固定在顶部 */
-            top: 0;           /* 固定在弹窗顶部边缘 */
+            position: sticky;
+            top: 0;
             
-            float: right; /* <<< 关键修改: 强制浮动到右侧 */
+            float: right;
             
             color: #ff99aa;
             font-size: 1.8em;
@@ -343,15 +341,13 @@
             transition: color 0.3s;
             z-index: 1010;
             
-            /* 确保背景覆盖滚动内容，并调整位置 */
             background-color: rgba(28, 10, 31, 0.95);
             border-radius: 0 15px 0 15px; 
             padding: 5px 10px;
             
-            /* 调整 margin: 抵消父元素 (card-detail) 的 25px padding，并将左侧 margin 设为 0 */
-            margin: -25px -25px 0 0; /* <<< 关键修改: 将左侧的 auto 移除，使用 0 */
+            margin: -25px -25px 0 0;
             
-            display: inline-block; /* 保持为 inline-block 以支持 padding/margin */
+            display: inline-block;
             width: fit-content;
         }
 
@@ -386,13 +382,11 @@
         
         @media (max-width: 768px) {
             .close-btn {
-                margin: -20px -15px 0 0; /* 适应小屏幕的 padding 调整 */
+                margin: -20px -15px 0 0;
                 padding: 5px 8px;
                 border-radius: 0 15px 0 15px; 
             }
         }
-        /* --- 结束修改区域 --- */
-
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translate(-50%, -50%) scale(0.95); }
@@ -408,7 +402,6 @@
             padding-bottom: 10px;
             margin-bottom: 15px;
             text-align: center;
-            /* 关键：由于关闭按钮 float 了，我们需要确保 h4 在关闭按钮下面 */
             clear: right; 
         }
 
