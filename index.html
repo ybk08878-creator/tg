@@ -16,7 +16,6 @@
             box-sizing: border-box;
         }
 
-        /* 整体风格 */
         body {
             font-family: 'Noto Serif TC', 'Microsoft JhengHei', serif;
             margin: 0;
@@ -30,10 +29,9 @@
             overflow-x: hidden;
             line-height: 1.7;
             position: relative;
-            padding-bottom: 70px; /* 增加底部空间，避免遮挡 */
+            padding-bottom: 70px;
         }
 
-        /* 背景动画与星星 */
         .background-animation, .star-field {
             position: fixed;
             top: 0;
@@ -96,13 +94,12 @@
             100% { transform: translateX(400px) translateY(400px) rotate(45deg); opacity: 0; }
         }
 
-        /* 主要内容容器 */
         .container {
             text-align: center;
             position: relative;
             z-index: 10;
             padding: 40px 20px;
-            max-width: 1000px; /* 增加最大宽度以容纳更多卡片 */
+            max-width: 1000px;
             width: 95%;
             margin: 50px auto;
             opacity: 0;
@@ -131,12 +128,11 @@
             color: #ffdce6;
         }
 
-        /* 卡片容器优化：使用 Grid 布局 */
         .cards-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 自动适应，最小宽度 280px */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             justify-items: center;
-            gap: 35px; /* 减小间隔，更紧凑 */
+            gap: 35px;
             padding: 30px;
             background-color: rgba(28, 10, 31, 0.7);
             backdrop-filter: blur(15px);
@@ -145,10 +141,9 @@
             box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 153, 170, 0.15);
         }
 
-        /* 单个卡片 */
         .card {
-            width: 100%; /* 占满 grid 单元格宽度 */
-            max-width: 320px; /* 稍微放大最大宽度 */
+            width: 100%;
+            max-width: 320px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -158,20 +153,20 @@
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
             border-radius: 10px;
             padding-bottom: 15px;
-            background-color: rgba(0, 0, 0, 0.2); /* 增加卡片背景，增强立体感 */
+            background-color: rgba(0, 0, 0, 0.2);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         }
 
         .card:hover {
-            transform: translateY(-8px) scale(1.03); /* 提升抬升高度和缩放 */
+            transform: translateY(-8px) scale(1.03);
             box-shadow: 0 18px 40px rgba(255, 153, 170, 0.4), 0 5px 15px rgba(0, 0, 0, 0.9);
         }
 
         .card img {
-            width: 100%; /* 确保图片完全填充卡片宽度 */
+            width: 100%;
             height: auto;
             border: 3px solid rgba(248, 93, 133, 0.8);
-            border-radius: 10px 10px 0 0; /* 仅顶部圆角 */
+            border-radius: 10px 10px 0 0;
             box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
             object-fit: cover;
         }
@@ -199,7 +194,6 @@
             font-weight: bold;
         }
         
-        /* 卡片信息区优化 */
         .card-info {
             width: 100%;
             margin-top: 5px;
@@ -211,9 +205,9 @@
             padding: 0 15px;
             border-top: 1px dashed rgba(255, 153, 170, 0.2);
             padding-top: 10px;
-            display: flex; /* 使用 flex 布局 */
-            justify-content: space-around; /* 均匀分布 */
-            flex-wrap: wrap; /* 手机上换行 */
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
         }
 
         .card-info p {
@@ -223,7 +217,6 @@
             align-items: center;
         }
         
-        /* 手机上优化卡片信息显示 */
         @media (max-width: 480px) {
             .card-info {
                 font-size: 13px;
@@ -231,7 +224,7 @@
                 justify-content: space-between;
             }
             .card-info p {
-                width: 45%; /* 每行显示两个属性 */
+                width: 45%;
             }
         }
 
@@ -265,7 +258,6 @@
             transform: scale(1.15);
         }
 
-        /* 详细信息模态框优化 */
         .card-detail {
             display: none;
             position: fixed;
@@ -279,9 +271,9 @@
             border-radius: 15px;
             box-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
             text-align: left;
-            width: 400px; /* 稍微放大电脑版模态框 */
+            width: 400px;
             max-width: 95vw;
-            max-height: 90vh; /* 允许更大高度 */
+            max-height: 90vh;
             overflow-y: auto;
             z-index: 1000;
             transform-origin: center;
@@ -291,14 +283,14 @@
             .card-detail {
                 width: 90vw;
                 max-height: 90vh;
-                padding: 20px 15px; /* 手机内边距调整 */
+                padding: 20px 15px;
             }
         }
 
         .close-btn {
-            position: sticky; /* 使得关闭按钮在滚动时也可见 */
-            top: -15px; /* 调整位置 */
-            align-self: flex-end; /* 放置在右上方 */
+            position: sticky;
+            top: -15px;
+            align-self: flex-end;
             color: #ff99aa;
             font-size: 1.8em;
             cursor: pointer;
@@ -314,7 +306,6 @@
             transform: scale(1.1);
         }
 
-        /* 滚动条样式优化 */
         .card-detail {
             scrollbar-width: thin;
             scrollbar-color: #ff99aa #2a122f;
@@ -335,7 +326,6 @@
             border: 2px solid #2a122f;
         }
 
-        /* 隐藏 body 和 html 滚动条（防止背景动画抖动） */
         body {
             scrollbar-width: none;
             -ms-overflow-style: none;
@@ -364,7 +354,6 @@
             to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
         }
 
-        /* 详细信息内容样式 */
         .card-detail h4 {
             font-family: 'Cinzel Decorative', serif;
             font-size: 1.6em;
@@ -404,7 +393,6 @@
             line-height: 1.6;
         }
 
-        /* 图片轮播 */
         .image-carousel {
             margin: 15px 0;
             text-align: center;
@@ -412,7 +400,7 @@
 
         .image-carousel img {
             max-width: 100%;
-            max-height: 250px; /* 增加最大高度 */
+            max-height: 250px;
             width: auto;
             height: auto;
             border-radius: 8px;
@@ -453,7 +441,6 @@
             align-self: center;
         }
 
-        /* 视频播放器优化 */
         .video-section {
             margin-top: 20px;
             border-top: 1px solid rgba(255, 153, 170, 0.2);
@@ -470,13 +457,12 @@
 
         .video-player {
             width: 100%;
-            max-width: 300px; /* 调整最大宽度 */
+            max-width: 300px;
             border-radius: 8px;
             border: 1px solid rgba(255, 153, 170, 0.4);
             height: auto;
         }
 
-        /* 底部联系按钮/面板 */
         .contact-btn {
             position: fixed;
             bottom: 20px;
@@ -541,12 +527,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.85); /* 遮罩更黑 */
+            background-color: rgba(0, 0, 0, 0.85);
             z-index: 999;
             display: none;
         }
 
-        /* 价格面板 */
         .price-panel {
             position: fixed;
             top: 120px;
@@ -582,7 +567,6 @@
             transition: max-height 0.5s ease;
         }
 
-        /* 电脑版价格面板 */
         @media (min-width: 769px) {
             .price-panel {
                 width: auto;
@@ -598,7 +582,6 @@
             }
         }
 
-        /* 手机版价格面板 */
         @media (max-width: 768px) {
             .price-panel {
                 width: 60px;
@@ -654,7 +637,6 @@
             }
         }
 
-        /* 联系箭头优化 */
         .contact-arrow {
             position: fixed;
             bottom: 90px;
@@ -664,7 +646,7 @@
             animation: bounce 1.5s infinite;
             z-index: 1001;
             filter: drop-shadow(0 0 8px rgba(255,153,170,0.6));
-            pointer-events: none; /* 确保不影响点击按钮 */
+            pointer-events: none;
         }
 
         .contact-arrow i {
@@ -687,7 +669,6 @@
             50% { transform: translateY(-10px); opacity: 1; }
         }
 
-        /* 年龄确认框 */
         .age-confirm {
             position: fixed;
             top: 0; left: 0;
@@ -735,7 +716,7 @@
         .button-group {
             margin-top: 20px;
             display: flex;
-            justify-content: space-around; /* 均匀分布 */
+            justify-content: space-around;
             gap: 15px;
         }
 
@@ -766,7 +747,6 @@
         .yes-btn:hover { background: #ff6f8a; color: #ffe3e8; transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0,0,0,0.3); }
         .yes-btn:active, .no-btn:active { transform: translateY(0); box-shadow: none; }
 
-        /* 响应式调整 */
         @media (max-width: 1024px) {
             .container {
                 max-width: 900px;
@@ -931,7 +911,6 @@
             const yesBtn = document.getElementById("yes-btn");
             const noBtn = document.getElementById("no-btn");
 
-            // --- 容器可见性检查（滚动动画） ---
             function checkContainerVisibility() {
                 const rect = container.getBoundingClientRect();
                 const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
@@ -941,16 +920,14 @@
                 }
             }
 
-            // --- 价格面板开关（手机版） ---
             if (window.innerWidth <= 768) {
                 priceToggle.addEventListener('click', () => {
                     pricePanel.classList.toggle('active');
                 });
             }
 
-            // --- 联系面板开关 ---
             contactBtn.addEventListener('click', (e) => {
-                e.stopPropagation(); // 阻止事件冒泡，防止触发 document 的关闭事件
+                e.stopPropagation();
                 contactPanel.style.display = contactPanel.style.display === 'block' ? 'none' : 'block';
             });
 
@@ -960,14 +937,13 @@
                 }
             });
 
-            // --- 背景动画优化：减少星星数量以提升移动设备性能 ---
             function createStars() {
                 const isMobile = window.innerWidth <= 768;
-                const numberOfStars = isMobile ? 80 : 150; // 手机上减少星星数量
+                const numberOfStars = isMobile ? 80 : 150;
                 for (let i = 0; i < numberOfStars; i++) {
                     const star = document.createElement('div');
                     star.className = 'star';
-                    const size = Math.random() * (isMobile ? 1.5 : 2.5) + 1; // 手机上星星更小
+                    const size = Math.random() * (isMobile ? 1.5 : 2.5) + 1;
                     star.style.width = `${size}px`;
                     star.style.height = `${size}px`;
                     star.style.top = `${Math.random() * 100}%`;
@@ -986,17 +962,15 @@
                 starField.appendChild(meteor);
                 meteor.addEventListener('animationend', () => meteor.remove());
             }
-            // 降低流星频率
             setInterval(createMeteor, 4500);
 
-            // --- 卡片数据 ---
             const fullTarotDeck = [
                 {
                     name: '🥇TOP.1天天',
                     title: '頂級小嫩模',
                     images: ['images/天天.png', 'images/天天1.png', 'images/天天2.png'],
                     video: 'videos/天天.mp4',
-                    meaning: '🔥 身材密碼：160 / 40 / C 🔥',
+                    meaning: '<br><br>🔥 身材密碼：160 / 40 / C 🔥',
                     keywords: ['無套吹', '小親親', '深喉嚨', '品鮑', '69', '奶炮'],
                     suggestion: '2+1<br>3+1<br>2s+500',
                     height: '160',
@@ -1010,7 +984,7 @@
                     title: '日泰混血',
                     images: ['images/可可.png', 'images/可可1.png', 'images/可可2.png'],
                     video: 'videos/可可.mp4',
-                    meaning: '🔥 身材密碼：163 / 55 / E 🔥',
+                    meaning: '<br><br>🔥 身材密碼：163 / 55 / E 🔥',
                     keywords: ['LG', '69', '舔蛋', '深喉嚨', '毒龍', '雙王', '無套吹'],
                     suggestion: '2S+500<br>口爆+500<br>後門+500<br>無套+1000<br>攝影+1000',
                     height: '163',
@@ -1024,7 +998,7 @@
                     title: '愛撒嬌甜妹',
                     images: ['images/粿粿.png', 'images/粿粿1.png', 'images/粿粿2.png'],
                     video: 'videos/粿粿.mp4',
-                    meaning: '🔥 身材密碼：165 / 50 / D 🔥',
+                    meaning: '<br><br>🔥 身材密碼：165 / 50 / D 🔥',
                     keywords: ['LG', '品鮑', '69', '胸推', '屁推', '乳交'],
                     suggestion: '2+1<br>3+1<br>口爆+500<br>顏射+500<br>包夜方案私訊',
                     height: '165',
@@ -1038,7 +1012,7 @@
                     title: '騷氣小隻馬',
                     images: ['images/茶茶.png', 'images/茶茶1.png', 'images/茶茶2.png'],
                     video: 'videos/茶茶.mp4',
-                    meaning: '🔥 身材密碼：160 / 45 / C 🔥',
+                    meaning: '<br><br>🔥 身材密碼：160 / 45 / C 🔥',
                     keywords: ['LG', '69', '水中蕭', '胸推', '屁推', '雙王', '無套'],
                     suggestion: '2+1<br>3+1<br>口爆+500<br>顏射+500<br>2S+500<br>包夜方案私訊',
                     height: '160',
@@ -1052,7 +1026,7 @@
                     title: '深喉嚨專家',
                     images: ['images/珍珍.png', 'images/珍珍1.png', 'images/珍珍2.png'],
                     video: 'videos/珍珍.mp4',
-                    meaning: '🔥 身材密碼：165 / 45 / D 🔥',
+                    meaning: '<br><br>🔥 身材密碼：165 / 45 / D 🔥',
                     keywords: ['LG', '69', '舔蛋', '品鮑', '乳交', '無套吹'],
                     suggestion: '',
                     height: '165',
@@ -1066,7 +1040,7 @@
                     title: '巨乳の御姐',
                     images: ['images/瑤瑤.png', 'images/瑤瑤1.png', 'images/瑤瑤2.png'],
                     video: 'videos/瑤瑤.mp4',
-                    meaning: '🔥 身材密碼：165 / 50 / E 🔥',
+                    meaning: '<br><br>🔥 身材密碼：165 / 50 / E 🔥',
                     keywords: ['LG', '品鮑', '69', '深喉嚨', '按摩', '乳交'],
                     suggestion: '無套+1000<br>口爆+500<br>顏射+500<br>自慰秀+500<br>攝影+1000<br>2+1<br>3+1<br>包夜方案私訊',
                     height: '165',
@@ -1080,7 +1054,7 @@
                     title: '騷氣小狐狸',
                     images: ['images/哈尼.png', 'images/哈尼1.png', 'images/哈尼2.png'],
                     video: 'videos/哈尼.mp4',
-                    meaning: '🔥 身材密碼：155 / 43 / D 🔥',
+                    meaning: '<br><br>🔥 身材密碼：155 / 43 / D 🔥',
                     keywords: ['LG', '品鮑', '69', '胸推', '屁推', '乳交'],
                     suggestion: '2+1<br>3+1<br>口爆+500<br>顏射+500<br>2S+500<br>無套+1000',
                     height: '155',
@@ -1094,7 +1068,7 @@
                     title: '顏值第一名',
                     images: ['images/隱藏版.png', 'images/隱藏版1.png', 'images/隱藏版2.png'],
                     video: 'videos/隱藏版.mp4',
-                    meaning: '🔥 身材密碼：168 / 48 / D 🔥',
+                    meaning: '<br><br>🔥 身材密碼：168 / 48 / D 🔥',
                     keywords: ['㊙️', '㊙️', '㊙️'],
                     suggestion: '㊙️<br>㊙️<br>㊙️',
                     height: '168',
@@ -1105,7 +1079,6 @@
                 }
             ];
 
-            // --- 关键词图标定义 ---
             const keywordIcons = {
                 'LG': 'fas fa-hand-holding-heart', 
                 '69': 'fas fa-infinity', 
@@ -1131,7 +1104,6 @@
                 '自慰秀': 'fas fa-wand-magic', 
             };
 
-            // --- 获取图标 HTML 的函数 ---
             function getIconHTML(keywords) {
                 let html = '<div class="card-icons">';
                 const uniqueKeywords = new Set();
@@ -1155,7 +1127,6 @@
                 return uniqueKeywords.size > 0 || keywords.includes('㊙️') ? html : '';
             }
 
-            // --- 创建卡片元素 ---
             function createCardElement(card) {
                 const cardDiv = document.createElement('div');
                 cardDiv.className = 'card';
@@ -1191,7 +1162,6 @@
                         </div>`;
                     }
                     
-                    // 优化详细信息排版
                     const suggestionList = card.suggestion.split('<br>').filter(s => s.trim() !== '');
                     const suggestionHTML = suggestionList.length > 0 ? suggestionList.map(s => `<p style="margin: 5px 0;">${s.trim()}</p>`).join('') : '<p style="margin: 5px 0;">詳情請私訊 LINE 洽詢</p>';
                     
@@ -1218,7 +1188,6 @@
             ${videoHTML}
             `;
             
-                    // 关键词样式（直接嵌入）
                     const keywordStyle = document.createElement('style');
                     keywordStyle.textContent = `
                         .detail-keyword {
@@ -1230,7 +1199,6 @@
                             white-space: nowrap;
                         }
                     `;
-                    // 移除旧的样式标签，防止重复添加
                     const existingStyle = cardDetail.querySelector('style');
                     if (existingStyle) existingStyle.remove();
 
@@ -1256,7 +1224,7 @@
                         };
                     }
 
-                    cardDetail.scrollTop = 0; // 打开时滚动到顶部
+                    cardDetail.scrollTop = 0;
                     cardDetail.classList.add('active');
                 });
 
@@ -1282,20 +1250,17 @@
                 return cardDiv;
             }
 
-            // --- 关闭详细信息模态框 ---
             function closeCardDetail() {
                 cardDetail.classList.remove('active');
                 overlay.style.display = 'none';
             }
 
             overlay.addEventListener('click', closeCardDetail);
-            // closeDetailBtn.addEventListener('click', closeCardDetail); // 这个按钮已被移除，改用模态框内的动态按钮
 
             cardDetail.addEventListener('click', function(e) {
                 e.stopPropagation();
             });
 
-            // --- 渲染所有卡片 ---
             function renderAllCards() {
                 allCardsDisplay.innerHTML = '';
                 fullTarotDeck.forEach(card => {
@@ -1305,15 +1270,12 @@
             }
             renderAllCards();
 
-            // --- 年龄确认逻辑 ---
-
-            // 检查是否已确认 (使用 sessionStorage 避免每次刷新都弹出)
             if (sessionStorage.getItem('ageConfirmed') === 'true') {
                 ageConfirmBox.style.display = "none";
                 checkContainerVisibility();
             } else {
                 ageConfirmBox.style.display = "flex";
-                window.removeEventListener('scroll', checkContainerVisibility); // 确认前禁用滚动动画
+                window.removeEventListener('scroll', checkContainerVisibility);
             }
             
             yesBtn.onclick = function () {
@@ -1324,7 +1286,6 @@
             };
 
             noBtn.onclick = function () {
-                // 导向空白页或非成人内容页
                 window.location.href = "https://www.google.com"; 
             };
         });
