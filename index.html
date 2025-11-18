@@ -193,7 +193,8 @@
 
         .card img {
             width: 100%;
-            height: auto;
+            height: 600px;
+	    object-fit: cover;
             border: 3px solid rgba(248, 93, 133, 0.8);
             border-radius: 10px 10px 0 0;
             box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
@@ -226,7 +227,7 @@
             font-weight: bold;
         }
         
-        .card-info {
+	.card-info {
             width: 100%;
             margin-top: 5px;
             font-size: 14px;
@@ -237,16 +238,16 @@
             padding: 0 15px;
             border-top: 1px dashed rgba(255, 153, 170, 0.2);
             padding-top: 10px;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            /* 关键修改：取消弹性布局，让 P 标签自然堆叠 */
+            /* display: block; (或直接移除 display: flex) */
         }
 
         .card-info p {
-            margin: 2px 5px;
-            display: flex;
-            justify-content: flex-start;
+            margin: 5px 0; /* 增加行之间的垂直间距，移除左右间距 */
+            display: flex; /* 保持 flex 用于对齐 label 和 value */
+            justify-content: flex-start; /* 保持左对齐 */
             align-items: center;
+            width: 100%; /* 确保每个 P 标签独占一行 */
         }
         
         @media (max-width: 480px) {
@@ -1282,10 +1283,10 @@
                 const cardTipHTML = card.tip ? `<div class="card-tip">${card.tip}</div>` : '';
                 const cardInfoHTML = `
                     <div class="card-info">
-                        <p><span class="info-label">高:</span><span class="info-value">${card.height} cm</span></p>
-                        <p><span class="info-label">重:</span><span class="info-value">${card.weight} kg</span></p>
+                        <p><span class="info-label">身高:</span><span class="info-value">${card.height} cm</span></p>
+                        <p><span class="info-label">體重:</span><span class="info-value">${card.weight} kg</span></p>
                         <p><span class="info-label">罩杯:</span><span class="info-value">${card.cup}</span></p>
-                        <p><span class="info-label">齡:</span><span class="info-value">${card.age} 歲</span></p>
+                        <p><span class="info-label">年齡:</span><span class="info-value">${card.age} 歲</span></p>
                     </div>
                 `;
 
