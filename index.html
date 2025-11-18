@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>泰雞瑪哈陵 Telegram 官方網站｜最新活動、報名與公告</title>
-    <meta name="description" content="泰雞瑪哈陵 Telegram 官方網站，提供最新活動資訊與官方公告，掌握第一手消息與優惠。">
-    <meta name="keywords" content="泰雞瑪哈陵, 泰雞瑪哈陵Telegram, 泰雞瑪哈陵官方, 高雄泰雞瑪哈陵, 泰雞瑪哈陵高雄, 泰雞瑪哈陵公告, 高雄泰式按摩, 高雄按摩, 高雄放鬆, 高雄SPA">
-    <link rel="canonical" href="https://ybk08878-creator.github.io/tg/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&family=Long+Cang&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Noto+Serif+TC:wght@300;400;700&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
         * {
             margin: 0;
@@ -19,8 +16,9 @@
             box-sizing: border-box;
         }
 
+        /* 整体风格 */
         body {
-            font-family: 'Noto Serif TC', serif;
+            font-family: 'Noto Serif TC', 'Microsoft JhengHei', serif;
             margin: 0;
             min-height: 100vh;
             display: flex;
@@ -32,15 +30,20 @@
             overflow-x: hidden;
             line-height: 1.7;
             position: relative;
-            padding-bottom: 50px;
+            padding-bottom: 70px; /* 增加底部空间，避免遮挡 */
         }
 
-        .background-animation {
+        /* 背景动画与星星 */
+        .background-animation, .star-field {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            z-index: -2;
+        }
+
+        .background-animation {
             background:
                 linear-gradient(135deg, transparent 50%, rgba(150, 20, 70, 0.4) 80%),
                 linear-gradient(25deg, transparent 50%, rgba(172, 38, 125, 0.4) 80%),
@@ -51,7 +54,6 @@
             background-repeat: repeat-y, repeat-y, repeat-y, repeat-y, no-repeat;
             animation: gradientMove 10s linear infinite;
             opacity: 0.9;
-            z-index: -2;
         }
 
         @keyframes gradientMove {
@@ -60,12 +62,6 @@
         }
 
         .star-field {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
             pointer-events: none;
         }
 
@@ -100,14 +96,23 @@
             100% { transform: translateX(400px) translateY(400px) rotate(45deg); opacity: 0; }
         }
 
+        /* 主要内容容器 */
         .container {
             text-align: center;
             position: relative;
             z-index: 10;
             padding: 40px 20px;
-            max-width: 800px;
-            width: 90%;
+            max-width: 1000px; /* 增加最大宽度以容纳更多卡片 */
+            width: 95%;
             margin: 50px auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .container.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .title {
@@ -126,11 +131,12 @@
             color: #ffdce6;
         }
 
+        /* 卡片容器优化：使用 Grid 布局 */
         .cards-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 自动适应，最小宽度 280px */
+            justify-items: center;
+            gap: 35px; /* 减小间隔，更紧凑 */
             padding: 30px;
             background-color: rgba(28, 10, 31, 0.7);
             backdrop-filter: blur(15px);
@@ -139,24 +145,35 @@
             box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 153, 170, 0.15);
         }
 
+        /* 单个卡片 */
         .card {
-            width: 280px;
+            width: 100%; /* 占满 grid 单元格宽度 */
+            max-width: 320px; /* 稍微放大最大宽度 */
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             position: relative;
             cursor: pointer;
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+            border-radius: 10px;
+            padding-bottom: 15px;
+            background-color: rgba(0, 0, 0, 0.2); /* 增加卡片背景，增强立体感 */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         }
 
-        .card:hover { transform: translateY(-5px) scale(1.05); }
+        .card:hover {
+            transform: translateY(-8px) scale(1.03); /* 提升抬升高度和缩放 */
+            box-shadow: 0 18px 40px rgba(255, 153, 170, 0.4), 0 5px 15px rgba(0, 0, 0, 0.9);
+        }
 
         .card img {
-            max-width: 100%;
+            width: 100%; /* 确保图片完全填充卡片宽度 */
+            height: auto;
             border: 3px solid rgba(248, 93, 133, 0.8);
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            border-radius: 10px 10px 0 0; /* 仅顶部圆角 */
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+            object-fit: cover;
         }
 
         .card-name {
@@ -164,6 +181,10 @@
             font-size: 1.8em;
             margin: 15px 0 10px;
             color: #ff99aa;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0 10px;
         }
 
         .card-tip {
@@ -177,7 +198,8 @@
             padding: 0 10px;
             font-weight: bold;
         }
-
+        
+        /* 卡片信息区优化 */
         .card-info {
             width: 100%;
             margin-top: 5px;
@@ -187,13 +209,30 @@
             text-align: left;
             font-family: 'Noto Serif TC', serif;
             padding: 0 15px;
+            border-top: 1px dashed rgba(255, 153, 170, 0.2);
+            padding-top: 10px;
+            display: flex; /* 使用 flex 布局 */
+            justify-content: space-around; /* 均匀分布 */
+            flex-wrap: wrap; /* 手机上换行 */
         }
 
         .card-info p {
-            margin: 2px 0;
+            margin: 2px 5px;
             display: flex;
             justify-content: flex-start;
             align-items: center;
+        }
+        
+        /* 手机上优化卡片信息显示 */
+        @media (max-width: 480px) {
+            .card-info {
+                font-size: 13px;
+                padding: 0 10px;
+                justify-content: space-between;
+            }
+            .card-info p {
+                width: 45%; /* 每行显示两个属性 */
+            }
         }
 
         .info-label {
@@ -207,41 +246,96 @@
             color: #ffe3e8;
         }
 
+        .card-icons {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .card-icons i {
+            font-size: 1.4em;
+            color: #ffb3c6;
+            text-shadow: 0 0 5px rgba(255, 153, 170, 0.5);
+            transition: transform 0.2s;
+        }
+
+        .card-icons i:hover {
+            transform: scale(1.15);
+        }
+
+        /* 详细信息模态框优化 */
         .card-detail {
             display: none;
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: rgba(28, 10, 31, 0.95);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 153, 170, 0.6);
+            background-color: rgba(28, 10, 31, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 153, 170, 0.8);
             padding: 25px;
             border-radius: 15px;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
             text-align: left;
-            width: 320px;
-            max-width: 90vw;
-            max-height: 80vh;
+            width: 400px; /* 稍微放大电脑版模态框 */
+            max-width: 95vw;
+            max-height: 90vh; /* 允许更大高度 */
             overflow-y: auto;
             z-index: 1000;
+            transform-origin: center;
+        }
+        
+        @media (max-width: 768px) {
+            .card-detail {
+                width: 90vw;
+                max-height: 90vh;
+                padding: 20px 15px; /* 手机内边距调整 */
+            }
         }
 
+        .close-btn {
+            position: sticky; /* 使得关闭按钮在滚动时也可见 */
+            top: -15px; /* 调整位置 */
+            align-self: flex-end; /* 放置在右上方 */
+            color: #ff99aa;
+            font-size: 1.8em;
+            cursor: pointer;
+            transition: color 0.3s;
+            z-index: 1010;
+            background-color: rgba(28, 10, 31, 0.9);
+            border-radius: 50%;
+            padding: 5px;
+        }
+
+        .close-btn:hover {
+            color: #f85d85;
+            transform: scale(1.1);
+        }
+
+        /* 滚动条样式优化 */
         .card-detail {
-            scrollbar-width: none;
-            -ms-overflow-style: none;
+            scrollbar-width: thin;
+            scrollbar-color: #ff99aa #2a122f;
         }
 
         .card-detail::-webkit-scrollbar {
-            display: none;
+            width: 8px;
         }
 
-
-        .card-detail.active {
-            display: block;
-            animation: fadeIn 0.3s ease;
+        .card-detail::-webkit-scrollbar-track {
+            background: #2a122f;
+            border-radius: 10px;
         }
 
+        .card-detail::-webkit-scrollbar-thumb {
+            background-color: #ff99aa;
+            border-radius: 10px;
+            border: 2px solid #2a122f;
+        }
+
+        /* 隐藏 body 和 html 滚动条（防止背景动画抖动） */
         body {
             scrollbar-width: none;
             -ms-overflow-style: none;
@@ -260,11 +354,17 @@
             display: none;
         }
 
+        .card-detail.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+            from { opacity: 0; transform: translate(-50%, -50%) scale(0.95); }
             to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
         }
 
+        /* 详细信息内容样式 */
         .card-detail h4 {
             font-family: 'Cinzel Decorative', serif;
             font-size: 1.6em;
@@ -273,6 +373,7 @@
             border-bottom: 2px solid rgba(255, 153, 170, 0.3);
             padding-bottom: 10px;
             margin-bottom: 15px;
+            text-align: center;
         }
 
         .card-detail p { margin: 10px 0; color: #ffe3e8; }
@@ -281,13 +382,17 @@
             color: #c4b8e0;
             font-size: 1.2em;
             line-height: 1.6;
+            border-top: 1px solid rgba(255, 153, 170, 0.2);
+            padding-top: 10px;
         }
 
         .label {
-            font-size: 1.4em;
+            font-size: 1.2em;
             font-weight: bold;
             color: #ffb3c6;
             margin-right: 5px;
+            display: inline-block;
+            min-width: 40px;
         }
 
         .card-detail .bold {
@@ -299,6 +404,7 @@
             line-height: 1.6;
         }
 
+        /* 图片轮播 */
         .image-carousel {
             margin: 15px 0;
             text-align: center;
@@ -306,7 +412,7 @@
 
         .image-carousel img {
             max-width: 100%;
-            max-height: 200px;
+            max-height: 250px; /* 增加最大高度 */
             width: auto;
             height: auto;
             border-radius: 8px;
@@ -318,33 +424,41 @@
             margin-top: 10px;
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 15px;
         }
 
         .carousel-controls button {
             background: rgba(255, 153, 170, 0.3);
             border: none;
             color: #ffe3e8;
-            padding: 5px 10px;
+            padding: 8px 15px;
             border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.1s;
         }
 
         .carousel-controls button:hover {
             background: rgba(255, 153, 170, 0.6);
+            transform: scale(1.05);
+        }
+        
+        .carousel-controls button:active {
+            transform: scale(0.95);
         }
 
         .carousel-indicator {
             margin-top: 5px;
             font-size: 0.9em;
             color: #c4b8e0;
+            align-self: center;
         }
 
+        /* 视频播放器优化 */
         .video-section {
-            margin-top: 15px;
+            margin-top: 20px;
             border-top: 1px solid rgba(255, 153, 170, 0.2);
             padding-top: 15px;
+            text-align: center;
         }
 
         .video-section h5 {
@@ -356,11 +470,13 @@
 
         .video-player {
             width: 100%;
-            max-width: 280px;
+            max-width: 300px; /* 调整最大宽度 */
             border-radius: 8px;
             border: 1px solid rgba(255, 153, 170, 0.4);
+            height: auto;
         }
 
+        /* 底部联系按钮/面板 */
         .contact-btn {
             position: fixed;
             bottom: 20px;
@@ -403,8 +519,21 @@
             z-index: 1000;
         }
 
+        .contact-panel h4 {
+            margin-top: 0;
+        }
+
         .contact-panel p { margin: 10px 0; font-size: 1.1em; color: #ffe3e8; }
         .contact-panel p i { margin-right: 10px; color: #f85d85; }
+        
+        .contact-panel a {
+            transition: color 0.3s;
+            text-decoration-thickness: 1px;
+        }
+        
+        .contact-panel a:hover {
+            color: #ffb3c6 !important;
+        }
 
         .overlay {
             position: fixed;
@@ -412,11 +541,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.85); /* 遮罩更黑 */
             z-index: 999;
             display: none;
         }
 
+        /* 价格面板 */
         .price-panel {
             position: fixed;
             top: 120px;
@@ -452,6 +582,7 @@
             transition: max-height 0.5s ease;
         }
 
+        /* 电脑版价格面板 */
         @media (min-width: 769px) {
             .price-panel {
                 width: auto;
@@ -467,6 +598,7 @@
             }
         }
 
+        /* 手机版价格面板 */
         @media (max-width: 768px) {
             .price-panel {
                 width: 60px;
@@ -478,6 +610,7 @@
                 overflow: hidden;
                 left: 10px;
                 top: 100px;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             }
 
             .price-panel.active {
@@ -521,6 +654,7 @@
             }
         }
 
+        /* 联系箭头优化 */
         .contact-arrow {
             position: fixed;
             bottom: 90px;
@@ -530,6 +664,7 @@
             animation: bounce 1.5s infinite;
             z-index: 1001;
             filter: drop-shadow(0 0 8px rgba(255,153,170,0.6));
+            pointer-events: none; /* 确保不影响点击按钮 */
         }
 
         .contact-arrow i {
@@ -552,12 +687,13 @@
             50% { transform: translateY(-10px); opacity: 1; }
         }
 
+        /* 年龄确认框 */
         .age-confirm {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(3px);
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(10px);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -573,32 +709,46 @@
             max-width: 90%;
             text-align: center;
             color: #ffdee7;
-            box-shadow: 0 0 25px rgba(255,153,170,0.5);
+            box-shadow: 0 0 35px rgba(255,153,170,0.7);
             font-family: 'Noto Serif TC', serif;
             margin: 20px;
+            animation: scaleUp 0.3s ease;
+        }
+        
+        @keyframes scaleUp {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
         .confirm-box h3 {
-            margin: 0 0 15px;
-            font-size: 1.4em;
+            margin: 0 0 10px;
+            font-size: 1.6em;
             color: #ff99aa;
+        }
+        
+        .confirm-box h4 {
+            margin: 0 0 15px;
+            font-size: 1.2em;
+            color: #ffdee7;
         }
 
         .button-group {
             margin-top: 20px;
             display: flex;
-            justify-content: space-between;
-            gap: 10px;
+            justify-content: space-around; /* 均匀分布 */
+            gap: 15px;
         }
 
         .confirm-box button {
-            width: 45%;
-            padding: 10px;
+            flex: 1;
+            padding: 12px;
             font-size: 1.1em;
             border-radius: 10px;
             cursor: pointer;
             border: none;
             font-family: 'Noto Serif TC';
+            font-weight: bold;
+            transition: transform 0.1s, box-shadow 0.2s;
         }
 
         .yes-btn {
@@ -609,14 +759,23 @@
         .no-btn {
             background: #4a1d4f;
             color: #ffdee7;
+            border: 1px solid #ff99aa;
         }
 
-        .no-btn:hover { background: #6e2a75; }
-        .yes-btn:hover { background: #ff6f8a; }
+        .no-btn:hover { background: #6e2a75; transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0,0,0,0.3); }
+        .yes-btn:hover { background: #ff6f8a; color: #ffe3e8; transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0,0,0,0.3); }
+        .yes-btn:active, .no-btn:active { transform: translateY(0); box-shadow: none; }
+
+        /* 响应式调整 */
+        @media (max-width: 1024px) {
+            .container {
+                max-width: 900px;
+            }
+        }
 
         @media (max-width: 768px) {
             .title {
-                font-size: 2.5em;
+                font-size: 3em;
                 letter-spacing: 2px;
             }
 
@@ -626,17 +785,13 @@
             }
 
             .cards-container {
-                padding: 20px;
-                gap: 30px;
+                padding: 15px;
+                gap: 20px;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             }
 
             .card {
-                width: 280px;
-            }
-
-            .card-detail {
-                width: 280px;
-                padding: 20px;
+                max-width: 100%;
             }
 
             .contact-panel {
@@ -666,41 +821,19 @@
 
         @media (max-width: 480px) {
             .title {
-                font-size: 2em;
+                font-size: 2.5em;
                 letter-spacing: 1px;
             }
 
             .subtitle {
-                font-size: 1em;
+                font-size: 1.1em;
                 margin-bottom: 20px;
             }
 
-            .cards-container {
-                padding: 15px;
-                gap: 20px;
-            }
-
-            .card {
-                width: 260px;
-            }
-
-            .card-name {
-                font-size: 1.5em;
-            }
-
-            .card-detail {
-                width: 260px;
-                padding: 15px;
-            }
-
-            .card-detail h4 {
-                font-size: 1.4em;
-            }
-
             .contact-panel {
-                width: 220px;
+                width: calc(100vw - 30px);
                 right: 10px;
-                bottom: 70px;
+                bottom: 75px;
                 padding: 15px;
             }
 
@@ -719,49 +852,67 @@
     </style>
 </head>
 <body>
+
     <div class="background-animation"></div>
     <div class="star-field"></div>
-
-    <div class="container">
-        <h1 class="title">泰 雞 瑪 哈 陵</h1>
-        <p class="subtitle">營業時間中午12:00到凌晨02:00<br>💗點擊展開詳細資訊💗</p>
-        <div id="all-cards-display" class="cards-container"></div>
-    </div>
-
-    <div class="overlay" id="overlay"></div>
-
-    <div class="card-detail" id="card-detail"></div>
-
-    <div class="contact-btn" id="contact-btn"><i class="fas fa-comment-dots"></i></div>
-    <div class="contact-panel" id="contact-panel">
-        <h4 style="color: #ff99aa;">聯絡我們！</h4>
-        <p><i class="fab fa-line"></i> LINE：
-            <a href="https://line.me/ti/p/W9X3HY-eMA" target="_blank" style="color: #ffe3e8; text-decoration: underline;">加LINE點我</a>
-        </p>
-    </div>
-
+    
     <div class="age-confirm" id="age-confirm">
         <div class="confirm-box">
-            <h3>是否已滿【18歲】</h3>
-            <h4>進入「泰雞瑪哈陵」？</h4>
+            <h3>🔞 提醒</h3>
+            <h4>本網站內容為成人資訊，未滿 18 歲請勿進入。</h4>
             <div class="button-group">
-                <button class="yes-btn" id="yes-btn">是</button>
-                <button class="no-btn" id="no-btn">否</button>
+                <button class="yes-btn" id="yes-btn">我已滿 18 歲</button>
+                <button class="no-btn" id="no-btn">我未滿 18 歲</button>
             </div>
         </div>
     </div>
 
-    <div class="contact-arrow"><i class="fas fa-arrow-down"></i></div>
+<div class="price-panel" id="price-panel">
+    <div class="price-toggle"><i class="fas fa-money-bill-wave"></i></div>
+    <div class="price-content">
+        <p style="text-align: center; color: #ff99aa; font-weight: bold; font-size: 1.2em; margin-bottom: 10px;">💵 本店消費方案</p>
+        <p>💰1800 / 20 / 1S</p>
+        <p>💰2500 / 40 / 1S</p>
+        <p>💰2800 / 60 / 1S</p>
+        <p style="text-align: center; margin-top: 15px; font-size: 1.1em; color: #ff6f8a; font-weight: bold;">
+            <i class="fas fa-heart"></i> 包夜方案請至右下角私訊 <i class="fas fa-heart"></i>
+        </p>
+    </div>
+</div>
 
-    <div class="price-panel" id="price-panel">
-        <div class="price-toggle">💰</div>
-        <div class="price-content">
-            <h4 style="color: #ff99aa; text-align: center; margin-bottom: 10px;">價目表</h4>
-            <p>💰1800 / 20 / 1S</p>
-            <p>💰2500 / 40 / 1S</p>
-            <p>💰2800 / 60 / 1S</p>
-            <p>💕包夜方案請至右下角私訊💕</p>
+    <div class="container">
+        <h1 class="title">👑 泰雞瑪哈陵 </h1>
+        <p class="subtitle">— 頂級選妃．皇家享受 —</p>
+
+        <div class="cards-container" id="all-cards-display">
+            </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="card-detail" id="card-detail">
         </div>
+
+    <div class="contact-btn" id="contact-btn">
+        <i class="fab fa-line"></i>
+    </div>
+
+    <div class="contact-panel" id="contact-panel">
+        <h4 style="color: #ff99aa; border-bottom: 1px dashed #ff99aa; padding-bottom: 10px;">📞 聯繫方式</h4>
+        <p>
+            <i class="fab fa-line"></i> LINE ID：
+            <a href="line://ti/p/@xxxxxx" target="_blank" style="color: #ffde88; text-decoration: none;">@xxxxxx</a>
+        </p>
+        <p>
+            <i class="fab fa-telegram-plane"></i> Telegram：
+            <a href="https://t.me/xxxxxx" target="_blank" style="color: #ffde88; text-decoration: none;">@xxxxxx</a>
+        </p>
+        <p style="font-size: 0.9em; color: #c4b8e0; margin-top: 15px; border-top: 1px dashed rgba(255, 153, 170, 0.2); padding-top: 10px;">
+            <i class="fas fa-map-marker-alt"></i> 高雄地區，詳細地點請聯繫。
+        </p>
+    </div>
+
+    <div class="contact-arrow">
+        <i class="fas fa-hand-point-up"></i>
     </div>
 
     <script>
@@ -772,36 +923,56 @@
             const contactPanel = document.getElementById('contact-panel');
             const overlay = document.getElementById('overlay');
             const cardDetail = document.getElementById('card-detail');
+            const closeDetailBtn = document.getElementById('close-detail');
             const pricePanel = document.getElementById('price-panel');
             const priceToggle = pricePanel.querySelector('.price-toggle');
+            const container = document.querySelector('.container');
+            const ageConfirmBox = document.getElementById("age-confirm");
+            const yesBtn = document.getElementById("yes-btn");
+            const noBtn = document.getElementById("no-btn");
 
+            // --- 容器可见性检查（滚动动画） ---
+            function checkContainerVisibility() {
+                const rect = container.getBoundingClientRect();
+                const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+                if (rect.top <= viewHeight * 0.75) {
+                    container.classList.add('visible');
+                    window.removeEventListener('scroll', checkContainerVisibility);
+                }
+            }
+
+            // --- 价格面板开关（手机版） ---
             if (window.innerWidth <= 768) {
                 priceToggle.addEventListener('click', () => {
                     pricePanel.classList.toggle('active');
                 });
             }
 
-            contactBtn.addEventListener('click', () => {
+            // --- 联系面板开关 ---
+            contactBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // 阻止事件冒泡，防止触发 document 的关闭事件
                 contactPanel.style.display = contactPanel.style.display === 'block' ? 'none' : 'block';
             });
 
             document.addEventListener('click', (e) => {
-                if (!contactBtn.contains(e.target) && !contactPanel.contains(e.target)) {
+                if (!contactBtn.contains(e.target) && !contactPanel.contains(e.target) && contactPanel.style.display === 'block') {
                     contactPanel.style.display = 'none';
                 }
             });
 
+            // --- 背景动画优化：减少星星数量以提升移动设备性能 ---
             function createStars() {
-                const numberOfStars = 150;
+                const isMobile = window.innerWidth <= 768;
+                const numberOfStars = isMobile ? 80 : 150; // 手机上减少星星数量
                 for (let i = 0; i < numberOfStars; i++) {
                     const star = document.createElement('div');
                     star.className = 'star';
-                    const size = Math.random() * 2 + 1;
+                    const size = Math.random() * (isMobile ? 1.5 : 2.5) + 1; // 手机上星星更小
                     star.style.width = `${size}px`;
                     star.style.height = `${size}px`;
                     star.style.top = `${Math.random() * 100}%`;
                     star.style.left = `${Math.random() * 100}%`;
-                    star.style.animationDelay = `${Math.random() * 1.5}s`;
+                    star.style.animationDelay = `${Math.random() * 2}s`;
                     starField.appendChild(star);
                 }
             }
@@ -815,17 +986,19 @@
                 starField.appendChild(meteor);
                 meteor.addEventListener('animationend', () => meteor.remove());
             }
-            setInterval(createMeteor, 3000);
+            // 降低流星频率
+            setInterval(createMeteor, 4500);
 
+            // --- 卡片数据 ---
             const fullTarotDeck = [
                 {
                     name: '🥇TOP.1天天',
-                    title: '<br>頂級小嫩模',
+                    title: '頂級小嫩模',
                     images: ['images/天天.png', 'images/天天1.png', 'images/天天2.png'],
                     video: 'videos/天天.mp4',
-                    meaning: '<br>🔥  身材密碼：160 / 40 / C🔥',
-                    keywords: '<br>無套吹<br>小親親<br>深喉嚨<br>品鮑<br>69<br>奶炮',
-                    suggestion: '<br>2+1<br>3+1<br>2s+500',
+                    meaning: '🔥 身材密碼：160 / 40 / C 🔥',
+                    keywords: ['無套吹', '小親親', '深喉嚨', '品鮑', '69', '奶炮'],
+                    suggestion: '2+1<br>3+1<br>2s+500',
                     height: '160',
                     weight: '40',
                     cup: 'C',
@@ -834,12 +1007,12 @@
                 },
                 {
                     name: '🥈TOP.2可可',
-                    title: '<br>日泰混血',
+                    title: '日泰混血',
                     images: ['images/可可.png', 'images/可可1.png', 'images/可可2.png'],
                     video: 'videos/可可.mp4',
-                    meaning: '<br>🔥  身材密碼：163 / 55 / E🔥',
-                    keywords: '<br>LG<br>69<br>舔蛋<br>深喉嚨<br>毒龍<br>雙王<br>無套吹',
-                    suggestion: '<br>2S+500<br>口爆+500<br>後門+500<br>無套+1000<br>攝影+1000',
+                    meaning: '🔥 身材密碼：163 / 55 / E 🔥',
+                    keywords: ['LG', '69', '舔蛋', '深喉嚨', '毒龍', '雙王', '無套吹'],
+                    suggestion: '2S+500<br>口爆+500<br>後門+500<br>無套+1000<br>攝影+1000',
                     height: '163',
                     weight: '55',
                     cup: 'E',
@@ -848,12 +1021,12 @@
                 },
                 {
                     name: '🥉TOP.3粿粿',
-                    title: '<br>愛撒嬌甜妹',
+                    title: '愛撒嬌甜妹',
                     images: ['images/粿粿.png', 'images/粿粿1.png', 'images/粿粿2.png'],
                     video: 'videos/粿粿.mp4',
-                    meaning: '<br>🔥  身材密碼：165 / 50 / D🔥',
-                    keywords: '<br>LG<br>品鮑<br>69<br>胸推<br>屁推<br>乳交',
-                    suggestion: '<br>2+1<br>3+1<br>口爆+500<br>顏射+500<br>包夜方案私訊',
+                    meaning: '🔥 身材密碼：165 / 50 / D 🔥',
+                    keywords: ['LG', '品鮑', '69', '胸推', '屁推', '乳交'],
+                    suggestion: '2+1<br>3+1<br>口爆+500<br>顏射+500<br>包夜方案私訊',
                     height: '165',
                     weight: '50',
                     cup: 'D',
@@ -862,12 +1035,12 @@
                 },
                 {
                     name: '茶茶',
-                    title: '<br>騷氣小隻馬',
+                    title: '騷氣小隻馬',
                     images: ['images/茶茶.png', 'images/茶茶1.png', 'images/茶茶2.png'],
                     video: 'videos/茶茶.mp4',
-                    meaning: '<br>🔥  身材密碼：160 / 45 / C🔥',
-                    keywords: '<br>LG<br>69<br>水中蕭<br>胸推<br>屁推<br>雙王<br>無套',
-                    suggestion: '<br>2+1<br>3+1<br>口爆+500<br>顏射+500<br>2S+500<br>包夜方案私訊',
+                    meaning: '🔥 身材密碼：160 / 45 / C 🔥',
+                    keywords: ['LG', '69', '水中蕭', '胸推', '屁推', '雙王', '無套'],
+                    suggestion: '2+1<br>3+1<br>口爆+500<br>顏射+500<br>2S+500<br>包夜方案私訊',
                     height: '160',
                     weight: '45',
                     cup: 'C',
@@ -876,11 +1049,11 @@
                 },
                 {
                     name: '珍珍',
-                    title: '<br>深喉嚨專家',
+                    title: '深喉嚨專家',
                     images: ['images/珍珍.png', 'images/珍珍1.png', 'images/珍珍2.png'],
                     video: 'videos/珍珍.mp4',
-                    meaning: '<br>🔥  身材密碼：165 / 45 / D🔥',
-                    keywords: '<br>LG<br>69<br>舔蛋<br>品鮑<br>乳交<br>無套吹',
+                    meaning: '🔥 身材密碼：165 / 45 / D 🔥',
+                    keywords: ['LG', '69', '舔蛋', '品鮑', '乳交', '無套吹'],
                     suggestion: '',
                     height: '165',
                     weight: '45',
@@ -890,12 +1063,12 @@
                 },
                 {
                     name: '瑤瑤',
-                    title: '<br>巨乳の御姐',
+                    title: '巨乳の御姐',
                     images: ['images/瑤瑤.png', 'images/瑤瑤1.png', 'images/瑤瑤2.png'],
                     video: 'videos/瑤瑤.mp4',
-                    meaning: '<br>🔥  身材密碼：165 / 50 / E🔥',
-                    keywords: '<br>LG<br>品鮑<br>69<br>深喉嚨<br>按摩<br>乳交',
-                    suggestion: '<br>無套+1000<br>口爆+500<br>顏射+500<br>自慰秀+500<br>攝影+1000<br>2+1<br>3+1<br>包夜方案私訊',
+                    meaning: '🔥 身材密碼：165 / 50 / E 🔥',
+                    keywords: ['LG', '品鮑', '69', '深喉嚨', '按摩', '乳交'],
+                    suggestion: '無套+1000<br>口爆+500<br>顏射+500<br>自慰秀+500<br>攝影+1000<br>2+1<br>3+1<br>包夜方案私訊',
                     height: '165',
                     weight: '50',
                     cup: 'E',
@@ -904,12 +1077,12 @@
                 },
                 {
                     name: '哈尼',
-                    title: '<br>騷氣小狐狸',
+                    title: '騷氣小狐狸',
                     images: ['images/哈尼.png', 'images/哈尼1.png', 'images/哈尼2.png'],
                     video: 'videos/哈尼.mp4',
-                    meaning: '<br>🔥  身材密碼：155 / 43 / D🔥',
-                    keywords: '<br>LG<br>品鮑<br>69<br>胸推<br>屁推<br>乳交',
-                    suggestion: '<br>2+1<br>3+1<br>口爆+500<br>顏射+500<br>2S+500<br>無套+1000',
+                    meaning: '🔥 身材密碼：155 / 43 / D 🔥',
+                    keywords: ['LG', '品鮑', '69', '胸推', '屁推', '乳交'],
+                    suggestion: '2+1<br>3+1<br>口爆+500<br>顏射+500<br>2S+500<br>無套+1000',
                     height: '155',
                     weight: '43',
                     cup: 'D',
@@ -918,12 +1091,12 @@
                 },
                 {
                     name: '❕隱藏版-不定期報班❕',
-                    title: '<br>顏值第一名',
+                    title: '顏值第一名',
                     images: ['images/隱藏版.png', 'images/隱藏版1.png', 'images/隱藏版2.png'],
                     video: 'videos/隱藏版.mp4',
-                    meaning: '<br>🔥  身材密碼：168 / 48 / D🔥',
-                    keywords: '<br>㊙️<br>㊙️<br>㊙️',
-                    suggestion: '<br>㊙️<br>㊙️<br>㊙️',
+                    meaning: '🔥 身材密碼：168 / 48 / D 🔥',
+                    keywords: ['㊙️', '㊙️', '㊙️'],
+                    suggestion: '㊙️<br>㊙️<br>㊙️',
                     height: '168',
                     weight: '48',
                     cup: 'D',
@@ -932,7 +1105,57 @@
                 }
             ];
 
+            // --- 关键词图标定义 ---
+            const keywordIcons = {
+                'LG': 'fas fa-hand-holding-heart', 
+                '69': 'fas fa-infinity', 
+                '舔蛋': 'fas fa-kiss-wink-heart', 
+                '深喉嚨': 'fas fa-throat', 
+                '品鮑': 'fas fa-fire', 
+                '胸推': 'fas fa-person-breastfeeding', 
+                '屁推': 'fas fa-person-running', 
+                '乳交': 'fas fa-bra', 
+                '無套吹': 'fas fa-wind', 
+                '無套': 'fas fa-shield-halved', 
+                '雙王': 'fas fa-crown', 
+                '毒龍': 'fas fa-dragon', 
+                '水中蕭': 'fas fa-water', 
+                '奶炮': 'fas fa-champagne-glasses', 
+                '按摩': 'fas fa-spa', 
+                '㊙️': 'fas fa-mask', 
+                '小親親': 'fas fa-kiss', 
+                '口爆': 'fas fa-meteor', 
+                '顏射': 'fas fa-face-flushed', 
+                '後門': 'fas fa-door-open', 
+                '攝影': 'fas fa-camera', 
+                '自慰秀': 'fas fa-wand-magic', 
+            };
 
+            // --- 获取图标 HTML 的函数 ---
+            function getIconHTML(keywords) {
+                let html = '<div class="card-icons">';
+                const uniqueKeywords = new Set();
+
+                const displayKeywords = [
+                    'LG', '69', '舔蛋', '深喉嚨', '品鮑', '胸推', '屁推', '乳交', '無套吹', '無套', '雙王', '毒龍', '水中蕭', '奶炮', '按摩'
+                ];
+
+                keywords.forEach(kw => {
+                    if (displayKeywords.includes(kw) && keywordIcons[kw] && !uniqueKeywords.has(kw)) {
+                        uniqueKeywords.add(kw);
+                        html += `<i class="${keywordIcons[kw]}" title="${kw}"></i>`;
+                    }
+                });
+
+                if (uniqueKeywords.size === 0 && keywords.includes('㊙️')) {
+                    html += `<i class="${keywordIcons['㊙️']}" title="神秘"></i>`;
+                }
+
+                html += '</div>';
+                return uniqueKeywords.size > 0 || keywords.includes('㊙️') ? html : '';
+            }
+
+            // --- 创建卡片元素 ---
             function createCardElement(card) {
                 const cardDiv = document.createElement('div');
                 cardDiv.className = 'card';
@@ -946,8 +1169,8 @@
                     if (card.video) {
                         videoHTML = `
                         <div class="video-section">
-                            <h5>相關影片</h5>
-                            <video class="video-player" controls>
+                            <h5>🎥 影片展示</h5>
+                            <video class="video-player" controls preload="none" poster="${card.images[0]}">
                                 <source src="${card.video}" type="video/mp4">
                                 您的瀏覽器不支援影片播放功能。
                             </video>
@@ -958,24 +1181,62 @@
                     if (card.images && card.images.length > 0) {
                         imagesHTML = `
                         <div class="image-carousel">
-                            <img id="carousel-image" src="${card.images[0]}" alt="${card.name}" />
+                            <img id="carousel-image" src="${card.images[0]}" alt="${card.name}" loading="lazy" />
                             ${card.images.length > 1 ? `
                             <div class="carousel-controls">
-                                <button id="prev-img">⬅️</button>
+                                <button id="prev-img" aria-label="上一张图片">⬅️</button>
                                 <span class="carousel-indicator" id="carousel-indicator">1 / ${card.images.length}</span>
-                                <button id="next-img">➡️</button>
+                                <button id="next-img" aria-label="下一张图片">➡️</button>
                             </div>` : ''}
                         </div>`;
                     }
-
+                    
+                    // 优化详细信息排版
+                    const suggestionList = card.suggestion.split('<br>').filter(s => s.trim() !== '');
+                    const suggestionHTML = suggestionList.length > 0 ? suggestionList.map(s => `<p style="margin: 5px 0;">${s.trim()}</p>`).join('') : '<p style="margin: 5px 0;">詳情請私訊 LINE 洽詢</p>';
+                    
+                    const keywordsHTML = card.keywords.map(kw => `<span class="detail-keyword">${kw}</span>`).join('');
+                    
                     cardDetail.innerHTML = `
+            <i class="fas fa-times close-btn" id="close-detail-inner" aria-label="关闭"></i>
             <h4>${card.name} - ${card.title}</h4>
-            <pclass="bold"><span class="label">身材</span>${card.meaning}</p>
-            <p class="italic"><span class="label">可👌</span>${card.keywords}</p>
-            <p class="bold"><span class="label">💰方案⬇️</span>${card.suggestion}</p>
+            
             ${imagesHTML}
+
+            <p class="bold"><span class="label">💃 身材密碼:</span> ${card.meaning.replace('<br>', '').trim()}</p>
+            
+            <div class="keyword-list" style="margin-top: 15px; border-top: 1px solid rgba(255, 153, 170, 0.2); padding-top: 10px;">
+                <p style="font-weight: bold; color: #ffb3c6; margin-bottom: 8px;">✅ 可提供服务：</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-start;">
+                    ${keywordsHTML}
+                </div>
+            </div>
+            
+            <p class="bold" style="margin-top: 20px;"><span class="label">💰 方案與加價購:</span></p>
+            <div style="font-size: 1.1em; color: #ffe3e8; line-height: 1.5;">${suggestionHTML}</div>
+            
             ${videoHTML}
             `;
+            
+                    // 关键词样式（直接嵌入）
+                    const keywordStyle = document.createElement('style');
+                    keywordStyle.textContent = `
+                        .detail-keyword {
+                            background-color: rgba(248, 93, 133, 0.2);
+                            color: #ffb3c6;
+                            padding: 5px 10px;
+                            border-radius: 5px;
+                            font-size: 0.9em;
+                            white-space: nowrap;
+                        }
+                    `;
+                    // 移除旧的样式标签，防止重复添加
+                    const existingStyle = cardDetail.querySelector('style');
+                    if (existingStyle) existingStyle.remove();
+
+                    cardDetail.appendChild(keywordStyle);
+            
+                    document.getElementById('close-detail-inner').onclick = closeCardDetail;
 
                     if (card.images && card.images.length > 1) {
                         let index = 0;
@@ -995,37 +1256,46 @@
                         };
                     }
 
+                    cardDetail.scrollTop = 0; // 打开时滚动到顶部
                     cardDetail.classList.add('active');
                 });
 
                 const cardTipHTML = card.tip ? `<div class="card-tip">${card.tip}</div>` : '';
                 const cardInfoHTML = `
                     <div class="card-info">
-                        <p><span class="info-label">身高：</span><span class="info-value">${card.height} cm</span></p>
-                        <p><span class="info-label">體重：</span><span class="info-value">${card.weight} kg</span></p>
-                        <p><span class="info-label">罩杯：</span><span class="info-value">${card.cup}</span></p>
-                        <p><span class="info-label">年齡：</span><span class="info-value">${card.age} 歲</span></p>
+                        <p><span class="info-label">高:</span><span class="info-value">${card.height} cm</span></p>
+                        <p><span class="info-label">重:</span><span class="info-value">${card.weight} kg</span></p>
+                        <p><span class="info-label">罩杯:</span><span class="info-value">${card.cup}</span></p>
+                        <p><span class="info-label">齡:</span><span class="info-value">${card.age} 歲</span></p>
                     </div>
                 `;
 
+                const cardIconHTML = getIconHTML(card.keywords);
+
                 cardDiv.innerHTML = `
-                    <img src="${card.images[0]}" alt="${card.name}" />
+                    <img src="${card.images[0]}" alt="${card.name}" loading="lazy" />
                     <h3 class="card-name">${card.name}</h3>
                     ${cardTipHTML}
                     ${cardInfoHTML}
+                    ${cardIconHTML}
                 `;
                 return cardDiv;
             }
 
-            overlay.addEventListener('click', function() {
+            // --- 关闭详细信息模态框 ---
+            function closeCardDetail() {
                 cardDetail.classList.remove('active');
                 overlay.style.display = 'none';
-            });
+            }
+
+            overlay.addEventListener('click', closeCardDetail);
+            // closeDetailBtn.addEventListener('click', closeCardDetail); // 这个按钮已被移除，改用模态框内的动态按钮
 
             cardDetail.addEventListener('click', function(e) {
                 e.stopPropagation();
             });
 
+            // --- 渲染所有卡片 ---
             function renderAllCards() {
                 allCardsDisplay.innerHTML = '';
                 fullTarotDeck.forEach(card => {
@@ -1035,12 +1305,27 @@
             }
             renderAllCards();
 
-            document.getElementById("yes-btn").onclick = function () {
-                document.getElementById("age-confirm").style.display = "none";
+            // --- 年龄确认逻辑 ---
+
+            // 检查是否已确认 (使用 sessionStorage 避免每次刷新都弹出)
+            if (sessionStorage.getItem('ageConfirmed') === 'true') {
+                ageConfirmBox.style.display = "none";
+                checkContainerVisibility();
+            } else {
+                ageConfirmBox.style.display = "flex";
+                window.removeEventListener('scroll', checkContainerVisibility); // 确认前禁用滚动动画
+            }
+            
+            yesBtn.onclick = function () {
+                sessionStorage.setItem('ageConfirmed', 'true');
+                ageConfirmBox.style.display = "none";
+                checkContainerVisibility();
+                window.addEventListener('scroll', checkContainerVisibility);
             };
 
-            document.getElementById("no-btn").onclick = function () {
-                window.location.href = "about:blank";
+            noBtn.onclick = function () {
+                // 导向空白页或非成人内容页
+                window.location.href = "https://www.google.com"; 
             };
         });
     </script>
