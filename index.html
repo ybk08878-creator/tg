@@ -210,7 +210,7 @@
             text-overflow: ellipsis;
             padding: 0 5px;
             line-height: 1.2;
-	    letter-spacing: 4px;
+	        letter-spacing: 4px;
             text-align: center;
         }
 
@@ -312,13 +312,13 @@
             transform-origin: center;
         }
 
-	.card-detail {
-	    scrollbar-width: none !important; 
-	}
+	    .card-detail {
+	        scrollbar-width: none !important; 
+	    }
 
-	.card-detail::-webkit-scrollbar {
-	    display: none; 
-	}
+	    .card-detail::-webkit-scrollbar {
+	        display: none; 
+	    }
 
         
         @media (max-width: 768px) {
@@ -329,10 +329,11 @@
             }
         }
 
+        /* 🌟 修復: 將 close-btn 定位從 sticky 改為 absolute */
         .close-btn {
-            position: sticky;
-            top: -15px;
-            align-self: flex-end;
+            position: absolute; 
+            top: 10px; /* 距離頂部 */
+            right: 10px; /* 距離右側 */
             color: #ff99aa;
             font-size: 1.8em;
             cursor: pointer;
@@ -818,7 +819,7 @@
             
             .card img {
                 height: 250px;
-		object-fit: contain;
+		        object-fit: contain;
             }
 
             .contact-panel {
@@ -1217,6 +1218,7 @@
                 cardDiv.addEventListener('click', function() {
                     contactPanel.style.display = 'none';
                     overlay.style.display = 'block';
+		     cardDetail.scrollTop = 0; 
 
                     let videoHTML = '';
                     if (card.video) {
@@ -1306,9 +1308,14 @@
                         };
                     }
 
-                    cardDetail.scrollTop = 0;
-                    cardDetail.classList.add('active');
-                });
+ 			cardDetail.scrollTop = 0; 
+    
+    			    setTimeout(() => {
+		            cardDetail.scrollTop = 0; 
+    		       }, 10);
+
+		        cardDetail.classList.add('active'); 
+			});
 
                 const cardTipHTML = card.tip ? `<div class="card-tip">${card.tip}</div>` : '';
                 const cardInfoHTML = `
@@ -1335,6 +1342,7 @@
             function closeCardDetail() {
                 cardDetail.classList.remove('active');
                 overlay.style.display = 'none';
+                cardDetail.scrollTop = 0; // 🌟 優化: 關閉時也重置滾動位置，確保下次開啟時是從 0 開始
             }
 
             overlay.addEventListener('click', closeCardDetail);
