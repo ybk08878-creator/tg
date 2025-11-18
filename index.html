@@ -291,6 +291,7 @@
             transform: scale(1.15);
         }
 
+        /* --- 以下是卡片详情和关闭按钮的修改区域 --- */
         .card-detail {
             display: none;
             position: fixed;
@@ -313,11 +314,11 @@
         }
 
 	    .card-detail {
-	        scrollbar-width: none !important; 
+	        scrollbar-width: none !important; /* Firefox 隐藏滚动条 */
 	    }
 
 	    .card-detail::-webkit-scrollbar {
-	        display: none; 
+	        display: none; /* Chrome, Safari 隐藏滚动条 */
 	    }
 
         
@@ -328,45 +329,36 @@
                 padding: 20px 15px;
             }
         }
-
-        /* 🌟 修復: 將 close-btn 定位從 sticky 改為 absolute */
+        
+        /* 关键修复：关闭按钮使用 sticky 定位，并强制浮动到右侧 */
         .close-btn {
-            position: absolute; 
-            top: 10px; /* 距離頂部 */
-            right: 10px; /* 距離右側 */
+            position: sticky; /* 粘性定位，确保垂直固定在顶部 */
+            top: 0;           /* 固定在弹窗顶部边缘 */
+            
+            float: right; /* <<< 关键修改: 强制浮动到右侧 */
+            
             color: #ff99aa;
             font-size: 1.8em;
             cursor: pointer;
             transition: color 0.3s;
             z-index: 1010;
-            background-color: rgba(28, 10, 31, 0.9);
-            border-radius: 50%;
-            padding: 5px;
+            
+            /* 确保背景覆盖滚动内容，并调整位置 */
+            background-color: rgba(28, 10, 31, 0.95);
+            border-radius: 0 15px 0 15px; 
+            padding: 5px 10px;
+            
+            /* 调整 margin: 抵消父元素 (card-detail) 的 25px padding，并将左侧 margin 设为 0 */
+            margin: -25px -25px 0 0; /* <<< 关键修改: 将左侧的 auto 移除，使用 0 */
+            
+            display: inline-block; /* 保持为 inline-block 以支持 padding/margin */
+            width: fit-content;
         }
+
 
         .close-btn:hover {
             color: #f85d85;
             transform: scale(1.1);
-        }
-
-        .card-detail {
-            scrollbar-width: thin;
-            scrollbar-color: #ff99aa #2a122f;
-        }
-
-        .card-detail::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .card-detail::-webkit-scrollbar-track {
-            background: #2a122f;
-            border-radius: 10px;
-        }
-
-        .card-detail::-webkit-scrollbar-thumb {
-            background-color: #ff99aa;
-            border-radius: 10px;
-            border: 2px solid #2a122f;
         }
 
         body {
@@ -391,6 +383,16 @@
             display: block;
             animation: fadeIn 0.3s ease;
         }
+        
+        @media (max-width: 768px) {
+            .close-btn {
+                margin: -20px -15px 0 0; /* 适应小屏幕的 padding 调整 */
+                padding: 5px 8px;
+                border-radius: 0 15px 0 15px; 
+            }
+        }
+        /* --- 结束修改区域 --- */
+
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translate(-50%, -50%) scale(0.95); }
@@ -406,6 +408,8 @@
             padding-bottom: 10px;
             margin-bottom: 15px;
             text-align: center;
+            /* 关键：由于关闭按钮 float 了，我们需要确保 h4 在关闭按钮下面 */
+            clear: right; 
         }
 
         .card-detail p { margin: 10px 0; color: #ffe3e8; }
@@ -1210,6 +1214,8 @@
                 return uniqueKeywords.size > 0 || keywords.includes('㊙️') ? html : '';
             }
 
+let scrollPosition = 0;
+
             function createCardElement(card) {
                 const cardDiv = document.createElement('div');
                 cardDiv.className = 'card';
@@ -1218,7 +1224,13 @@
                 cardDiv.addEventListener('click', function() {
                     contactPanel.style.display = 'none';
                     overlay.style.display = 'block';
-		     cardDetail.scrollTop = 0; 
+		    cardDetail.scrollTop = 0; 
+
+  scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = '100%';
 
                     let videoHTML = '';
                     if (card.video) {
@@ -1339,11 +1351,17 @@
                 return cardDiv;
             }
 
-            function closeCardDetail() {
-                cardDetail.classList.remove('active');
-                overlay.style.display = 'none';
-                cardDetail.scrollTop = 0; // 🌟 優化: 關閉時也重置滾動位置，確保下次開啟時是從 0 開始
-            }
+function closeCardDetail() {
+    cardDetail.classList.remove('active');
+    overlay.style.display = 'none';
+    cardDetail.scrollTop = 0;
+    
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollPosition);
+}
 
             overlay.addEventListener('click', closeCardDetail);
 
