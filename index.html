@@ -130,7 +130,7 @@
 
         .cards-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             justify-items: center;
             gap: 35px;
             padding: 30px;
@@ -141,10 +141,21 @@
             box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 153, 170, 0.15);
         }
         
-        .hidden-card-wrapper {
+        .top3-card-wrapper, .hidden-card-wrapper {
             width: 100%;
             text-align: center;
             margin-top: 40px;
+        }
+
+        .top3-single-card {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;
+            padding: 20px;
+            box-shadow: 0 0 40px rgba(255, 153, 170, 0.5), inset 0 0 20px rgba(255, 153, 170, 0.2);
+            background-color: rgba(60, 0, 70, 0.8);
+            gap: 20px; 
+            border-radius: 25px;
         }
 
         .hidden-single-card {
@@ -155,6 +166,20 @@
             box-shadow: 0 0 40px rgba(255, 153, 170, 0.5), inset 0 0 20px rgba(255, 153, 170, 0.2);
             background-color: rgba(60, 0, 70, 0.8);
             gap: 20px; 
+            border-radius: 25px;
+        }
+        
+        .top3-single-card .card {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #ffe388;
+            box-shadow: 0 10px 30px rgba(255, 200, 100, 0.6), inset 0 0 15px rgba(255, 200, 100, 0.3);
+            background-color: rgba(30, 0, 40, 0.5);
+        }
+        
+        .top3-single-card .card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(255, 200, 100, 0.8), 0 5px 15px rgba(0, 0, 0, 0.9);
         }
 
         .hidden-single-card .card {
@@ -169,10 +194,65 @@
             transform: translateY(-10px) scale(1.05);
             box-shadow: 0 25px 50px rgba(255, 200, 100, 0.8), 0 5px 15px rgba(0, 0, 0, 0.9);
         }
+        
+        #top3-cards-display {
+            display: flex;
+            flex-direction: column; 
+            gap: 30px; 
+            width: 100%;
+            align-items: center; 
+        }
 
+        .top1-card-item {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .top2-top3-card-item {
+            width: 100%;
+            display: flex;
+            justify-content: center; 
+            flex-wrap: wrap; 
+            gap: 30px; 
+        }
+        
+        .top1-card-item .card, .top2-top3-card-item .card {
+            width: 100%;
+            max-width: 300px; 
+        }
+
+        @media (min-width: 769px) {
+            .top2-top3-card-item {
+                justify-content: center; 
+            }
+            
+            .top2-top3-card-item {
+                max-width: 700px;
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .top2-top3-card-item .card {
+                max-width: 300px; 
+                flex-grow: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top1-card-item .card, .top2-top3-card-item .card {
+                max-width: 95%; 
+            }
+            .top2-top3-card-item {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px; 
+            }
+        }
+        
         .card {
             width: 100%;
-            max-width: 320px;
+            max-width: 280px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -186,6 +266,22 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         }
 
+        .rank-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.8em;
+            z-index: 20;
+            line-height: 1;
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover .rank-badge {
+            transform: translateX(-50%) translateY(-5px) scale(1.1);
+        }
+
         .card:hover {
             transform: translateY(-8px) scale(1.03);
             box-shadow: 0 18px 40px rgba(255, 153, 170, 0.4), 0 5px 15px rgba(0, 0, 0, 0.9);
@@ -193,7 +289,7 @@
 
         .card img {
             width: 100%;
-            height: 600px;
+            height: 400px;
             border: 3px solid rgba(248, 93, 133, 0.8);
             border-radius: 10px 10px 0 0;
             box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
@@ -326,6 +422,10 @@
                 width: 90vw;
                 max-height: 90vh;
                 padding: 20px 15px;
+            }
+            .top2-top3-card-item {
+                flex-direction: column;
+                align-items: center;
             }
         }
         
@@ -860,6 +960,16 @@
             .card-icons i {
                 font-size: 1.2em;
             }
+            
+            .top3-single-card .card {
+                max-width: 95%;
+            }
+            .hidden-single-card .card {
+                max-width: 95%;
+            }
+            .top1-card-item .card, .top2-top3-card-item .card {
+                max-width: 95%;
+            }
         }
 
         @media (max-width: 480px) {
@@ -891,9 +1001,6 @@
             .image-carousel img {
                 max-height: 200px;
             }
-            .hidden-single-card .card {
-                max-width: 95%;
-            }
         }
     </style>
 </head>
@@ -917,9 +1024,10 @@
     <div class="price-toggle"><i class="fas fa-coins"></i></div> 
     <div class="price-content">
         <p style="text-align: center; color: #ff99aa; font-weight: bold; font-size: 1.2em; margin-bottom: 10px;">💵 本店消費方案</p>
-        <p>💰1800 / 20 / 1S</p>
-        <p>💰2500 / 40 / 1S</p>
-        <p>💰2800 / 60 / 1S</p>
+        <p>💰2000 / 40 / 1S</p>
+        <p>💰2500 / 60 / 1S</p>
+
+
         <p style="text-align: center; margin-top: 15px; font-size: 1.1em; color: #ff6f8a; font-weight: bold;">
             <i class="fas fa-heart"></i> 包夜方案請至右下角私訊 <i class="fas fa-heart"></i>
         </p>
@@ -929,16 +1037,27 @@
     <div class="container">
         <h1 class="title">👑 泰雞瑪哈陵 </h1>
         <p class="subtitle">— 頂級選妃．皇家享受 —</p>
-
-        <div class="cards-container" id="all-cards-display">
+        <p class="subtitle">營業時間：中午12:00 到 凌晨02:00<br>💗點擊展開詳細資訊💗</p>
+        <div class="top3-card-wrapper">
+            <h2 style="color: #ff99aa; margin: 50px 0 20px; font-size: 2em; border-bottom: 2px solid rgba(255, 153, 170, 0.4); padding-bottom: 10px;">
+                🌟 皇家 TOP 3 推薦 🌟
+            </h2>
+            <div id="top3-cards-display" class="top3-single-card">
+                </div>
         </div>
+        
+        <h2 style="color: #ff99aa; margin: 50px 0 20px; font-size: 2em; border-bottom: 2px solid rgba(255, 153, 170, 0.4); padding-bottom: 10px;">
+            💎 更多優質妃子 💎
+        </h2>
+        <div class="cards-container" id="all-cards-display">
+            </div>
         
         <div class="hidden-card-wrapper">
             <h2 style="color: #ff99aa; margin: 50px 0 20px; font-size: 2em; border-bottom: 2px solid rgba(255, 153, 170, 0.4); padding-bottom: 10px;">
                 🚨 驚喜隱藏版 🚨
             </h2>
             <div id="hidden-card-display" class="cards-container hidden-single-card">
-            </div>
+                </div>
         </div>
     </div>
 
@@ -969,6 +1088,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const allCardsDisplay = document.getElementById('all-cards-display');
             const hiddenCardDisplay = document.getElementById('hidden-card-display');
+            const top3CardsDisplay = document.getElementById('top3-cards-display');
             const starField = document.querySelector('.star-field');
             const contactBtn = document.getElementById('contact-btn');
             const contactPanel = document.getElementById('contact-panel');
@@ -980,15 +1100,6 @@
             const ageConfirmBox = document.getElementById("age-confirm");
             const yesBtn = document.getElementById("yes-btn");
             const noBtn = document.getElementById("no-btn");
-
-            function checkContainerVisibility() {
-                const rect = container.getBoundingClientRect();
-                const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-                if (rect.top <= viewHeight * 0.75) {
-                    container.classList.add('visible');
-                    window.removeEventListener('scroll', checkContainerVisibility);
-                }
-            }
 
             if (window.innerWidth <= 768) {
                 priceToggle.addEventListener('click', () => {
@@ -1064,7 +1175,21 @@ const fullTarotDeck = [
         tip: ''
     },
     {
-        name: '🥉TOP.3茶茶',
+        name: '🥉TOP.3香香',
+        title: '冷豔氣質系',
+        images: ['images/香香.png', 'images/香香1.png', 'images/香香2.png'],
+        video: 'videos/香香影片.mp4',
+        meaning: '<br><br>🔥 身材密碼：154 / 46 / D 🔥',
+        keywords: ['LG', '毒龍', '品鮑', '胸推', '屁推', '冰火五重天'],
+        suggestion: '口爆+500<br>顏射+500',
+        height: '154',
+        weight: '46',
+        cup: 'D',
+        age: '25',
+        tip: ''
+    },
+    {
+        name: '茶茶',
         title: '騷氣小隻馬',
         images: ['images/茶茶.png', 'images/茶茶1.png', 'images/茶茶2.png'],
         video: 'videos/茶茶影片.mp4',
@@ -1078,21 +1203,7 @@ const fullTarotDeck = [
         tip: ''
     },
     {
-        name: 'TOP.4珍珍',
-        title: '深喉嚨專家',
-        images: ['images/珍珍.png', 'images/珍珍1.png', 'images/珍珍2.png'],
-        video: 'videos/珍珍影片.mp4',
-        meaning: '<br><br>🔥 身材密碼：165 / 45 / D 🔥',
-        keywords: ['LG', '69', '舔蛋', '品鮑', '乳交', '無套吹'],
-        suggestion: '',
-        height: '165',
-        weight: '45',
-        cup: 'D',
-        age: '24',
-        tip: ''
-    },
-    {
-        name: 'TOP.5哈尼',
+        name: '哈尼',
         title: '騷氣小狐狸',
         images: ['images/哈尼.png', 'images/哈尼1.png', 'images/哈尼2.png'],
         video: 'videos/哈尼影片.mp4',
@@ -1103,6 +1214,20 @@ const fullTarotDeck = [
         weight: '43',
         cup: 'D',
         age: '26',
+        tip: ''
+    },
+    {
+        name: '巫巫',
+        title: '甜辣系精靈臉',
+        images: ['images/巫巫.png', 'images/巫巫1.png', 'images/巫巫2.png'],
+        video: 'videos/巫巫影片.mp4',
+        meaning: '<br><br>🔥 身材密碼：157 / 46 / D 🔥',
+        keywords: ['LG', '69', '品鮑', '胸推', '屁推', '水中蕭'],
+        suggestion: '口爆+500<br>顏射+500<br>2+1<br>3+1',
+        height: '157',
+        weight: '46',
+        cup: 'D',
+        age: '27',
         tip: ''
     },
     {
@@ -1120,6 +1245,7 @@ const fullTarotDeck = [
         tip: '提示：<br>高高支 顏值第一名<br>真的很漂亮！！'
     }
 ];
+
 
             const keywordIcons = {
                 'LG': 'fas fa-hand-holding-heart', 
@@ -1179,23 +1305,38 @@ const fullTarotDeck = [
                 return uniqueKeywords.size > 0 || keywords.includes('㊙️') ? html : '';
             }
 
-let scrollPosition = 0;
+            let scrollPosition = 0;
 
             function createCardElement(card) {
                 const cardDiv = document.createElement('div');
                 cardDiv.className = 'card';
                 cardDiv.dataset.cardName = card.name;
+                
+                let rankBadgeHTML = '';
+                let rankIcon = '';
 
+                if (card.name.includes('TOP.1')) {
+                    rankIcon = '🥇';
+                } else if (card.name.includes('TOP.2')) {
+                    rankIcon = '🥈';
+                } else if (card.name.includes('TOP.3')) {
+                    rankIcon = '🥉';
+                }
+
+                if (rankIcon) {
+                    rankBadgeHTML = `<div class="rank-badge" aria-label="Top Rank">${rankIcon}</div>`;
+                }
+                
                 cardDiv.addEventListener('click', function() {
                     contactPanel.style.display = 'none';
                     overlay.style.display = 'block';
-		    cardDetail.scrollTop = 0; 
+		            cardDetail.scrollTop = 0; 
 
-  scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-    document.body.style.overflow = 'hidden';
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollPosition}px`;
-    document.body.style.width = '100%';
+                    scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+                    document.body.style.overflow = 'hidden';
+                    document.body.style.position = 'fixed';
+                    document.body.style.top = `-${scrollPosition}px`;
+                    document.body.style.width = '100%';
 
                     let videoHTML = '';
                     if (card.video) {
@@ -1285,14 +1426,14 @@ let scrollPosition = 0;
                         };
                     }
 
- 			cardDetail.scrollTop = 0; 
+ 			        cardDetail.scrollTop = 0; 
     
     			    setTimeout(() => {
-		            cardDetail.scrollTop = 0; 
-    		       }, 10);
+		                cardDetail.scrollTop = 0; 
+    		        }, 10);
 
-		        cardDetail.classList.add('active'); 
-			});
+		            cardDetail.classList.add('active'); 
+			    });
 
                 const cardTipHTML = card.tip ? `<div class="card-tip">${card.tip}</div>` : '';
                 const cardInfoHTML = `
@@ -1307,6 +1448,7 @@ let scrollPosition = 0;
                 const cardIconHTML = getIconHTML(card.keywords);
 
                 cardDiv.innerHTML = `
+                    ${rankBadgeHTML}
                     <img src="${card.images[0]}" alt="${card.name}" loading="lazy" />
                     <h3 class="card-name">${card.name}</h3>
                     ${cardTipHTML}
@@ -1316,17 +1458,17 @@ let scrollPosition = 0;
                 return cardDiv;
             }
 
-function closeCardDetail() {
-    cardDetail.classList.remove('active');
-    overlay.style.display = 'none';
-    cardDetail.scrollTop = 0;
-    
-    document.body.style.overflow = '';
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.width = '';
-    window.scrollTo(0, scrollPosition);
-}
+            function closeCardDetail() {
+                cardDetail.classList.remove('active');
+                overlay.style.display = 'none';
+                cardDetail.scrollTop = 0;
+                
+                document.body.style.overflow = '';
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.width = '';
+                window.scrollTo(0, scrollPosition);
+            }
 
             overlay.addEventListener('click', closeCardDetail);
 
@@ -1335,12 +1477,38 @@ function closeCardDetail() {
             });
 
             function renderAllCards() {
-                const hiddenCardDisplay = document.getElementById('hidden-card-display');
+                top3CardsDisplay.innerHTML = '';
                 allCardsDisplay.innerHTML = '';
                 hiddenCardDisplay.innerHTML = '';
 
+                const top3Cards = fullTarotDeck.filter(card => card.name.includes('TOP.'));
                 const hiddenCards = fullTarotDeck.filter(card => card.name.includes('隱藏版'));
-                const regularCards = fullTarotDeck.filter(card => !card.name.includes('隱藏版'));
+                const regularCards = fullTarotDeck.filter(card => !card.name.includes('TOP.') && !card.name.includes('隱藏版'));
+
+                const top1Card = top3Cards.find(card => card.name.includes('TOP.1'));
+                if (top1Card) {
+                    const top1Div = document.createElement('div');
+                    top1Div.className = 'top1-card-item';
+                    top1Div.appendChild(createCardElement(top1Card));
+                    top3CardsDisplay.appendChild(top1Div);
+                }
+
+                const top2Card = top3Cards.find(card => card.name.includes('TOP.2'));
+                const top3Card = top3Cards.find(card => card.name.includes('TOP.3'));
+
+                const bottomDiv = document.createElement('div');
+                bottomDiv.className = 'top2-top3-card-item';
+                
+                if (top2Card) {
+                    bottomDiv.appendChild(createCardElement(top2Card));
+                }
+                if (top3Card) {
+                    bottomDiv.appendChild(createCardElement(top3Card));
+                }
+
+                if (top2Card || top3Card) {
+                    top3CardsDisplay.appendChild(bottomDiv);
+                }
 
                 regularCards.forEach(card => {
                     const cardElement = createCardElement(card);
@@ -1356,17 +1524,15 @@ function closeCardDetail() {
 
             if (sessionStorage.getItem('ageConfirmed') === 'true') {
                 ageConfirmBox.style.display = "none";
-                checkContainerVisibility();
+                container.classList.add('visible'); 
             } else {
                 ageConfirmBox.style.display = "flex";
-                window.removeEventListener('scroll', checkContainerVisibility);
             }
             
             yesBtn.onclick = function () {
                 sessionStorage.setItem('ageConfirmed', 'true');
                 ageConfirmBox.style.display = "none";
-                checkContainerVisibility();
-                window.addEventListener('scroll', checkContainerVisibility);
+                container.classList.add('visible'); 
             };
 
             noBtn.onclick = function () {
