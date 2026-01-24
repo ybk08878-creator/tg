@@ -1007,6 +1007,57 @@
                 max-height: 200px;
             }
         }
+
+.bottom-gallery {
+    width: 100%;
+    background-color: rgba(28, 10, 31, 0.8);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 153, 170, 0.5);
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+.gallery-title {
+    text-align: center;
+    color: #ff99aa;
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.scroll-wrapper {
+    display: flex;
+    overflow-x: auto;
+    padding: 0 20px;
+    gap: 15px;
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+}
+
+.scroll-wrapper::-webkit-scrollbar {
+    display: none;}
+
+.gallery-item {
+    flex: 0 0 auto;
+    width: 150px;
+    height: 200px;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 153, 170, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    border-color: #ff99aa;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
     </style>
 </head>
 <body>
@@ -1051,6 +1102,12 @@
                 </div>
         </div>
         
+<div class="bottom-gallery">
+    <div class="gallery-title">✨ 台妹專區 ✨<br>每日報班不同，請詢問當日報班</div>
+    <div class="scroll-wrapper" id="image-gallery-scroll">
+        </div>
+</div>21:16 2026/1/24
+
         <h2 style="color: #ff99aa; margin: 50px 0 20px; font-size: 2em; border-bottom: 2px solid rgba(255, 153, 170, 0.4); padding-bottom: 10px;">
             💎 更多優質妃子 💎
         </h2>
@@ -1528,6 +1585,36 @@ const fullTarotDeck = [
             }
             renderAllCards();
 
+            function renderBottomGallery() {
+                const scrollWrapper = document.getElementById('image-gallery-scroll');
+                
+                const galleryImages = [
+                    'images/001.png',
+                    'images/002.png',
+                    'images/003.png',
+                    'images/004.png',
+                    'images/005.png',
+                    'images/006.png',
+                    'images/007.png',
+                    'images/008.png',
+                    'images/009.png',
+                    'images/010.png'
+                ];
+
+                galleryImages.forEach(src => {
+                    const item = document.createElement('div');
+                    item.className = 'gallery-item';
+                    
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.loading = 'lazy';                    
+                    item.appendChild(img);
+                    scrollWrapper.appendChild(item);
+                });
+            }
+            
+            renderBottomGallery();
+
             if (sessionStorage.getItem('ageConfirmed') === 'true') {
                 ageConfirmBox.style.display = "none";
                 container.classList.add('visible'); 
@@ -1548,7 +1635,6 @@ const fullTarotDeck = [
     </script>
 </body>
 </html>
-
 
 
 
