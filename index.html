@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>泰雞瑪哈陵 高雄定點茶</title>
+    <title>泰雞瑪哈陵 高雄定點茶</title>
     <meta name="description" content="泰雞瑪哈陵 Telegram 高雄外約-高雄定點-高雄定點茶 歡迎入內挑選各種風格的女神，來一場完美的性愛之旅!">
     <meta name="keywords" content="高雄泰雞瑪哈陵, 高雄泰雞瑪哈陵Telegram, 泰雞瑪哈陵官方, 高雄定點茶莊, 高雄定點按摩, 高雄定點, 高雄定點茶, 高雄喝茶, 高雄按摩, 高雄龍筋, 泰雞瑪哈陵報名, 泰雞瑪哈陵公告, 高雄泰式按摩, 高雄按摩, 放鬆, 高雄SPA">
     <link rel="canonical" href="https://ybk08878-creator.github.io/tg/">
@@ -12,1056 +12,123 @@
     <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&family=Long+Cang&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            background-color: #1c0a1f;
-            color: #ffe3e8;
-            overflow-x: hidden;
-            line-height: 1.7;
-            position: relative;
-            padding-bottom: 70px;
-        }
-
-        .background-animation, .star-field {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-        }
-
-        .background-animation {
-            background:
-                linear-gradient(135deg, transparent 50%, rgba(150, 20, 70, 0.4) 80%),
-                linear-gradient(25deg, transparent 50%, rgba(172, 38, 125, 0.4) 80%),
-                linear-gradient(105deg, transparent 50%, rgba(138, 20, 90, 0.4) 80%),
-                linear-gradient(195deg, transparent 50%, rgba(90, 15, 58, 0.4) 80%),
-                radial-gradient(ellipse at 80% 80%, rgba(255, 199, 213, 0.2), transparent 60%);
-            background-size: 100% 200%, 100% 200%, 100% 200%, 100% 200%, 100% 100%;
-            background-repeat: repeat-y, repeat-y, repeat-y, repeat-y, no-repeat;
-            animation: gradientMove 10s linear infinite;
-            opacity: 0.9;
-        }
-
-        @keyframes gradientMove {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 0% 100%; }
-        }
-
-        .star-field {
-            pointer-events: none;
-        }
-
-        .star {
-            position: absolute;
-            background-color: #ffffff;
-            border-radius: 50%;
-            opacity: 0;
-            animation: twinkle 1.5s infinite ease-in-out;
-            transform: scale(0);
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 0.8; transform: scale(1); }
-        }
-
-        .meteor {
-            position: absolute;
-            width: 2px;
-            height: 1px;
-            background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0));
-            border-radius: 50%;
-            transform: rotate(45deg);
-            animation: meteorMove 5s linear forwards;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        @keyframes meteorMove {
-            0% { transform: translateX(0px) translateY(-50px) rotate(45deg); opacity: 0.8; }
-            100% { transform: translateX(400px) translateY(400px) rotate(45deg); opacity: 0; }
-        }
-
-        .container {
-            text-align: center;
-            position: relative;
-            z-index: 10;
-            padding: 40px 20px;
-            max-width: 1000px;
-            width: 95%;
-            margin: 50px auto;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .container.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .title {
-            font-family: 'Ma Shan Zheng', 'Cinzel Decorative', cursive;
-            font-size: 4em;
-            margin-bottom: 15px;
-            color: #ff99aa;
-            text-shadow: 0 0 20px rgba(255, 153, 170, 0.8);
-            letter-spacing: 3px;
-        }
-
-        .subtitle {
-            font-family: 'Noto Sans TC', sans-serif;
-            font-size: 1.4em;
-            margin-bottom: 50px;
-            color: #ffdce6;
-        }
-
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            justify-items: center;
-            gap: 35px;
-            padding: 30px;
-            background-color: rgba(28, 10, 31, 0.7);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
-            border: 2px solid rgba(255, 153, 170, 0.5);
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 153, 170, 0.15);
-        }
-        
-        .top3-card-wrapper, .hidden-card-wrapper {
-            width: 100%;
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .top3-single-card {
-            display: flex;
-            flex-wrap: wrap; 
-            justify-content: center;
-            padding: 20px;
-            box-shadow: 0 0 40px rgba(255, 153, 170, 0.5), inset 0 0 20px rgba(255, 153, 170, 0.2);
-            background-color: rgba(60, 0, 70, 0.8);
-            gap: 20px; 
-            border-radius: 25px;
-        }
-
-        .hidden-single-card {
-            display: flex;
-            flex-wrap: wrap; 
-            justify-content: center;
-            padding: 20px;
-            box-shadow: 0 0 40px rgba(255, 153, 170, 0.5), inset 0 0 20px rgba(255, 153, 170, 0.2);
-            background-color: rgba(60, 0, 70, 0.8);
-            gap: 20px; 
-            border-radius: 25px;
-        }
-        
-        .top3-single-card .card {
-            width: 100%;
-            max-width: 400px;
-            border: 3px solid #ffe388;
-            box-shadow: 0 10px 30px rgba(255, 200, 100, 0.6), inset 0 0 15px rgba(255, 200, 100, 0.3);
-            background-color: rgba(30, 0, 40, 0.5);
-        }
-        
-        .top3-single-card .card:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 25px 50px rgba(255, 200, 100, 0.8), 0 5px 15px rgba(0, 0, 0, 0.9);
-        }
-
-        .hidden-single-card .card {
-            width: 100%;
-            max-width: 400px;
-            border: 3px solid #ffe388;
-            box-shadow: 0 10px 30px rgba(255, 200, 100, 0.6), inset 0 0 15px rgba(255, 200, 100, 0.3);
-            background-color: rgba(30, 0, 40, 0.5);
-        }
-
-        .hidden-single-card .card:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 25px 50px rgba(255, 200, 100, 0.8), 0 5px 15px rgba(0, 0, 0, 0.9);
-        }
-        
-        #top3-cards-display {
-            display: flex;
-            flex-direction: column; 
-            gap: 30px; 
-            width: 100%;
-            align-items: center; 
-        }
-
-        .top1-card-item {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-
-        .top2-top3-card-item {
-            width: 100%;
-            display: flex;
-            justify-content: center; 
-            flex-wrap: wrap; 
-            gap: 30px; 
-        }
-        
-        .top1-card-item .card, .top2-top3-card-item .card {
-            width: 100%;
-            max-width: 300px; 
-        }
-
-        @media (min-width: 769px) {
-            .top2-top3-card-item {
-                justify-content: center; 
-            }
-            
-            .top2-top3-card-item {
-                max-width: 700px;
-                width: 100%;
-                justify-content: space-between;
-            }
-
-            .top2-top3-card-item .card {
-                max-width: 300px; 
-                flex-grow: 0;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .top1-card-item .card, .top2-top3-card-item .card {
-                max-width: 95%; 
-            }
-            .top2-top3-card-item {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px; 
-            }
-        }
-        
-        .card {
-            width: 100%;
-            max-width: 280px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
-            border-radius: 10px;
-            padding-bottom: 15px;
-            background-color: rgba(0, 0, 0, 0.2);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        .rank-badge {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 2.8em;
-            z-index: 20;
-            line-height: 1;
-            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
-            transition: transform 0.3s ease;
-        }
-        
-        .card:hover .rank-badge {
-            transform: translateX(-50%) translateY(-5px) scale(1.1);
-        }
-
-        .card:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 18px 40px rgba(255, 153, 170, 0.4), 0 5px 15px rgba(0, 0, 0, 0.9);
-        }
-
-        .card img {
-            width: 100%;
-            height: 400px;
-            border: 3px solid rgba(248, 93, 133, 0.8);
-            border-radius: 10px 10px 0 0;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
-            object-fit: cover;
-        }
-
-        .card-name {
-            font-family: 'Ma Shan Zheng', cursive;
-            font-size: 1.8em;
-            margin: 10px 0 8px;
-            color: #ff99aa;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            padding: 0 5px;
-            line-height: 1.2;
-	        letter-spacing: 4px;
-            text-align: center;
-        }
-
-        .card-tip {
-            width: 100%;
-            margin: 5px 0;
-            font-size: 25px;
-            line-height: 1.3;
-            color: #ff6b9c;
-            text-align: center;
-            font-family: 'Noto Sans TC', sans-serif;
-            padding: 0 10px;
-            font-weight: bold;
-        }
-        
-        .card-info {
-            width: 100%;
-            margin-top: 5px;
-            font-size: 14px;
-            line-height: 1.4;
-            color: #c4b8e0;
-            text-align: left;
-            font-family: 'Noto Sans TC', sans-serif;
-            padding: 0 15px;
-            border-top: 1px dashed rgba(255, 153, 170, 0.2);
-            padding-top: 10px;
-        }
-
-        .card-info p {
-            margin: 5px 0;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            width: 100%;
-        }
-
-        .info-label {
-            font-weight: bold;
-            color: #ffb3c6;
-            margin-right: 5px;
-            min-width: 40px;
-        }
-
-        .info-value {
-            color: #ffe3e8;
-        }
-
-        .card-icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        
-        .icon-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .icon-text {
-            display: none;
-            font-size: 0.7em;
-            color: #ff99aa;
-            margin-top: 2px;
-            white-space: nowrap;
-        }
-
-        .card-icons i {
-            font-size: 1.4em;
-            color: #ffb3c6;
-            text-shadow: 0 0 5px rgba(255, 153, 170, 0.5);
-            transition: transform 0.2s;
-        }
-
-        .card-icons i:hover {
-            transform: scale(1.15);
-        }
-
-        .card-detail {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(28, 10, 31, 0.98);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 153, 170, 0.8);
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
-            text-align: left;
-            width: 400px;
-            max-width: 95vw;
-            max-height: 90vh;
-            overflow-y: auto;
-            z-index: 1000;
-            transform-origin: center;
-        }
-
-	    .card-detail {
-	        scrollbar-width: none !important;
-	    }
-
-	    .card-detail::-webkit-scrollbar {
-	        display: none;
-	    }
-
-        
-        @media (max-width: 768px) {
-            .card-detail {
-                width: 90vw;
-                max-height: 90vh;
-                padding: 20px 15px;
-            }
-            .top2-top3-card-item {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-        
-        .close-btn {
-            position: sticky;
-            top: 0;
-            
-            float: right;
-            
-            color: #ff99aa;
-            font-size: 1.8em;
-            cursor: pointer;
-            transition: color 0.3s;
-            z-index: 1010;
-            
-            background-color: rgba(28, 10, 31, 0.95);
-            border-radius: 0 15px 0 15px; 
-            padding: 5px 10px;
-            
-            margin: -25px -25px 0 0;
-            
-            display: inline-block;
-            width: fit-content;
-        }
-
-
-        .close-btn:hover {
-            color: #f85d85;
-            transform: scale(1.1);
-        }
-
-        body {
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        body::-webkit-scrollbar {
-            display: none;
-        }
-
-        html {
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        html::-webkit-scrollbar {
-            display: none;
-        }
-
-        .card-detail.active {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-        
-        @media (max-width: 768px) {
-            .close-btn {
-                margin: -20px -15px 0 0;
-                padding: 5px 8px;
-                border-radius: 0 15px 0 15px; 
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translate(-50%, -50%) scale(0.95); }
-            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        }
-
-        .card-detail h4 {
-            font-family: 'Cinzel Decorative', serif;
-            font-size: 1.6em;
-            color: #f85d85;
-            margin-top: 0;
-            border-bottom: 2px solid rgba(255, 153, 170, 0.3);
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-            text-align: center;
-            clear: right; 
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; margin: 0; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; background-color: #1c0a1f; color: #ffe3e8; overflow-x: hidden; line-height: 1.7; position: relative; padding-bottom: 70px; }
+        .background-animation, .star-field { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
+        .background-animation { background: linear-gradient(135deg, transparent 50%, rgba(150, 20, 70, 0.4) 80%), linear-gradient(25deg, transparent 50%, rgba(172, 38, 125, 0.4) 80%), linear-gradient(105deg, transparent 50%, rgba(138, 20, 90, 0.4) 80%), linear-gradient(195deg, transparent 50%, rgba(90, 15, 58, 0.4) 80%), radial-gradient(ellipse at 80% 80%, rgba(255, 199, 213, 0.2), transparent 60%); background-size: 100% 200%, 100% 200%, 100% 200%, 100% 200%, 100% 100%; background-repeat: repeat-y, repeat-y, repeat-y, repeat-y, no-repeat; animation: gradientMove 10s linear infinite; opacity: 0.9; }
+        @keyframes gradientMove { 0% { background-position: 0% 0%; } 100% { background-position: 0% 100%; } }
+        .star-field { pointer-events: none; }
+        .star { position: absolute; background-color: #ffffff; border-radius: 50%; opacity: 0; animation: twinkle 1.5s infinite ease-in-out; transform: scale(0); }
+        @keyframes twinkle { 0%, 100% { opacity: 0; transform: scale(0); } 50% { opacity: 0.8; transform: scale(1); } }
+        .meteor { position: absolute; width: 2px; height: 1px; background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0)); border-radius: 50%; transform: rotate(45deg); animation: meteorMove 5s linear forwards; pointer-events: none; z-index: 0; }
+        @keyframes meteorMove { 0% { transform: translateX(0px) translateY(-50px) rotate(45deg); opacity: 0.8; } 100% { transform: translateX(400px) translateY(400px) rotate(45deg); opacity: 0; } }
+        .container { text-align: center; position: relative; z-index: 10; padding: 40px 20px; max-width: 1000px; width: 95%; margin: 50px auto; opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .container.visible { opacity: 1; transform: translateY(0); }
+        .title { font-family: 'Ma Shan Zheng', 'Cinzel Decorative', cursive; font-size: 4em; margin-bottom: 15px; color: #ff99aa; text-shadow: 0 0 20px rgba(255, 153, 170, 0.8); letter-spacing: 3px; }
+        .subtitle { font-family: 'Noto Sans TC', sans-serif; font-size: 1.4em; margin-bottom: 50px; color: #ffdce6; }
+        .cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); justify-items: center; gap: 35px; padding: 30px; background-color: rgba(28, 10, 31, 0.7); backdrop-filter: blur(15px); border-radius: 25px; border: 2px solid rgba(255, 153, 170, 0.5); box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 153, 170, 0.15); }
+        .top3-card-wrapper, .hidden-card-wrapper { width: 100%; text-align: center; margin-top: 40px; }
+        .top3-single-card { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; box-shadow: 0 0 40px rgba(255, 153, 170, 0.5), inset 0 0 20px rgba(255, 153, 170, 0.2); background-color: rgba(60, 0, 70, 0.8); gap: 20px; border-radius: 25px; }
+        .hidden-single-card { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; box-shadow: 0 0 40px rgba(255, 153, 170, 0.5), inset 0 0 20px rgba(255, 153, 170, 0.2); background-color: rgba(60, 0, 70, 0.8); gap: 20px; border-radius: 25px; }
+        .top3-single-card .card { width: 100%; max-width: 400px; border: 3px solid #ffe388; box-shadow: 0 10px 30px rgba(255, 200, 100, 0.6), inset 0 0 15px rgba(255, 200, 100, 0.3); background-color: rgba(30, 0, 40, 0.5); }
+        .top3-single-card .card:hover { transform: translateY(-10px) scale(1.05); box-shadow: 0 25px 50px rgba(255, 200, 100, 0.8), 0 5px 15px rgba(0, 0, 0, 0.9); }
+        .hidden-single-card .card { width: 100%; max-width: 400px; border: 3px solid #ffe388; box-shadow: 0 10px 30px rgba(255, 200, 100, 0.6), inset 0 0 15px rgba(255, 200, 100, 0.3); background-color: rgba(30, 0, 40, 0.5); }
+        .hidden-single-card .card:hover { transform: translateY(-10px) scale(1.05); box-shadow: 0 25px 50px rgba(255, 200, 100, 0.8), 0 5px 15px rgba(0, 0, 0, 0.9); }
+        #top3-cards-display { display: flex; flex-direction: column; gap: 30px; width: 100%; align-items: center; }
+        .top1-card-item { width: 100%; display: flex; justify-content: center; }
+        .top2-top3-card-item { width: 100%; display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; }
+        .top1-card-item .card, .top2-top3-card-item .card { width: 100%; max-width: 300px; }
+        @media (min-width: 769px) { .top2-top3-card-item { justify-content: center; } .top2-top3-card-item { max-width: 700px; width: 100%; justify-content: space-between; } .top2-top3-card-item .card { max-width: 300px; flex-grow: 0; } }
+        @media (max-width: 768px) { .top1-card-item .card, .top2-top3-card-item .card { max-width: 95%; } .top2-top3-card-item { flex-direction: column; align-items: center; gap: 20px; } }
+        .card { width: 100%; max-width: 280px; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; cursor: pointer; transition: transform 0.3s ease-in-out, box-shadow 0.3s ease; border-radius: 10px; padding-bottom: 15px; background-color: rgba(0, 0, 0, 0.2); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); }
+        .rank-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); font-size: 2.8em; z-index: 20; line-height: 1; filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8)); transition: transform 0.3s ease; }
+        .card:hover .rank-badge { transform: translateX(-50%) translateY(-5px) scale(1.1); }
+        .card:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 18px 40px rgba(255, 153, 170, 0.4), 0 5px 15px rgba(0, 0, 0, 0.9); }
+        .card img { width: 100%; height: 400px; border: 3px solid rgba(248, 93, 133, 0.8); border-radius: 10px 10px 0 0; box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5); object-fit: cover; }
+        .card-name { font-family: 'Ma Shan Zheng', cursive; font-size: 1.8em; margin: 10px 0 8px; color: #ff99aa; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 5px; line-height: 1.2; letter-spacing: 4px; text-align: center; }
+        .card-tip { width: 100%; margin: 5px 0; font-size: 25px; line-height: 1.3; color: #ff6b9c; text-align: center; font-family: 'Noto Sans TC', sans-serif; padding: 0 10px; font-weight: bold; }
+        .card-info { width: 100%; margin-top: 5px; font-size: 14px; line-height: 1.4; color: #c4b8e0; text-align: left; font-family: 'Noto Sans TC', sans-serif; padding: 0 15px; border-top: 1px dashed rgba(255, 153, 170, 0.2); padding-top: 10px; }
+        .card-info p { margin: 5px 0; display: flex; justify-content: flex-start; align-items: center; width: 100%; }
+        .info-label { font-weight: bold; color: #ffb3c6; margin-right: 5px; min-width: 40px; }
+        .info-value { color: #ffe3e8; }
+        .card-icons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .icon-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .icon-text { display: none; font-size: 0.7em; color: #ff99aa; margin-top: 2px; white-space: nowrap; }
+        .card-icons i { font-size: 1.4em; color: #ffb3c6; text-shadow: 0 0 5px rgba(255, 153, 170, 0.5); transition: transform 0.2s; }
+        .card-icons i:hover { transform: scale(1.15); }
+        .card-detail { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(28, 10, 31, 0.98); backdrop-filter: blur(20px); border: 1px solid rgba(255, 153, 170, 0.8); padding: 25px; border-radius: 15px; box-shadow: 0 5px 30px rgba(0, 0, 0, 0.8); text-align: left; width: 400px; max-width: 95vw; max-height: 90vh; overflow-y: auto; z-index: 1000; transform-origin: center; }
+        .card-detail { scrollbar-width: none !important; }
+        .card-detail::-webkit-scrollbar { display: none; }
+        @media (max-width: 768px) { .card-detail { width: 90vw; max-height: 90vh; padding: 20px 15px; } .top2-top3-card-item { flex-direction: column; align-items: center; } }
+        .close-btn { position: sticky; top: 0; float: right; color: #ff99aa; font-size: 1.8em; cursor: pointer; transition: color 0.3s; z-index: 1010; background-color: rgba(28, 10, 31, 0.95); border-radius: 0 15px 0 15px; padding: 5px 10px; margin: -25px -25px 0 0; display: inline-block; width: fit-content; }
+        .close-btn:hover { color: #f85d85; transform: scale(1.1); }
+        body { scrollbar-width: none; -ms-overflow-style: none; }
+        body::-webkit-scrollbar { display: none; }
+        html { scrollbar-width: none; -ms-overflow-style: none; }
+        html::-webkit-scrollbar { display: none; }
+        .card-detail.active { display: block; animation: fadeIn 0.3s ease; }
+        @media (max-width: 768px) { .close-btn { margin: -20px -15px 0 0; padding: 5px 8px; border-radius: 0 15px 0 15px; } }
+        @keyframes fadeIn { from { opacity: 0; transform: translate(-50%, -50%) scale(0.95); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
+        .card-detail h4 { font-family: 'Cinzel Decorative', serif; font-size: 1.6em; color: #f85d85; margin-top: 0; border-bottom: 2px solid rgba(255, 153, 170, 0.3); padding-bottom: 10px; margin-bottom: 15px; text-align: center; clear: right; }
         .card-detail p { margin: 10px 0; color: #ffe3e8; }
-        .card-detail .italic {
-            font-style: italic;
-            color: #c4b8e0;
-            font-size: 1.2em;
-            line-height: 1.6;
-            border-top: 1px solid rgba(255, 153, 170, 0.2);
-            padding-top: 10px;
-        }
-
-        .label {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #ffb3c6;
-            margin-right: 5px;
-            display: inline-block;
-            min-width: 40px;
-        }
-
-        .card-detail .bold {
-            font-weight: bold;
-            color: #ff99aa;
-            border-top: 1px solid rgba(255, 153, 170, 0.2);
-            padding-top: 10px;
-            font-size: 1.25em;
-            line-height: 1.6;
-        }
-
-        .image-carousel {
-            margin: 15px 0;
-            text-align: center;
-        }
-
-        .image-carousel img {
-            max-width: 100%;
-            max-height: 250px;
-            width: auto;
-            height: auto;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 153, 170, 0.4);
-            object-fit: contain;
-        }
-
-        .carousel-controls {
-            margin-top: 10px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .carousel-controls button {
-            background: rgba(255, 153, 170, 0.3);
-            border: none;
-            color: #ffe3e8;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.1s;
-        }
-
-        .carousel-controls button:hover {
-            background: rgba(255, 153, 170, 0.6);
-            transform: scale(1.05);
-        }
-        
-        .carousel-controls button:active {
-            transform: scale(0.95);
-        }
-
-        .carousel-indicator {
-            margin-top: 5px;
-            font-size: 0.9em;
-            color: #c4b8e0;
-            align-self: center;
-        }
-
-        .video-section {
-            margin-top: 20px;
-            border-top: 1px solid rgba(255, 153, 170, 0.2);
-            padding-top: 15px;
-            text-align: center;
-        }
-
-        .video-section h5 {
-            font-family: 'Cinzel Decorative', serif;
-            font-size: 1.2em;
-            color: #f85d85;
-            margin-bottom: 10px;
-        }
-
-        .video-player {
-            width: 100%;
-            max-width: 300px;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 153, 170, 0.4);
-            height: auto;
-        }
-
-        .contact-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background-color: #ff99aa;
-            color: #1c0a1f;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.8em;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .contact-btn:hover {
-            transform: scale(1.1) rotate(5deg);
-            background-color: #f85d85;
-            color: #ffe3e8;
-        }
-
-        .contact-panel {
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            width: 280px;
-            max-width: calc(100vw - 40px);
-            padding: 20px;
-            background-color: rgba(28, 10, 31, 0.95);
-            backdrop-filter: blur(15px);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 153, 170, 0.6);
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.7);
-            display: none;
-            text-align: left;
-            z-index: 1000;
-        }
-
-        .contact-panel h4 {
-            margin-top: 0;
-        }
-
+        .card-detail .italic { font-style: italic; color: #c4b8e0; font-size: 1.2em; line-height: 1.6; border-top: 1px solid rgba(255, 153, 170, 0.2); padding-top: 10px; }
+        .label { font-size: 1.2em; font-weight: bold; color: #ffb3c6; margin-right: 5px; display: inline-block; min-width: 40px; }
+        .card-detail .bold { font-weight: bold; color: #ff99aa; border-top: 1px solid rgba(255, 153, 170, 0.2); padding-top: 10px; font-size: 1.25em; line-height: 1.6; }
+        .image-carousel { margin: 15px 0; text-align: center; }
+        .image-carousel img { max-width: 100%; max-height: 250px; width: auto; height: auto; border-radius: 8px; border: 1px solid rgba(255, 153, 170, 0.4); object-fit: contain; }
+        .carousel-controls { margin-top: 10px; display: flex; justify-content: center; gap: 15px; }
+        .carousel-controls button { background: rgba(255, 153, 170, 0.3); border: none; color: #ffe3e8; padding: 8px 15px; border-radius: 5px; cursor: pointer; transition: background 0.3s, transform 0.1s; }
+        .carousel-controls button:hover { background: rgba(255, 153, 170, 0.6); transform: scale(1.05); }
+        .carousel-controls button:active { transform: scale(0.95); }
+        .carousel-indicator { margin-top: 5px; font-size: 0.9em; color: #c4b8e0; align-self: center; }
+        .video-section { margin-top: 20px; border-top: 1px solid rgba(255, 153, 170, 0.2); padding-top: 15px; text-align: center; }
+        .video-section h5 { font-family: 'Cinzel Decorative', serif; font-size: 1.2em; color: #f85d85; margin-bottom: 10px; }
+        .video-player { width: 100%; max-width: 300px; border-radius: 8px; border: 1px solid rgba(255, 153, 170, 0.4); height: auto; }
+        .contact-btn { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background-color: #ff99aa; color: #1c0a1f; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8em; cursor: pointer; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); z-index: 1000; transition: all 0.3s ease; }
+        .contact-btn:hover { transform: scale(1.1) rotate(5deg); background-color: #f85d85; color: #ffe3e8; }
+        .contact-panel { position: fixed; bottom: 90px; right: 20px; width: 280px; max-width: calc(100vw - 40px); padding: 20px; background-color: rgba(28, 10, 31, 0.95); backdrop-filter: blur(15px); border-radius: 15px; border: 1px solid rgba(255, 153, 170, 0.6); box-shadow: 0 5px 30px rgba(0, 0, 0, 0.7); display: none; text-align: left; z-index: 1000; }
+        .contact-panel h4 { margin-top: 0; }
         .contact-panel p { margin: 10px 0; font-size: 1.1em; color: #ffe3e8; }
         .contact-panel p i { margin-right: 10px; color: #f85d85; }
-        
-        .contact-panel a {
-            transition: color 0.3s;
-            text-decoration-thickness: 1px;
-        }
-        
-        .contact-panel a:hover {
-            color: #ffb3c6 !important;
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            z-index: 999;
-            display: none;
-        }
-
-        .price-panel {
-            position: fixed;
-            top: 120px;
-            left: 20px;
-            background-color: rgba(28, 10, 31, 0.85);
-            border: 1px solid rgba(255, 153, 170, 0.6);
-            border-radius: 15px;
-            padding: 15px 20px;
-            color: #ffe3e8;
-            font-family: 'Noto Sans TC', sans-serif;
-            font-size: 1.1em;
-            line-height: 1.8;
-            box-shadow: 0 0 20px rgba(255, 153, 170, 0.2);
-            backdrop-filter: blur(10px);
-            z-index: 999;
-            transition: all 0.3s ease;
-        }
-
-        .price-toggle {
-            cursor: pointer;
-            user-select: none;
-            text-align: center;
-            padding: 8px;
-            background: rgba(0,0,0,0.3);
-            border-radius: 8px;
-            margin-bottom: 5px;
-            transition: background 0.3s;
-            font-size: 1.5em;
-        }
-
-        .price-content {
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-        }
-
-        @media (min-width: 769px) {
-            .price-panel {
-                width: auto;
-                min-width: 180px;
-            }
-
-            .price-content {
-                max-height: 1000px;
-            }
-
-            .price-toggle {
-                display: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .price-panel {
-                width: 60px;
-                height: 60px;
-                padding: 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                overflow: hidden;
-                left: 10px;
-                top: 100px;
-                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            .price-panel.active {
-                width: auto;
-                height: auto;
-                min-width: 200px;
-                padding: 15px 20px;
-                align-items: flex-start;
-            }
-
-            .price-toggle {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.8em;
-                cursor: pointer;
-                margin-bottom: 0;
-                background: transparent;
-            }
-
-            .price-panel.active .price-toggle {
-                width: auto;
-                height: auto;
-                justify-content: flex-start;
-                margin-bottom: 15px;
-                padding: 0;
-                font-size: 1.5em;
-            }
-
-            .price-content {
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.5s ease;
-                width: 100%;
-            }
-
-            .price-panel.active .price-content {
-                max-height: 500px;
-            }
-        }
-
-        .contact-arrow {
-            position: fixed;
-            bottom: 90px;
-            right: 35px;
-            font-size: 2em;
-            color: #ff99aa;
-            animation: bounce 1.5s infinite;
-            z-index: 1001;
-            filter: drop-shadow(0 0 8px rgba(255,153,170,0.6));
-            pointer-events: none;
-        }
-
-        .contact-arrow i {
-            font-size: 48px;
-            color: #fff;
-            animation: blink 1s infinite, bounce 1.5s infinite;
-        }
-
-        .contact-panel[style*="display: block"] ~ .contact-arrow {
-            display: none;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); opacity: 0.8; }
-            50% { transform: translateY(-10px); opacity: 1; }
-        }
-
-        .age-confirm {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95);
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-
-        .confirm-box {
-            background: #2a122f;
-            border: 2px solid #ff99aa;
-            padding: 30px 35px;
-            border-radius: 15px;
-            width: 300px;
-            max-width: 90%;
-            text-align: center;
-            color: #ffdee7;
-            box-shadow: 0 0 35px rgba(255,153,170,0.7);
-            font-family: 'Noto Sans TC', sans-serif;
-            margin: 20px;
-            animation: scaleUp 0.3s ease;
-        }
-        
-        @keyframes scaleUp {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .confirm-box h3 {
-            margin: 0 0 10px;
-            font-size: 1.6em;
-            color: #ff99aa;
-        }
-        
-        .confirm-box h4 {
-            margin: 0 0 15px;
-            font-size: 1.2em;
-            color: #ffdee7;
-        }
-
-        .button-group {
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-around;
-            gap: 15px;
-        }
-
-        .confirm-box button {
-            flex: 1;
-            padding: 12px;
-            font-size: 1.1em;
-            border-radius: 10px;
-            cursor: pointer;
-            border: none;
-            font-family: 'Noto Sans TC', sans-serif;
-            font-weight: bold;
-            transition: transform 0.1s, box-shadow 0.2s;
-        }
-
-        .yes-btn {
-            background: #ff99aa;
-            color: #2a122f;
-        }
-
-        .no-btn {
-            background: #4a1d4f;
-            color: #ffdee7;
-            border: 1px solid #ff99aa;
-        }
-
+        .contact-panel a { transition: color 0.3s; text-decoration-thickness: 1px; }
+        .contact-panel a:hover { color: #ffb3c6 !important; }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); z-index: 999; display: none; }
+        .price-panel { position: fixed; top: 120px; left: 20px; background-color: rgba(28, 10, 31, 0.85); border: 1px solid rgba(255, 153, 170, 0.6); border-radius: 15px; padding: 15px 20px; color: #ffe3e8; font-family: 'Noto Sans TC', sans-serif; font-size: 1.1em; line-height: 1.8; box-shadow: 0 0 20px rgba(255, 153, 170, 0.2); backdrop-filter: blur(10px); z-index: 999; transition: all 0.3s ease; }
+        .price-toggle { cursor: pointer; user-select: none; text-align: center; padding: 8px; background: rgba(0,0,0,0.3); border-radius: 8px; margin-bottom: 5px; transition: background 0.3s; font-size: 1.5em; }
+        .price-content { overflow: hidden; transition: max-height 0.5s ease; }
+        @media (min-width: 769px) { .price-panel { width: auto; min-width: 180px; } .price-content { max-height: 1000px; } .price-toggle { display: none; } }
+        @media (max-width: 768px) { .price-panel { width: 60px; height: 60px; padding: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; left: 10px; top: 100px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); } .price-panel.active { width: auto; height: auto; min-width: 200px; padding: 15px 20px; align-items: flex-start; } .price-toggle { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 1.8em; cursor: pointer; margin-bottom: 0; background: transparent; } .price-panel.active .price-toggle { width: auto; height: auto; justify-content: flex-start; margin-bottom: 15px; padding: 0; font-size: 1.5em; } .price-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; width: 100%; } .price-panel.active .price-content { max-height: 500px; } }
+        .contact-arrow { position: fixed; bottom: 90px; right: 35px; font-size: 2em; color: #ff99aa; animation: bounce 1.5s infinite; z-index: 1001; filter: drop-shadow(0 0 8px rgba(255,153,170,0.6)); pointer-events: none; }
+        .contact-arrow i { font-size: 48px; color: #fff; animation: blink 1s infinite, bounce 1.5s infinite; }
+        .contact-panel[style*="display: block"] ~ .contact-arrow { display: none; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); opacity: 0.8; } 50% { transform: translateY(-10px); opacity: 1; } }
+        .age-confirm { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); backdrop-filter: blur(10px); display: flex; justify-content: center; align-items: center; z-index: 9999; }
+        .confirm-box { background: #2a122f; border: 2px solid #ff99aa; padding: 30px 35px; border-radius: 15px; width: 300px; max-width: 90%; text-align: center; color: #ffdee7; box-shadow: 0 0 35px rgba(255,153,170,0.7); font-family: 'Noto Sans TC', sans-serif; margin: 20px; animation: scaleUp 0.3s ease; }
+        @keyframes scaleUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .confirm-box h3 { margin: 0 0 10px; font-size: 1.6em; color: #ff99aa; }
+        .confirm-box h4 { margin: 0 0 15px; font-size: 1.2em; color: #ffdee7; }
+        .button-group { margin-top: 20px; display: flex; justify-content: space-around; gap: 15px; }
+        .confirm-box button { flex: 1; padding: 12px; font-size: 1.1em; border-radius: 10px; cursor: pointer; border: none; font-family: 'Noto Sans TC', sans-serif; font-weight: bold; transition: transform 0.1s, box-shadow 0.2s; }
+        .yes-btn { background: #ff99aa; color: #2a122f; }
+        .no-btn { background: #4a1d4f; color: #ffdee7; border: 1px solid #ff99aa; }
         .no-btn:hover { background: #6e2a75; transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0,0,0,0.3); }
         .yes-btn:hover { background: #ff6f8a; color: #ffe3e8; transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0,0,0,0.3); }
         .yes-btn:active, .no-btn:active { transform: translateY(0); box-shadow: none; }
-
-        @media (max-width: 1024px) {
-            .container {
-                max-width: 900px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .title {
-                font-size: 3em;
-                letter-spacing: 2px;
-            }
-
-            .subtitle {
-                font-size: 1.2em;
-                margin-bottom: 30px;
-            }
-
-            .cards-container {
-                padding: 15px;
-                gap: 20px;
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-
-            .card {
-                max-width: 100%;
-            }
-            
-            .card img {
-                height: 250px;
-		        object-fit: contain;
-            }
-
-            .contact-panel {
-                width: 250px;
-                right: 10px;
-                bottom: 80px;
-            }
-
-            .contact-btn {
-                right: 15px;
-                bottom: 15px;
-                width: 55px;
-                height: 55px;
-                font-size: 1.6em;
-            }
-
-            .contact-arrow {
-                right: 15px;
-                bottom: 80px;
-                font-size: 1.8em;
-            }
-
-            .image-carousel img {
-                max-height: 220px;
-            }
-            
-            .icon-item {
-                flex-direction: column;
-                min-width: 50px;
-                margin-bottom: 5px;
-            }
-            
-            .icon-text {
-                display: block;
-            }
-            
-            .card-icons {
-                gap: 10px 5px;
-            }
-            
-            .card-icons i {
-                font-size: 1.2em;
-            }
-            
-            .top3-single-card .card {
-                max-width: 95%;
-            }
-            .hidden-single-card .card {
-                max-width: 95%;
-            }
-            .top1-card-item .card, .top2-top3-card-item .card {
-                max-width: 95%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .title {
-                font-size: 2.5em;
-                letter-spacing: 1px;
-            }
-
-            .subtitle {
-                font-size: 1.1em;
-                margin-bottom: 20px;
-            }
-
-            .contact-panel {
-                width: calc(100vw - 30px);
-                right: 10px;
-                bottom: 75px;
-                padding: 15px;
-            }
-
-            .contact-btn {
-                right: 10px;
-                bottom: 10px;
-                width: 50px;
-                height: 50px;
-                font-size: 1.4em;
-            }
-
-            .image-carousel img {
-                max-height: 200px;
-            }
-        }
-
-.bottom-gallery {
-    width: 100%;
-    background-color: rgba(28, 10, 31, 0.8);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(255, 153, 170, 0.5);
-    padding: 20px 0;
-    margin-top: 50px;
-}
-
-.gallery-title {
-    text-align: center;
-    color: #ff99aa;
-    font-family: 'Ma Shan Zheng', cursive;
-    font-size: 1.5em;
-    margin-bottom: 15px;
-}
-
-.scroll-wrapper {
-    display: flex;
-    overflow-x: auto;
-    padding: 0 20px;
-    gap: 15px;
-    scrollbar-width: none;
-    -ms-overflow-style: none; 
-}
-
-.scroll-wrapper::-webkit-scrollbar {
-    display: none;}
-
-.gallery-item {
-    flex: 0 0 auto;
-    width: 150px;
-    height: 200px;
-    border-radius: 10px;
-    border: 2px solid rgba(255, 153, 170, 0.3);
-    overflow: hidden;
-    transition: transform 0.3s;
-}
-
-.gallery-item:hover {
-    transform: scale(1.05);
-    border-color: #ff99aa;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
+        @media (max-width: 1024px) { .container { max-width: 900px; } }
+        @media (max-width: 768px) { .title { font-size: 3em; letter-spacing: 2px; } .subtitle { font-size: 1.2em; margin-bottom: 30px; } .cards-container { padding: 15px; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } .card { max-width: 100%; } .card img { height: 250px; object-fit: contain; } .contact-panel { width: 250px; right: 10px; bottom: 80px; } .contact-btn { right: 15px; bottom: 15px; width: 55px; height: 55px; font-size: 1.6em; } .contact-arrow { right: 15px; bottom: 80px; font-size: 1.8em; } .image-carousel img { max-height: 220px; } .icon-item { flex-direction: column; min-width: 50px; margin-bottom: 5px; } .icon-text { display: block; } .card-icons { gap: 10px 5px; } .card-icons i { font-size: 1.2em; } .top3-single-card .card { max-width: 95%; } .hidden-single-card .card { max-width: 95%; } .top1-card-item .card, .top2-top3-card-item .card { max-width: 95%; } }
+        @media (max-width: 480px) { .title { font-size: 2.5em; letter-spacing: 1px; } .subtitle { font-size: 1.1em; margin-bottom: 20px; } .contact-panel { width: calc(100vw - 30px); right: 10px; bottom: 75px; padding: 15px; } .contact-btn { right: 10px; bottom: 10px; width: 50px; height: 50px; font-size: 1.4em; } .image-carousel img { max-height: 200px; } }
+        .bottom-gallery { width: 100%; background-color: rgba(28, 10, 31, 0.8); backdrop-filter: blur(10px); border-top: 1px solid rgba(255, 153, 170, 0.5); padding: 20px 0; margin-top: 50px; }
+        .gallery-title { text-align: center; color: #ff99aa; font-family: 'Ma Shan Zheng', cursive; font-size: 1.5em; margin-bottom: 15px; }
+        .scroll-wrapper { display: flex; overflow-x: auto; padding: 0 20px; gap: 15px; scrollbar-width: none; -ms-overflow-style: none; }
+        .scroll-wrapper::-webkit-scrollbar { display: none;}
+        .gallery-item { flex: 0 0 auto; width: 150px; height: 200px; border-radius: 10px; border: 2px solid rgba(255, 153, 170, 0.3); overflow: hidden; transition: transform 0.3s; }
+        .gallery-item:hover { transform: scale(1.05); border-color: #ff99aa; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
     </style>
 </head>
 <body>
-
     <div class="background-animation"></div>
     <div class="star-field"></div>
     
@@ -1082,8 +149,6 @@
         <p style="text-align: center; color: #ff99aa; font-weight: bold; font-size: 1.2em; margin-bottom: 10px;">💵 本店消費方案</p>
         <p>💰2000 / 40 / 1S</p>
         <p>💰2500 / 60 / 1S</p>
-
-
         <p style="text-align: center; margin-top: 15px; font-size: 1.1em; color: #ff6f8a; font-weight: bold;">
             <i class="fas fa-heart"></i> 包夜方案請至右下角私訊 <i class="fas fa-heart"></i>
         </p>
@@ -1099,33 +164,33 @@
                 🌟 皇家 TOP 3 推薦 🌟
             </h2>
             <div id="top3-cards-display" class="top3-single-card">
-                </div>
+            </div>
         </div>
         
-<div class="bottom-gallery">
-    <div class="gallery-title">✨ 台妹專區 ✨<br>每日報班不同，請詢問當日報班</div>
-    <div class="scroll-wrapper" id="image-gallery-scroll">
+        <div class="bottom-gallery">
+            <div class="gallery-title">✨ 台妹專區 ✨<br>每日報班不同，請詢問當日報班</div>
+            <div class="scroll-wrapper" id="image-gallery-scroll">
+            </div>
         </div>
-</div>
 
         <h2 style="color: #ff99aa; margin: 50px 0 20px; font-size: 2em; border-bottom: 2px solid rgba(255, 153, 170, 0.4); padding-bottom: 10px;">
             💎 更多優質妃子 💎
         </h2>
         <div class="cards-container" id="all-cards-display">
-            </div>
+        </div>
         
         <div class="hidden-card-wrapper">
             <h2 style="color: #ff99aa; margin: 50px 0 20px; font-size: 2em; border-bottom: 2px solid rgba(255, 153, 170, 0.4); padding-bottom: 10px;">
                 🚨 驚喜隱藏版 🚨
             </h2>
             <div id="hidden-card-display" class="cards-container hidden-single-card">
-                </div>
+            </div>
         </div>
     </div>
 
     <div class="overlay" id="overlay"></div>
     <div class="card-detail" id="card-detail">
-        </div>
+    </div>
 
     <div class="contact-btn" id="contact-btn">
         <i class="fab fa-line"></i>
@@ -1207,138 +272,135 @@
             }
             setInterval(createMeteor, 4500);
 
-const fullTarotDeck = [
-    {
-        name: '🥇TOP.1蝶舞',
-        title: 'SSS級現役女大生',
-        images: ['images/蝶舞.png', 'images/蝶舞1.png', 'images/蝶舞2.png'],
-        video: 'videos/蝶舞影片.mp4',
-        meaning: '<br><br>🔥 身材密碼：163 / 46 / 真C / 20Y 🔥',
-        keywords: ['小親親', '69', '品鮑', '無套吹'],
-        suggestion: '2S+500<br>2+1<br>3+1',
-        height: '163',
-        weight: '46',
-        cup: '真C',
-        age: '20',
-        tip: ''
-    },
-    {
-        name: '🥈TOP.2小雨',
-        title: '巨乳紅牌',
-        images: ['images/小雨.png', 'images/小雨1.png', 'images/小雨2.png'],
-        video: 'videos/小雨影片.mp4',
-        meaning: '<br><br>🔥 身材密碼：154 / 58 / 真D 🔥',
-        keywords: ['LG', '奶炮', '品鮑', '無套吹'],
-        suggestion: '2S+500<br>口爆+500<br>無套+1000',
-        height: '154',
-        weight: '58',
-        cup: '真D',
-        age: '26',
-        tip: ''
-    },
-    {
-        name: '🥉TOP.3安樂',
-        title: '現役外拍模特',
-        images: ['images/安樂.png', 'images/安樂1.png', 'images/安樂2.png'],
-        video: 'videos/安樂影片.mp4',
-        meaning: '<br><br>🔥 身材密碼：166 / 55 / 真D 🔥',
-        keywords: ['LG', '奶炮', '舔蛋', '無套吹', '胸推', '屁推'],
-        suggestion: '2s+500<br>2+1<br>3+1',
-        height: '166',
-        weight: '55',
-        cup: '真D',
-        age: '26',
-        tip: ''
-    },
-    {
-        name: '心心',
-        title: '長腿小嫩模',
-        images: ['images/心心.png', 'images/心心1.png', 'images/心心2.png'],
-        video: 'videos/心心影片.mp4',
-        meaning: '<br><br>🔥 身材密碼：161 / 49 / D / 26Y 🔥',
-        keywords: ['小親親', '69', '胸推', '屁推', '水中蕭'],
-        suggestion: '2S+500<br>2+1',
-        height: '161',
-        weight: '49',
-        cup: 'D',
-        age: '26',
-        tip: ''
-    },
-    {
-        name: '寶寶',
-        title: '精緻韓星臉',
-        images: ['images/寶寶.png', 'images/寶寶1.png', 'images/寶寶2.png'],
-        video: 'videos/寶寶影片.mp4',
-        meaning: '<br><br>🔥 身材密碼：164 / 46 / 真D / 26Y 🔥',
-        keywords: ['無套吹', '小親親', '69', '舔蛋', '品鮑'],
-        suggestion: '2+1<br>3+1',
-        height: '164',
-        weight: '46',
-        cup: '真D',
-        age: '26',
-        tip: ''
-    },
-    {
-        name: '哈尼',
-        title: '色氣兔女郎',
-        images: ['images/哈尼.png', 'images/哈尼1.png', 'images/哈尼2.png'],
-        video: 'videos/哈尼影片.mp4',
-        meaning: '<br><br>🔥 身材密碼：155 / 43 / D 🔥',
-        keywords: ['LG', '奶炮', '品鮑', '69', '無套吹'],
-        suggestion: '口爆+500<br>顏射+500<br>無套+1000<br>2S+500',
-        height: '155',
-        weight: '43',
-        cup: 'D',
-        age: '27',
-        tip: ''
-    },
-    {
-        name: '❕隱藏版-不定期報班❕',
-        title: '顏值第一名',
-        images: ['images/隱藏版.png', 'images/隱藏版1.png', 'images/隱藏版2.png'],
-        video: 'videos/隱藏版影片.mp4',
-        meaning: '<br><br>🔥 身材密碼：168 / 48 / D 🔥',
-        keywords: ['㊙️', '㊙️', '㊙️'],
-        suggestion: '㊙️<br>㊙️<br>㊙️',
-        height: '168',
-        weight: '48',
-        cup: 'D',
-        age: '24',
-        tip: '提示：<br>高高支 顏值第一名<br>真的很漂亮！！'
-    }
-];
-
-
+            const fullTarotDeck = [
+                {
+                    name: '🥇TOP.1蝶舞',
+                    title: 'SSS級現役女大生',
+                    images: ['images/蝶舞.png', 'images/蝶舞1.png', 'images/蝶舞2.png'],
+                    video: 'videos/蝶舞影片.mp4',
+                    meaning: '<br><br>🔥 身材密碼：163 / 46 / 真C / 20Y 🔥',
+                    keywords: ['小親親', '69', '品鮑', '無套吹'],
+                    suggestion: '2S+500<br>2+1<br>3+1',
+                    height: '163',
+                    weight: '46',
+                    cup: '真C',
+                    age: '20',
+                    tip: ''
+                },
+                {
+                    name: '🥈TOP.2小雨',
+                    title: '巨乳紅牌',
+                    images: ['images/小雨.png', 'images/小雨1.png', 'images/小雨2.png'],
+                    video: 'videos/小雨影片.mp4',
+                    meaning: '<br><br>🔥 身材密碼：154 / 58 / 真D 🔥',
+                    keywords: ['LG', '奶炮', '品鮑', '無套吹'],
+                    suggestion: '2S+500<br>口爆+500<br>無套+1000',
+                    height: '154',
+                    weight: '58',
+                    cup: '真D',
+                    age: '26',
+                    tip: ''
+                },
+                {
+                    name: '🥉TOP.3安樂',
+                    title: '現役外拍模特',
+                    images: ['images/安樂.png', 'images/安樂1.png', 'images/安樂2.png'],
+                    video: 'videos/安樂影片.mp4',
+                    meaning: '<br><br>🔥 身材密碼：166 / 55 / 真D 🔥',
+                    keywords: ['LG', '奶炮', '舔蛋', '無套吹', '胸推', '屁推'],
+                    suggestion: '2s+500<br>2+1<br>3+1',
+                    height: '166',
+                    weight: '55',
+                    cup: '真D',
+                    age: '26',
+                    tip: ''
+                },
+                {
+                    name: '心心',
+                    title: '長腿小嫩模',
+                    images: ['images/心心.png', 'images/心心1.png', 'images/心心2.png'],
+                    video: 'videos/心心影片.mp4',
+                    meaning: '<br><br>🔥 身材密碼：161 / 49 / D / 26Y 🔥',
+                    keywords: ['小親親', '69', '胸推', '屁推', '水中蕭'],
+                    suggestion: '2S+500<br>2+1',
+                    height: '161',
+                    weight: '49',
+                    cup: 'D',
+                    age: '26',
+                    tip: ''
+                },
+                {
+                    name: '寶寶',
+                    title: '精緻韓星臉',
+                    images: ['images/寶寶.png', 'images/寶寶1.png', 'images/寶寶2.png'],
+                    video: 'videos/寶寶影片.mp4',
+                    meaning: '<br><br>🔥 身材密碼：164 / 46 / 真D / 26Y 🔥',
+                    keywords: ['無套吹', '小親親', '69', '舔蛋', '品鮑'],
+                    suggestion: '2+1<br>3+1',
+                    height: '164',
+                    weight: '46',
+                    cup: '真D',
+                    age: '26',
+                    tip: ''
+                },
+                {
+                    name: '哈尼',
+                    title: '色氣兔女郎',
+                    images: ['images/哈尼.png', 'images/哈尼1.png', 'images/哈尼2.png'],
+                    video: 'videos/哈尼影片.mp4',
+                    meaning: '<br><br>🔥 身材密碼：155 / 43 / D 🔥',
+                    keywords: ['LG', '奶炮', '品鮑', '69', '無套吹'],
+                    suggestion: '口爆+500<br>顏射+500<br>無套+1000<br>2S+500',
+                    height: '155',
+                    weight: '43',
+                    cup: 'D',
+                    age: '27',
+                    tip: ''
+                },
+                {
+                    name: '❕隱藏版-不定期報班❕',
+                    title: '顏值第一名',
+                    images: ['images/隱藏版.png', 'images/隱藏版1.png', 'images/隱藏版2.png'],
+                    video: 'videos/隱藏版影片.mp4',
+                    meaning: '<br><br>🔥 身材密碼：168 / 48 / D 🔥',
+                    keywords: ['㊙️', '㊙️', '㊙️'],
+                    suggestion: '㊙️<br>㊙️<br>㊙️',
+                    height: '168',
+                    weight: '48',
+                    cup: 'D',
+                    age: '24',
+                    tip: '提示：<br>高高支 顏值第一名<br>真的很漂亮！！'
+                }
+            ];
 
             const keywordIcons = {
-                'LG': 'fas fa-hand-holding-heart', 
-                '69': 'fas fa-infinity', 
-                '舔蛋': 'fas fa-kiss-wink-heart', 
-                '深喉嚨': 'fas fa-comment-dots', 
-                '品鮑': 'fas fa-fire', 
-                '胸推': 'fas fa-hands-bubbles', 
-                '屁推': 'fas fa-person-running', 
-                '乳交': 'fas fa-handshake-angle', 
-                '無套吹': 'fas fa-wind', 
-                '無套': 'fas fa-lock-open', 
-                '雙王': 'fas fa-crown', 
-                '毒龍': 'fas fa-dragon', 
-                '水中蕭': 'fas fa-water', 
-                '奶炮': 'fas fa-champagne-glasses', 
-                '按摩': 'fas fa-spa', 
-                '㊙️': 'fas fa-mask', 
-                '小親親': 'fas fa-kiss', 
-                '口爆': 'fas fa-meteor', 
-                '顏射': 'fas fa-face-flushed', 
-                '後門': 'fas fa-door-open', 
-                '攝影': 'fas fa-camera', 
-                '自慰秀': 'fas fa-wand-magic', 
+                'LG': 'fas fa-hand-holding-heart',
+                '69': 'fas fa-infinity',
+                '舔蛋': 'fas fa-kiss-wink-heart',
+                '深喉嚨': 'fas fa-comment-dots',
+                '品鮑': 'fas fa-fire',
+                '胸推': 'fas fa-hands-bubbles',
+                '屁推': 'fas fa-person-running',
+                '乳交': 'fas fa-handshake-angle',
+                '無套吹': 'fas fa-wind',
+                '無套': 'fas fa-lock-open',
+                '雙王': 'fas fa-crown',
+                '毒龍': 'fas fa-dragon',
+                '水中蕭': 'fas fa-water',
+                '奶炮': 'fas fa-champagne-glasses',
+                '按摩': 'fas fa-spa',
+                '㊙️': 'fas fa-mask',
+                '小親親': 'fas fa-kiss',
+                '口爆': 'fas fa-meteor',
+                '顏射': 'fas fa-face-flushed',
+                '後門': 'fas fa-door-open',
+                '攝影': 'fas fa-camera',
+                '自慰秀': 'fas fa-wand-magic',
             };
 
             function getIconHTML(keywords) {
                 let html = '<div class="card-icons">';
                 const uniqueKeywords = new Set();
-
                 const displayKeywords = [
                     'LG', '69', '舔蛋', '深喉嚨', '品鮑', '胸推', '屁推', '乳交', '無套吹', '無套', '雙王', '毒龍', '水中蕭', '奶炮', '按摩'
                 ];
@@ -1393,7 +455,7 @@ const fullTarotDeck = [
                 cardDiv.addEventListener('click', function() {
                     contactPanel.style.display = 'none';
                     overlay.style.display = 'block';
-		            cardDetail.scrollTop = 0; 
+                    cardDetail.scrollTop = 0;
 
                     scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
                     document.body.style.overflow = 'hidden';
@@ -1489,14 +551,14 @@ const fullTarotDeck = [
                         };
                     }
 
- 			        cardDetail.scrollTop = 0; 
+                    cardDetail.scrollTop = 0;
     
-    			    setTimeout(() => {
-		                cardDetail.scrollTop = 0; 
-    		        }, 10);
+                    setTimeout(() => {
+                        cardDetail.scrollTop = 0;
+                    }, 10);
 
-		            cardDetail.classList.add('active'); 
-			    });
+                    cardDetail.classList.add('active');
+                });
 
                 const cardTipHTML = card.tip ? `<div class="card-tip">${card.tip}</div>` : '';
                 const cardInfoHTML = `
@@ -1587,6 +649,9 @@ const fullTarotDeck = [
 
             function renderBottomGallery() {
                 const scrollWrapper = document.getElementById('image-gallery-scroll');
+                const bottomGallery = document.querySelector('.bottom-gallery');
+                
+                scrollWrapper.innerHTML = '';
                 
                 const galleryImages = [
                     'images/001.png',
@@ -1600,24 +665,53 @@ const fullTarotDeck = [
                     'images/009.png',
                     'images/010.png'
                 ];
-
-                galleryImages.forEach(src => {
-                    const item = document.createElement('div');
-                    item.className = 'gallery-item';
+                
+                const availableImages = [];
+                
+                if (galleryImages.length > 0) {
+                    galleryImages.forEach(src => {
+                        const img = new Image();
+                        img.onload = function() {
+                            availableImages.push(src);
+                        };
+                        img.onerror = function() {
+                            console.log('圖片加載失敗: ' + src);
+                        };
+                        img.src = src;
+                    });
                     
-                    const img = document.createElement('img');
-                    img.src = src;
-                    img.loading = 'lazy';                    
-                    item.appendChild(img);
-                    scrollWrapper.appendChild(item);
-                });
+                    setTimeout(() => {
+                        const maxImages = Math.min(availableImages.length, 30);
+                        
+                        if (maxImages > 0) {
+                            for (let i = 0; i < maxImages; i++) {
+                                const item = document.createElement('div');
+                                item.className = 'gallery-item';
+                                
+                                const img = document.createElement('img');
+                                img.src = availableImages[i];
+                                img.loading = 'lazy';
+                                img.alt = '台妹圖片';
+                                
+                                item.appendChild(img);
+                                scrollWrapper.appendChild(item);
+                            }
+                            
+                            bottomGallery.style.display = 'block';
+                        } else {
+                            bottomGallery.style.display = 'none';
+                        }
+                    }, 300);
+                } else {
+                    bottomGallery.style.display = 'none';
+                }
             }
             
             renderBottomGallery();
 
             if (sessionStorage.getItem('ageConfirmed') === 'true') {
                 ageConfirmBox.style.display = "none";
-                container.classList.add('visible'); 
+                container.classList.add('visible');
             } else {
                 ageConfirmBox.style.display = "flex";
             }
@@ -1625,26 +719,13 @@ const fullTarotDeck = [
             yesBtn.onclick = function () {
                 sessionStorage.setItem('ageConfirmed', 'true');
                 ageConfirmBox.style.display = "none";
-                container.classList.add('visible'); 
+                container.classList.add('visible');
             };
 
             noBtn.onclick = function () {
-                window.location.href = "https://www.google.com"; 
+                window.location.href = "https://www.google.com";
             };
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
