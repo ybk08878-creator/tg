@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>泰雞瑪哈陵 高雄定點茶</title>
-    <meta name="description" content="泰雞瑪哈陵 Telegram 高雄外約-高雄定點-高雄定點茶 歡迎入內挑選各種風格的女神，來一場完美的性愛之旅!">
+    <title>泰雞瑪哈陵 高雄定點茶-高雄外送茶</title>
+    <meta name="description" content="泰雞瑪哈陵 Telegram 高雄外約-高雄定點-高雄定點茶-高雄外送茶 歡迎入內挑選各種風格的女神，來一場完美的性愛之旅!">
     <meta name="keywords" content="高雄泰雞瑪哈陵, 高雄泰雞瑪哈陵Telegram, 泰雞瑪哈陵官方, 高雄定點茶莊, 高雄定點按摩, 高雄定點, 高雄定點茶, 高雄喝茶, 高雄按摩, 高雄龍筋, 高雄外送茶, 泰雞瑪哈陵公告, 高雄泰式按摩, 高雄按摩, 放鬆, 高雄SPA">
     <link rel="canonical" href="https://ybk08878-creator.github.io/tg/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -662,85 +662,42 @@
             }
             renderAllCards();
 
-            function renderBottomGallery() {
-                const scrollWrapper = document.getElementById('image-gallery-scroll');
-                const bottomGallery = document.querySelector('.bottom-gallery');
-                
-                scrollWrapper.innerHTML = '';
-                
-                const galleryImages = [
-                    'images/001.png',
-                    'images/002.png',
-                    'images/003.png',
-                    'images/004.png',
-                    'images/005.png',
-                    'images/006.png',
-                    'images/007.png',
-                    'images/008.png',
-                    'images/009.png',
-                    'images/010.png',
-                    'images/011.png',
-                    'images/012.png',
-                    'images/013.png',
-                    'images/014.png',
-                    'images/015.png',
-                    'images/016.png',
-                    'images/017.png',
-                    'images/018.png',
-                    'images/019.png',
-                    'images/020.png',
-                    'images/021.png',
-                    'images/022.png',
-                    'images/023.png',
-                    'images/024.png',
-                    'images/025.png',
-                    'images/026.png',
-                    'images/027.png',
-                    'images/028.png',
-                    'images/029.png',
-                    'images/030.png',
-                ];
-                
-                const availableImages = [];
-                
-                if (galleryImages.length > 0) {
-                    galleryImages.forEach(src => {
-                        const img = new Image();
-                        img.onload = function() {
-                            availableImages.push(src);
-                        };
-                        img.onerror = function() {
-                            console.log('圖片加載失敗: ' + src);
-                        };
-                        img.src = src;
-                    });
-                    
-                    setTimeout(() => {
-                        const maxImages = Math.min(availableImages.length, 30);
-                        
-                        if (maxImages > 0) {
-                            for (let i = 0; i < maxImages; i++) {
-                                const item = document.createElement('div');
-                                item.className = 'gallery-item';
-                                
-                                const img = document.createElement('img');
-                                img.src = availableImages[i];
-                                img.loading = 'lazy';
-                                img.alt = '台妹圖片';
-                                
-                                item.appendChild(img);
-                                scrollWrapper.appendChild(item);
-                            }
-                            
-                            bottomGallery.style.display = 'block';
-                        } else {
-                            bottomGallery.style.display = 'none';
-                        }
-                    }, 300);
-                } else {
-                    bottomGallery.style.display = 'none';
-                }
-            }
+function renderBottomGallery() {
+    const scrollWrapper = document.getElementById('image-gallery-scroll');
+    const bottomGallery = document.querySelector('.bottom-gallery');
+    
+    scrollWrapper.innerHTML = '';
+    
+    const galleryImages = [
+        'images/001.png', 'images/002.png', 'images/003.png', 'images/004.png', 'images/005.png',
+        'images/006.png', 'images/007.png', 'images/008.png', 'images/009.png', 'images/010.png',
+        'images/011.png', 'images/012.png', 'images/013.png', 'images/014.png', 'images/015.png',
+        'images/016.png', 'images/017.png', 'images/018.png', 'images/019.png', 'images/020.png',
+        'images/021.png', 'images/022.png', 'images/023.png', 'images/024.png', 'images/025.png',
+        'images/026.png', 'images/027.png', 'images/028.png', 'images/029.png', 'images/030.png',
+    ];
+
+    galleryImages.forEach(src => {
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        
+        const img = document.createElement('img');
+        img.src = src;
+        img.loading = 'lazy'; // 保持延遲加載以優化性能
+        img.alt = '台妹圖片';
+
+        img.onerror = function() {
+            item.style.display = 'none';
+        };
+
+        item.appendChild(img);
+        scrollWrapper.appendChild(item);
+    });
+
+    if (galleryImages.length > 0) {
+        bottomGallery.style.display = 'block';
+    }
+}
             
             renderBottomGallery();
 
@@ -764,5 +721,4 @@
     </script>
 </body>
 </html>
-
 
