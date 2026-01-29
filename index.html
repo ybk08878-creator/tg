@@ -762,7 +762,6 @@
                         if (successfulImages.length < galleryImages.length) {
                             const warning = document.createElement('div');
                             warning.style.cssText = 'color: #ff6f8a; text-align: center; padding: 10px; font-size: 0.9em;';
-                            warning.textContent = `部分圖片載入失敗 (${successfulImages.length}/${galleryImages.length})`;
                             bottomGallery.appendChild(warning);
                         }
                     } else {
